@@ -1,7 +1,19 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/lib/button-variants"
-import { Phone, Shield, Clock, Award, Droplets, Factory, Waves, Truck, Filter } from "lucide-react"
+import {
+  Phone,
+  Shield,
+  Clock,
+  Award,
+  Droplets,
+  Factory,
+  Waves,
+  Truck,
+  Filter,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react"
 
 const services = [
   {
@@ -41,79 +53,108 @@ const services = [
   },
 ]
 
-const strengths = [
-  {
-    title: "40+ Years Experience",
-    description: "Trusted expertise since 1974.",
-    icon: Award,
-  },
-  {
-    title: "24/7 Emergency Service",
-    description: "We're here when you need us most.",
-    icon: Clock,
-  },
-  {
-    title: "Safety & Compliance",
-    description: "HAZWOPER certified, confined space entry capable.",
-    icon: Shield,
-  },
+const stats = [
+  { value: "50+", label: "Years in Business" },
+  { value: "24/7", label: "Emergency Service" },
+  { value: "SE US", label: "Service Area" },
+  { value: "100%", label: "Safety Focused" },
 ]
 
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#32373c] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              Industrial Services You Can Count On
-            </h1>
-            <p className="mt-6 text-lg sm:text-xl text-gray-300 leading-relaxed">
-              A full service, non-hazardous waste management organization serving
-              the Southeastern United States since 1974. No project too big or too
-              small.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className={cn(
-                  buttonVariants({ size: "lg" }),
-                  "bg-white text-[#32373c] hover:bg-gray-100"
-                )}
-              >
-                Request a Quote
-              </Link>
-              <a
-                href="tel:770-834-2158"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "border-white text-white hover:bg-white/10"
-                )}
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                770-834-2158
-              </a>
+      <section className="relative flex items-center bg-gradient-to-br from-[#0f1b3d] via-[#1A2857] to-[#243470] text-white overflow-hidden">
+        {/* Grid pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        {/* Glow effects */}
+        <div className="absolute top-[-100px] right-[-100px] w-[600px] h-[600px] rounded-full bg-[#CC2229]/20 blur-[120px]" />
+        <div className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full bg-[#1A2857]/60 blur-[100px]" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14 w-full">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 text-sm mb-8">
+                <span className="w-2 h-2 rounded-full bg-[#CC2229] animate-pulse" />
+                Serving the Southeast since 1974
+              </div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
+                Industrial
+                <br />
+                <span className="text-[#CC2229]">Services</span> You
+                <br />
+                Can Count On
+              </h1>
+              <p className="mt-8 text-lg text-blue-200/80 leading-relaxed max-w-lg">
+                Full service, non-hazardous waste management for the
+                Southeastern United States. No project too big or too small.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link
+                  href="/contact"
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "bg-[#CC2229] text-white hover:bg-[#e0262d] border-0 shadow-lg shadow-[#CC2229]/25 text-base px-8 py-6"
+                  )}
+                >
+                  Request a Quote
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+                <a
+                  href="tel:770-834-2158"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    "border-2 border-white text-white !bg-transparent hover:!bg-white/10 backdrop-blur-sm text-base px-8 py-6"
+                  )}
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  770-834-2158
+                </a>
+              </div>
+            </div>
+
+            {/* Right side — key selling points */}
+            <div className="hidden lg:block">
+              <div className="space-y-5">
+                {[
+                  "HAZWOPER certified technicians",
+                  "Confined space entry capable",
+                  "Own wastewater treatment plant",
+                  "Full fleet of vacuum & hydro trucks",
+                  "Emergency response available 24/7",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-4"
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-[#CC2229] shrink-0" />
+                    <span className="text-blue-100 font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Strengths */}
-      <section className="py-16 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {strengths.map((item) => (
-              <div
-                key={item.title}
-                className="flex items-start gap-4 bg-white p-6 rounded-lg border border-border"
-              >
-                <item.icon className="h-8 w-8 text-[#32373c] shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">
-                    {item.description}
-                  </p>
+      {/* Stats bar */}
+      <section className="relative z-10 -mt-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+            {stats.map((stat) => (
+              <div key={stat.label} className="px-6 py-8 text-center">
+                <div className="text-3xl font-extrabold text-[#1A2857]">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-500 mt-1 font-medium">
+                  {stat.label}
                 </div>
               </div>
             ))}
@@ -122,58 +163,152 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="py-20">
+      <section className="py-24 pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold">Our Services</h2>
-            <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
-              Comprehensive industrial and environmental solutions tailored to
-              your needs.
+          <div className="max-w-2xl mb-16">
+            <p className="text-[#CC2229] font-semibold text-sm uppercase tracking-widest mb-3">
+              What We Do
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1A2857] leading-tight">
+              Comprehensive Industrial Solutions
+            </h2>
+            <p className="mt-5 text-gray-500 text-lg leading-relaxed">
+              From wastewater treatment to hydro blasting, we handle the tough
+              jobs so you don&apos;t have to.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <Link
                 key={service.title}
                 href={service.href}
-                className="group border border-border rounded-lg p-6 hover:shadow-lg transition-shadow"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-[#CC2229]/20 transition-all duration-300 hover:-translate-y-1"
               >
-                <service.icon className="h-10 w-10 text-[#32373c] mb-4" />
-                <h3 className="text-xl font-semibold group-hover:underline">
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#1A2857] to-[#243470] mb-6">
+                  <service.icon className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A2857] group-hover:text-[#CC2229] transition-colors">
                   {service.title}
                 </h3>
-                <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
+                <p className="mt-3 text-gray-500 text-sm leading-relaxed">
                   {service.description}
                 </p>
+                <div className="mt-5 flex items-center text-[#CC2229] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Why Cowart */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-[#CC2229] font-semibold text-sm uppercase tracking-widest mb-3">
+                Why Cowart
+              </p>
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1A2857] leading-tight">
+                Built on 50 Years of Trust
+              </h2>
+              <p className="mt-5 text-gray-500 text-lg leading-relaxed">
+                Since 1974, Cowart Industrial Services has been the go-to
+                partner for industrial cleaning and waste management across the
+                Southeast. We combine decades of expertise with modern equipment
+                and an unwavering commitment to safety.
+              </p>
+              <Link
+                href="/about"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "mt-8 border-[#1A2857] text-[#1A2857] hover:bg-[#1A2857] hover:text-white text-base"
+                )}
+              >
+                About Our Company
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {[
+                {
+                  icon: Award,
+                  title: "Expertise",
+                  desc: "50+ years of hands-on industrial experience across the Southeast.",
+                },
+                {
+                  icon: Clock,
+                  title: "Responsiveness",
+                  desc: "24/7 emergency service. We're there when you need us most.",
+                },
+                {
+                  icon: Shield,
+                  title: "Safety First",
+                  desc: "HAZWOPER certified with full confined space entry capabilities.",
+                },
+                {
+                  icon: Factory,
+                  title: "Flexibility",
+                  desc: "Tailored solutions for any project size — big or small.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-[#CC2229]/10 flex items-center justify-center mb-4">
+                    <item.icon className="h-5 w-5 text-[#CC2229]" />
+                  </div>
+                  <h3 className="font-bold text-[#1A2857] text-lg">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-gray-500 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="bg-[#32373c] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold">Ready to Get Started?</h2>
-          <p className="mt-4 text-gray-300 text-lg max-w-xl mx-auto">
+      <section className="relative bg-gradient-to-br from-[#0f1b3d] via-[#1A2857] to-[#243470] text-white py-24 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#CC2229]/10 blur-[100px]" />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+            Ready to Get <span className="text-[#CC2229]">Started?</span>
+          </h2>
+          <p className="mt-6 text-blue-200/80 text-lg max-w-xl mx-auto leading-relaxed">
             Contact us today for a free consultation. We provide 24-hour
             emergency service for urgent needs.
           </p>
-          <div className="mt-8 flex justify-center gap-4 flex-wrap">
+          <div className="mt-10 flex justify-center gap-4 flex-wrap">
             <Link
               href="/contact"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "bg-white text-[#32373c] hover:bg-gray-100"
+                "bg-[#CC2229] text-white hover:bg-[#e0262d] border-0 shadow-lg shadow-[#CC2229]/25 text-base px-8 py-6"
               )}
             >
               Contact Us
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <a
               href="tel:770-834-2158"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "border-white text-white hover:bg-white/10"
+                "border-2 border-white text-white !bg-transparent hover:!bg-white/10 backdrop-blur-sm text-base px-8 py-6"
               )}
             >
               <Phone className="mr-2 h-5 w-5" />

@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-[#32373c] text-white mt-auto">
+    <footer className="bg-[#111D3E] text-white mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company */}
@@ -93,7 +93,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-600 text-center text-sm text-gray-400">
+        <div className="mt-12 pt-8 border-t border-[#CC2229]/30 text-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} Cowart Industrial Services LLC. All rights reserved.</p>
         </div>
       </div>

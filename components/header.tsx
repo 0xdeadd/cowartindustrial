@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Menu, X, Phone } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -30,13 +31,18 @@ export function Header() {
   const [servicesOpen, setServicesOpen] = useState(false)
 
   return (
-    <header className="bg-white border-b border-border sticky top-0 z-50">
+    <header className="bg-white border-b-2 border-[#CC2229] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="text-xl font-bold tracking-tight text-foreground">
-              COWART INDUSTRIAL
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.jpg"
+              alt="Cowart Industrial Services"
+              width={220}
+              height={53}
+              preload
+              unoptimized
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -84,12 +90,12 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:770-834-2158"
-              className="flex items-center gap-2 text-sm font-semibold text-foreground"
+              className="flex items-center gap-2 text-sm font-semibold text-[#1A2857]"
             >
               <Phone className="h-4 w-4" />
               770-834-2158
             </a>
-            <Link href="/contact" className={cn(buttonVariants())}>
+            <Link href="/contact" className={cn(buttonVariants(), "bg-[#CC2229] hover:bg-[#a81c22] text-white")}>
               Get a Quote
             </Link>
           </div>
@@ -143,7 +149,7 @@ export function Header() {
               </a>
               <Link
                 href="/contact"
-                className={cn(buttonVariants(), "w-full mt-2")}
+                className={cn(buttonVariants(), "w-full mt-2 bg-[#CC2229] hover:bg-[#a81c22] text-white")}
               >
                 Get a Quote
               </Link>
