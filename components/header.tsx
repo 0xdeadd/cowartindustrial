@@ -63,7 +63,7 @@ export function Header() {
       </div>
 
       {/* Main bar */}
-      <div className="bg-[#F2EEE5] border-b border-[#C9C2B0]">
+      <div className="bg-white border-b border-[#C9C2B0]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-3 group">

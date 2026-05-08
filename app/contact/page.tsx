@@ -179,8 +179,8 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <iframe
-                    title="Cowart Industrial Services Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.0!2d-85.0767!3d33.5804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDM0JzQ5LjQiTiA4NcKwMDQnMzYuMSJX!5e0!3m2!1sen!2sus!4v1"
+                    title="Cowart Industrial Services — 834 Kingsbridge Rd, Carrollton, GA 30117"
+                    src="https://maps.google.com/maps?q=834+Kingsbridge+Road+Carrollton+GA+30117&t=&z=15&ie=UTF8&iwloc=B&output=embed"
                     width="100%"
                     height="280"
                     style={{ border: 0, filter: "grayscale(0.4) contrast(1.05)" }}
