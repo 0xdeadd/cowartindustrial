@@ -78,46 +78,67 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="bg-[#08111E] text-[#F2EEE5] relative overflow-hidden">
-        {/* Background photo */}
-        <div className="absolute inset-0">
+        {/* MOBILE photo banner — full-width landscape, shows the whole truck */}
+        <div className="lg:hidden relative w-full aspect-[4/3]">
           <Image
             src="/photos/hero-truck.jpg"
             alt="Cowart Industrial Services vacuum truck"
             fill
             priority
             sizes="100vw"
+            className="object-cover object-center"
+          />
+          {/* mobile bottom fade into navy */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(8,17,30,0) 0%, rgba(8,17,30,0) 60%, rgba(8,17,30,0.95) 100%)",
+            }}
+          />
+          {/* mobile corner brackets */}
+          <div className="absolute top-4 left-4 w-5 h-5 border-l border-t border-[#B8252F]/80" />
+          <div className="absolute top-4 right-4 w-5 h-5 border-r border-t border-[#B8252F]/80" />
+        </div>
+
+        {/* DESKTOP photo backdrop — fills section as overlay */}
+        <div className="hidden lg:block absolute inset-0">
+          <Image
+            src="/photos/hero-truck.jpg"
+            alt="Cowart Industrial Services vacuum truck"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 100vw"
             className="object-cover object-[70%_center]"
           />
         </div>
-        {/* Light navy fade — keeps the truck bright, only softens the far-left edge */}
+        {/* DESKTOP overlays */}
         <div
-          className="absolute inset-0"
+          className="hidden lg:block absolute inset-0"
           style={{
             background:
               "linear-gradient(90deg, rgba(8,17,30,0.7) 0%, rgba(8,17,30,0.35) 25%, rgba(8,17,30,0.1) 55%, rgba(8,17,30,0) 100%)",
           }}
         />
-        {/* Localized halo behind the headline — radial darkening only where text sits */}
         <div
-          className="absolute inset-0"
+          className="hidden lg:block absolute inset-0"
           style={{
             background:
               "radial-gradient(ellipse 55% 65% at 28% 55%, rgba(8,17,30,0.55) 0%, rgba(8,17,30,0.25) 50%, rgba(8,17,30,0) 80%)",
           }}
         />
-        {/* Subtle bottom darkening for metric-strip transition */}
         <div
-          className="absolute inset-0"
+          className="hidden lg:block absolute inset-0"
           style={{
             background:
               "linear-gradient(180deg, transparent 0%, transparent 75%, rgba(8,17,30,0.55) 100%)",
           }}
         />
-        {/* Subtle blueprint grid */}
-        <div className="blueprint-grid absolute inset-0 opacity-20" />
-        {/* corner brackets */}
-        <div className="absolute top-6 left-6 w-6 h-6 border-l border-t border-[#B8252F]/80 z-10" />
-        <div className="absolute top-6 right-6 w-6 h-6 border-r border-t border-[#B8252F]/80 z-10" />
+        {/* Blueprint grid (both layouts) */}
+        <div className="blueprint-grid absolute inset-0 opacity-20 hidden lg:block" />
+        {/* Desktop corner brackets */}
+        <div className="hidden lg:block absolute top-6 left-6 w-6 h-6 border-l border-t border-[#B8252F]/80 z-10" />
+        <div className="hidden lg:block absolute top-6 right-6 w-6 h-6 border-r border-t border-[#B8252F]/80 z-10" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 pb-12 lg:pt-8 lg:pb-20">
           {/* meta strip */}
