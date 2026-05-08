@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import {
   Phone,
   Droplets,
@@ -76,34 +77,82 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="navy-grain text-[#F2EEE5] relative overflow-hidden">
-        <div className="blueprint-grid absolute inset-0" />
+      <section className="bg-[#08111E] text-[#F2EEE5] relative overflow-hidden">
+        {/* Background photo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/photos/hero-truck.jpg"
+            alt="Cowart Industrial Services vacuum truck"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[70%_center]"
+          />
+        </div>
+        {/* Light navy fade — keeps the truck bright, only softens the far-left edge */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(8,17,30,0.7) 0%, rgba(8,17,30,0.35) 25%, rgba(8,17,30,0.1) 55%, rgba(8,17,30,0) 100%)",
+          }}
+        />
+        {/* Localized halo behind the headline — radial darkening only where text sits */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 55% 65% at 28% 55%, rgba(8,17,30,0.55) 0%, rgba(8,17,30,0.25) 50%, rgba(8,17,30,0) 80%)",
+          }}
+        />
+        {/* Subtle bottom darkening for metric-strip transition */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, transparent 75%, rgba(8,17,30,0.55) 100%)",
+          }}
+        />
+        {/* Subtle blueprint grid */}
+        <div className="blueprint-grid absolute inset-0 opacity-20" />
         {/* corner brackets */}
-        <div className="absolute top-6 left-6 w-6 h-6 border-l border-t border-[#B8252F]/60" />
-        <div className="absolute top-6 right-6 w-6 h-6 border-r border-t border-[#B8252F]/60" />
+        <div className="absolute top-6 left-6 w-6 h-6 border-l border-t border-[#B8252F]/80 z-10" />
+        <div className="absolute top-6 right-6 w-6 h-6 border-r border-t border-[#B8252F]/80 z-10" />
 
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-12 lg:pt-24 lg:pb-16">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-24">
           {/* meta strip */}
-          <div className="flex items-center gap-6 mb-12 lg:mb-16">
+          <div className="flex items-center gap-6 mb-12 lg:mb-20">
             <div className="label-mono text-[#B8252F]">— File 01 / Overview</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Carrollton, GA · 30117</div>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-            <div className="lg:col-span-8">
+          <div className="grid lg:grid-cols-12 gap-8">
+            <div className="lg:col-span-8 xl:col-span-7">
               <div className="label-mono text-[#C9C2B0] mb-6 flex items-center gap-3">
                 <span className="w-8 h-px bg-[#B8252F]" />
                 Industrial Services · Southeast US · Since 1974
               </div>
-              <h1 className="display-serif text-[clamp(2.75rem,7vw,5.75rem)] leading-[0.95] font-medium">
+              <h1
+                className="display-serif text-[clamp(2.75rem,7.5vw,6.5rem)] leading-[0.95] font-medium"
+                style={{
+                  textShadow:
+                    "0 2px 4px rgba(8,17,30,0.95), 0 4px 16px rgba(8,17,30,0.85), 0 0 32px rgba(8,17,30,0.6), 0 0 2px rgba(8,17,30,1)",
+                }}
+              >
                 Heavy work,
                 <br />
                 <span className="italic font-normal text-[#C9C2B0]">handled with</span>
                 <br />
                 precision <span className="text-[#B8252F]">&</span> care.
               </h1>
-              <p className="mt-10 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
+              <p
+                className="mt-10 max-w-xl text-[#F2EEE5] text-lg leading-relaxed font-light"
+                style={{
+                  textShadow:
+                    "0 1px 2px rgba(8,17,30,0.95), 0 2px 8px rgba(8,17,30,0.85), 0 0 1px rgba(8,17,30,1)",
+                }}
+              >
                 Cowart Industrial Services has provided full-service, non-hazardous waste management
                 across the Southeastern United States for five decades. Wastewater, industrial
                 cleaning, hydro blasting, vacuum service — done right, done safely, on schedule.
@@ -112,14 +161,14 @@ export default function HomePage() {
               <div className="mt-12 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className="group flex items-center gap-4 bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-7 py-4 transition-colors"
+                  className="group flex items-center gap-4 bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-7 py-4 transition-colors shadow-[0_8px_32px_rgba(184,37,47,0.3)]"
                 >
                   <span className="label-mono">Request a Quote</span>
                   <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
                 <a
                   href="tel:770-834-2158"
-                  className="flex items-center gap-3 border border-[#1F2D40] hover:border-[#C9C2B0] text-[#F2EEE5] px-7 py-4 transition-colors"
+                  className="flex items-center gap-3 border border-[#C9C2B0]/40 backdrop-blur-sm bg-[#08111E]/30 hover:border-[#C9C2B0] text-[#F2EEE5] px-7 py-4 transition-colors"
                 >
                   <Phone className="h-4 w-4 text-[#B8252F]" />
                   <span className="label-mono">770.834.2158</span>
@@ -127,30 +176,23 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* hero photo slot — currently a typographic stamp, ready to receive real jobsite photo */}
-            <div className="lg:col-span-4 hidden lg:block">
-              <div className="relative aspect-[4/5] border border-[#1F2D40] bg-gradient-to-b from-[#0E1A2B] to-[#08111E] p-6 overflow-hidden">
-                <div className="absolute inset-0 blueprint-grid opacity-40" />
-                <div className="relative h-full flex flex-col justify-between">
+            {/* Floating credential card — keeps EST. 1974 stamp visible */}
+            <div className="lg:col-span-4 lg:col-start-9 xl:col-span-4 xl:col-start-9 hidden lg:flex lg:items-end lg:justify-end">
+              <div className="border border-[#C9C2B0]/30 backdrop-blur-md bg-[#08111E]/40 px-6 py-5 max-w-[260px]">
+                <div className="label-mono text-[#B8252F] mb-3">— Reg.</div>
+                <div className="grid grid-cols-2 gap-x-5 gap-y-3">
                   <div>
-                    <div className="label-mono text-[#B8252F] mb-1">/ Stamp</div>
-                    <div className="label-mono text-[#C9C2B0] text-[10px]">PHOTO·SLOT·HERO</div>
+                    <div className="label-mono text-[#C9C2B0] opacity-60">Est.</div>
+                    <div className="display-serif text-2xl text-[#F2EEE5]">1974</div>
                   </div>
-                  <div className="text-center">
-                    <div className="display-serif text-7xl text-[#F2EEE5] leading-none">50</div>
-                    <div className="label-mono text-[#B8252F] mt-2">Years</div>
-                    <div className="label-mono text-[#C9C2B0] text-[10px] mt-1 opacity-60">
-                      In Service
-                    </div>
+                  <div>
+                    <div className="label-mono text-[#C9C2B0] opacity-60">Years</div>
+                    <div className="display-serif text-2xl text-[#F2EEE5]">50+</div>
                   </div>
-                  <div className="border-t border-[#1F2D40] pt-4">
-                    <div className="label-mono text-[#C9C2B0] text-[10px] flex justify-between">
-                      <span>EST.</span>
-                      <span>1974</span>
-                    </div>
-                    <div className="label-mono text-[#C9C2B0] text-[10px] flex justify-between mt-1 opacity-60">
-                      <span>REF.</span>
-                      <span>CIS-001</span>
+                  <div className="col-span-2 pt-3 border-t border-[#1F2D40]">
+                    <div className="label-mono text-[#C9C2B0] opacity-60">Fleet</div>
+                    <div className="display-serif text-base text-[#F2EEE5] mt-1">
+                      Vacuum · Hydro · Roll-Off
                     </div>
                   </div>
                 </div>
@@ -159,8 +201,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* metric strip */}
-        <div className="relative border-t border-[#1F2D40]">
+        {/* metric strip — solid navy to cover photo */}
+        <div className="relative bg-[#0E1A2B] border-t border-[#1F2D40] z-10">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1F2D40]">
               {metrics.map((m, i) => (
@@ -180,7 +222,7 @@ export default function HomePage() {
         </div>
 
         {/* certifications ticker */}
-        <div className="border-t border-[#1F2D40] bg-[#08111E]">
+        <div className="relative border-t border-[#1F2D40] bg-[#08111E] z-10">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4">
             <div className="flex flex-wrap items-center gap-x-8 gap-y-2 label-mono text-[#C9C2B0]">
               <span className="text-[#B8252F]">— Certifications</span>
