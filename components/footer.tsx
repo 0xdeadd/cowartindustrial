@@ -13,6 +13,7 @@ const company = [
   { name: "About", href: "/about" },
   { name: "FAQ", href: "/faq" },
   { name: "Careers", href: "/jobs" },
+  { name: "Forms", href: "/forms" },
   { name: "Contact", href: "/contact" },
 ]
 

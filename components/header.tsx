@@ -21,7 +21,8 @@ const navigation = [
   },
   { name: "FAQ", href: "/faq", code: "03" },
   { name: "Jobs", href: "/jobs", code: "04" },
-  { name: "Contact", href: "/contact", code: "05" },
+  { name: "Forms", href: "/forms", code: "05" },
+  { name: "Contact", href: "/contact", code: "06" },
 ]
 
 export function Header() {
