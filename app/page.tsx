@@ -119,9 +119,9 @@ export default function HomePage() {
         <div className="absolute top-6 left-6 w-6 h-6 border-l border-t border-[#B8252F]/80 z-10" />
         <div className="absolute top-6 right-6 w-6 h-6 border-r border-t border-[#B8252F]/80 z-10" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-24">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 pb-12 lg:pt-8 lg:pb-20">
           {/* meta strip */}
-          <div className="flex items-center gap-6 mb-12 lg:mb-20">
+          <div className="flex items-center gap-6 mb-6 lg:mb-8">
             <div className="label-mono text-[#B8252F]">— File 01 / Overview</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Carrollton, GA · 30117</div>
