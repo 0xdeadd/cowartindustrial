@@ -80,23 +80,28 @@ export default function ContactPage() {
         {/* Contact strip */}
         <div className="relative border-t border-[#1F2D40]">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#1F2D40]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:divide-x divide-y sm:divide-y-0 lg:divide-y-0 divide-[#1F2D40]">
               {contactBlocks.map((b) => {
                 const Icon = b.icon
                 const Wrapper: React.ElementType = b.href ? "a" : "div"
                 const wrapperProps = b.href ? { href: b.href } : {}
+                const isEmail = b.label === "Email"
                 return (
                   <Wrapper
                     key={b.code}
                     {...wrapperProps}
-                    className="group py-6 px-4 lg:px-6 first:pl-0 hover:bg-[#1F2D40]/30 transition-colors"
+                    className="group py-6 px-4 lg:px-6 sm:first:pl-0 lg:first:pl-0 hover:bg-[#1F2D40]/30 transition-colors"
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div className="label-mono text-[#B8252F]">{b.code}</div>
                       <Icon className="h-4 w-4 text-[#C9C2B0] group-hover:text-[#B8252F] transition-colors" />
                     </div>
                     <div className="label-mono text-[#C9C2B0] opacity-60 mb-2">{b.label}</div>
-                    <div className="display-serif text-lg lg:text-xl text-[#F2EEE5] leading-tight">
+                    <div
+                      className={`display-serif text-[#F2EEE5] leading-tight ${
+                        isEmail ? "text-base lg:text-lg break-all" : "text-lg lg:text-xl"
+                      }`}
+                    >
                       {b.primary}
                     </div>
                     <div className="label-mono text-[#C9C2B0] mt-1 opacity-70 text-[10px]">
