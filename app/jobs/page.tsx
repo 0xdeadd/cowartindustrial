@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail, ArrowUpRight } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -73,8 +74,8 @@ export default function JobsPage() {
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Now Hiring</div>
           </div>
-          <div className="grid lg:grid-cols-12 gap-8 items-end">
-            <div className="lg:col-span-9">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+            <div className="lg:col-span-8">
               <div className="label-mono text-[#C9C2B0] mb-6 flex items-center gap-3">
                 <span className="w-8 h-px bg-[#B8252F]" />
                 Industrial work · Real crews · Real wages
@@ -91,6 +92,37 @@ export default function JobsPage() {
                 Stable employer, paid certifications, real equipment, real growth. We hire crews
                 that take pride in doing tough jobs right.
               </p>
+            </div>
+            <div className="lg:col-span-4 hidden lg:block">
+              <div className="relative aspect-[4/5] border border-[#1F2D40] overflow-hidden">
+                <Image
+                  src="/photos/jobs-confined-space.jpg"
+                  alt="Cowart crew performing a confined-space entry with proper PPE and an outside attendant"
+                  fill
+                  sizes="(max-width: 1024px) 0vw, 35vw"
+                  className="object-cover"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(8,17,30,0.7) 0%, rgba(8,17,30,0) 30%, rgba(8,17,30,0) 65%, rgba(8,17,30,0.9) 100%)",
+                  }}
+                />
+                <div className="relative h-full flex flex-col justify-between p-5">
+                  <div className="flex items-start justify-between">
+                    <div className="label-mono text-[#B8252F]">— On the Job</div>
+                    <div className="label-mono text-[#F2EEE5] text-[10px] opacity-80">
+                      Confined Space
+                    </div>
+                  </div>
+                  <div className="border-t border-[#F2EEE5]/30 pt-3">
+                    <div className="label-mono text-[#F2EEE5] text-[10px] opacity-70">
+                      HAZWOPER · Attendant on Watch · Proper PPE
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

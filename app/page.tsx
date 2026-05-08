@@ -19,6 +19,7 @@ const services = [
     href: "/services/waste-water-management",
     icon: Droplets,
     keywords: "Sludge · Treatment · Solidification",
+    photo: "/photos/service-waste-water.jpg",
   },
   {
     code: "S—02",
@@ -28,6 +29,7 @@ const services = [
     href: "/services/industrial-cleaning",
     icon: Factory,
     keywords: "Vacuuming · Pressure Wash · Chemical",
+    photo: "/photos/service-industrial-cleaning.jpg",
   },
   {
     code: "S—03",
@@ -37,6 +39,7 @@ const services = [
     href: "/services/hydro-blasting",
     icon: Waves,
     keywords: "10K—40K PSI · Surface Prep",
+    photo: "/photos/service-hydro-blasting.jpg",
   },
   {
     code: "S—04",
@@ -46,6 +49,7 @@ const services = [
     href: "/services/vacuum-trucks",
     icon: Truck,
     keywords: "Pneumatic · Transport · Disposal",
+    photo: "/photos/service-vacuum-trucks.jpg",
   },
   {
     code: "S—05",
@@ -55,6 +59,7 @@ const services = [
     href: "/services/on-site-filtration",
     icon: Filter,
     keywords: "Testing · Monitoring · Compliance",
+    photo: undefined as string | undefined,
   },
 ]
 
@@ -294,9 +299,22 @@ export default function HomePage() {
                       <div className="label-mono text-[#B8252F]">{service.code}</div>
                     </div>
                     <div className="col-span-10 lg:col-span-1">
-                      <div className="w-10 h-10 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
-                        <Icon className="h-4 w-4 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
-                      </div>
+                      {service.photo ? (
+                        <div className="relative w-16 h-16 lg:w-20 lg:h-20 border border-[#0E1A2B] overflow-hidden">
+                          <Image
+                            src={service.photo}
+                            alt=""
+                            fill
+                            sizes="80px"
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-[#0E1A2B]/0 group-hover:bg-[#B8252F]/30 transition-colors" />
+                        </div>
+                      ) : (
+                        <div className="w-10 h-10 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
+                          <Icon className="h-4 w-4 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
+                        </div>
+                      )}
                     </div>
                     <div className="col-span-12 lg:col-span-5">
                       <h3 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-tight group-hover:text-[#B8252F] transition-colors">
@@ -359,25 +377,42 @@ export default function HomePage() {
                     title: "Expertise",
                     code: "01",
                     desc: "Five decades of hands-on industrial experience across paper, food, and manufacturing.",
+                    photo: undefined as string | undefined,
                   },
                   {
                     title: "Responsiveness",
                     code: "02",
                     desc: "Round-the-clock emergency dispatch. On-site response anywhere in the Southeast.",
+                    photo: undefined as string | undefined,
                   },
                   {
                     title: "Safety",
                     code: "03",
                     desc: "HAZWOPER certified crews with full confined-space and respiratory protection.",
+                    photo: "/photos/safety-loto.jpg",
                   },
                   {
                     title: "Flexibility",
                     code: "04",
                     desc: "Right-sized solutions for projects from single-truck cleanouts to multi-week jobs.",
+                    photo: undefined as string | undefined,
                   },
                 ].map((p) => (
-                  <div key={p.code} className="border-r border-b border-[#1F2D40] p-8 lg:p-10">
-                    <div className="label-mono text-[#B8252F] mb-4">{p.code}</div>
+                  <div key={p.code} className="border-r border-b border-[#1F2D40] p-8 lg:p-10 relative">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="label-mono text-[#B8252F]">{p.code}</div>
+                      {p.photo && (
+                        <div className="relative w-12 h-12 border border-[#1F2D40] overflow-hidden">
+                          <Image
+                            src={p.photo}
+                            alt=""
+                            fill
+                            sizes="48px"
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
+                    </div>
                     <h3 className="display-serif text-2xl lg:text-3xl text-[#F2EEE5] mb-3">
                       {p.title}
                     </h3>

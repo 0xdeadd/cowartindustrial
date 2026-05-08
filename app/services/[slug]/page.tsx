@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import {
   Phone,
@@ -22,6 +23,8 @@ type ServiceEntry = {
   capabilities: string[]
   keywords: string
   icon: LucideIcon
+  photo?: string
+  photoAlt?: string
 }
 
 const serviceData: Record<string, ServiceEntry> = {
@@ -47,6 +50,8 @@ const serviceData: Record<string, ServiceEntry> = {
     ],
     keywords: "Sludge · Treatment · Solidification",
     icon: Droplets,
+    photo: "/photos/service-waste-water.jpg",
+    photoAlt: "Cowart technician pumping in a confined-space manhole",
   },
   "industrial-cleaning": {
     code: "S—02",
@@ -70,6 +75,8 @@ const serviceData: Record<string, ServiceEntry> = {
     ],
     keywords: "Vacuuming · Pressure · Chemical",
     icon: Factory,
+    photo: "/photos/service-industrial-cleaning.jpg",
+    photoAlt: "Cowart crew pressure-washing a sludge pit inside an industrial facility",
   },
   "hydro-blasting": {
     code: "S—03",
@@ -93,6 +100,8 @@ const serviceData: Record<string, ServiceEntry> = {
     ],
     keywords: "10K—40K PSI · Surface Prep",
     icon: Waves,
+    photo: "/photos/service-hydro-blasting.jpg",
+    photoAlt: "Cowart hydro-blasting operator cleaning an industrial tank",
   },
   "vacuum-trucks": {
     code: "S—04",
@@ -116,6 +125,8 @@ const serviceData: Record<string, ServiceEntry> = {
     ],
     keywords: "Pneumatic · Roll-Off · Transport",
     icon: Truck,
+    photo: "/photos/service-vacuum-trucks.jpg",
+    photoAlt: "Cowart vacuum truck transferring liquid waste to a tanker",
   },
   "on-site-filtration": {
     code: "S—05",
@@ -211,33 +222,75 @@ export default async function ServicePage({
               </p>
             </div>
             <div className="lg:col-span-4 hidden lg:block">
-              <div className="border border-[#1F2D40] bg-gradient-to-b from-[#0E1A2B] to-[#08111E] aspect-square p-6 relative overflow-hidden">
-                <div className="absolute inset-0 blueprint-grid opacity-30" />
-                <div className="relative h-full flex flex-col justify-between">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <div className="label-mono text-[#B8252F] mb-1">/ Spec</div>
-                      <div className="label-mono text-[#C9C2B0] opacity-60 text-[10px]">
-                        PHOTO·SLOT·{service.code.replace("—", "")}
+              <div className="border border-[#1F2D40] bg-gradient-to-b from-[#0E1A2B] to-[#08111E] aspect-square relative overflow-hidden">
+                {service.photo ? (
+                  <>
+                    <Image
+                      src={service.photo}
+                      alt={service.photoAlt || service.title}
+                      fill
+                      sizes="(max-width: 1024px) 0vw, 35vw"
+                      className="object-cover"
+                    />
+                    {/* Top-fade for label readability */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(8,17,30,0.85) 0%, rgba(8,17,30,0.15) 25%, rgba(8,17,30,0) 60%, rgba(8,17,30,0.85) 100%)",
+                      }}
+                    />
+                    {/* Editorial labels on top of photo */}
+                    <div className="relative h-full flex flex-col justify-between p-6">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <div className="label-mono text-[#B8252F] mb-1">/ Spec</div>
+                          <div className="label-mono text-[#F2EEE5] text-[10px] opacity-80">
+                            {service.code.replace("—", "·")}
+                          </div>
+                        </div>
+                        <div className="border border-[#F2EEE5]/40 p-3 backdrop-blur-sm bg-[#08111E]/30">
+                          <Icon className="h-6 w-6 text-[#B8252F]" />
+                        </div>
+                      </div>
+                      <div className="border-t border-[#F2EEE5]/30 pt-4">
+                        <div className="label-mono text-[#F2EEE5] text-[10px] flex justify-between">
+                          <span>Cowart</span>
+                          <span>Industrial</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="border border-[#1F2D40] p-3">
-                      <Icon className="h-6 w-6 text-[#B8252F]" />
+                  </>
+                ) : (
+                  <div className="absolute inset-0 p-6">
+                    <div className="absolute inset-0 blueprint-grid opacity-30" />
+                    <div className="relative h-full flex flex-col justify-between">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <div className="label-mono text-[#B8252F] mb-1">/ Spec</div>
+                          <div className="label-mono text-[#C9C2B0] opacity-60 text-[10px]">
+                            PHOTO·SLOT·{service.code.replace("—", "")}
+                          </div>
+                        </div>
+                        <div className="border border-[#1F2D40] p-3">
+                          <Icon className="h-6 w-6 text-[#B8252F]" />
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <div className="display-serif text-7xl text-[#F2EEE5] leading-none">
+                          {service.code.split("—")[1]}
+                        </div>
+                        <div className="label-mono text-[#B8252F] mt-2">{service.code.split("—")[0]}</div>
+                      </div>
+                      <div className="border-t border-[#1F2D40] pt-4">
+                        <div className="label-mono text-[#C9C2B0] text-[10px] flex justify-between">
+                          <span>Cowart</span>
+                          <span>Industrial</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="text-center">
-                    <div className="display-serif text-7xl text-[#F2EEE5] leading-none">
-                      {service.code.split("—")[1]}
-                    </div>
-                    <div className="label-mono text-[#B8252F] mt-2">{service.code.split("—")[0]}</div>
-                  </div>
-                  <div className="border-t border-[#1F2D40] pt-4">
-                    <div className="label-mono text-[#C9C2B0] text-[10px] flex justify-between">
-                      <span>Cowart</span>
-                      <span>Industrial</span>
-                    </div>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

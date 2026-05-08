@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowUpRight, Phone } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -99,22 +100,40 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="lg:col-span-4 hidden lg:block">
-              <div className="grid grid-cols-2 border border-[#1F2D40]">
-                <div className="p-5 border-r border-[#1F2D40]">
-                  <div className="label-mono text-[#C9C2B0] opacity-60">Founded</div>
-                  <div className="display-serif text-3xl text-[#F2EEE5] mt-1">1974</div>
-                </div>
-                <div className="p-5">
-                  <div className="label-mono text-[#C9C2B0] opacity-60">Years</div>
-                  <div className="display-serif text-3xl text-[#F2EEE5] mt-1">50+</div>
-                </div>
-                <div className="p-5 border-r border-t border-[#1F2D40]">
-                  <div className="label-mono text-[#C9C2B0] opacity-60">Plant</div>
-                  <div className="display-serif text-3xl text-[#F2EEE5] mt-1">1</div>
-                </div>
-                <div className="p-5 border-t border-[#1F2D40]">
-                  <div className="label-mono text-[#C9C2B0] opacity-60">Fleet</div>
-                  <div className="display-serif text-3xl text-[#F2EEE5] mt-1">Full</div>
+              <div className="relative aspect-[4/5] border border-[#1F2D40] overflow-hidden">
+                <Image
+                  src="/photos/about-fleet.jpg"
+                  alt="A Cowart Industrial Services vacuum truck in the fleet yard"
+                  fill
+                  sizes="(max-width: 1024px) 0vw, 35vw"
+                  className="object-cover"
+                />
+                {/* Edge fades for label readability */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(8,17,30,0.65) 0%, rgba(8,17,30,0) 30%, rgba(8,17,30,0) 70%, rgba(8,17,30,0.85) 100%)",
+                  }}
+                />
+                {/* Editorial caption labels */}
+                <div className="relative h-full flex flex-col justify-between p-5">
+                  <div className="flex items-start justify-between">
+                    <div className="label-mono text-[#B8252F]">— Fleet</div>
+                    <div className="label-mono text-[#F2EEE5] text-[10px] opacity-80">
+                      VT·019
+                    </div>
+                  </div>
+                  <div className="border-t border-[#F2EEE5]/30 pt-3 grid grid-cols-2 gap-3">
+                    <div>
+                      <div className="label-mono text-[#F2EEE5] text-[10px] opacity-70">Est.</div>
+                      <div className="display-serif text-xl text-[#F2EEE5]">1974</div>
+                    </div>
+                    <div>
+                      <div className="label-mono text-[#F2EEE5] text-[10px] opacity-70">Years</div>
+                      <div className="display-serif text-xl text-[#F2EEE5]">50+</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
