@@ -28,9 +28,9 @@ const contactBlocks = [
     code: "03",
     label: "Email",
     icon: Mail,
-    primary: "brenda.mckoon@cowartind.com",
+    primary: "info@cowartind.com",
     secondary: "Quotes & General Inquiries",
-    href: "mailto:brenda.mckoon@cowartind.com",
+    href: "mailto:info@cowartind.com",
   },
   {
     code: "04",

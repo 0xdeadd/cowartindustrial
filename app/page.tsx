@@ -176,8 +176,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Floating credential card — keeps EST. 1974 stamp visible */}
-            <div className="lg:col-span-4 lg:col-start-9 xl:col-span-4 xl:col-start-9 hidden lg:flex lg:items-end lg:justify-end">
+            {/* Floating credential card — top-right so it doesn't cover the truck's wheels */}
+            <div className="lg:col-span-4 lg:col-start-9 xl:col-span-4 xl:col-start-9 hidden lg:flex lg:items-start lg:justify-end">
               <div className="border border-[#C9C2B0]/30 backdrop-blur-md bg-[#08111E]/40 px-6 py-5 max-w-[260px]">
                 <div className="label-mono text-[#B8252F] mb-3">— Reg.</div>
                 <div className="grid grid-cols-2 gap-x-5 gap-y-3">

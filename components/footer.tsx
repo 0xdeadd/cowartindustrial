@@ -136,11 +136,11 @@ export function Footer() {
                 <span className="label-mono">770.834.2158</span>
               </a>
               <a
-                href="mailto:brenda.mckoon@cowartind.com"
+                href="mailto:info@cowartind.com"
                 className="flex items-start gap-3 text-[#C9C2B0] hover:text-[#F2EEE5] transition-colors break-all"
               >
                 <Mail className="h-3.5 w-3.5 mt-0.5 shrink-0 text-[#B8252F]" />
-                <span className="leading-relaxed">brenda.mckoon@cowartind.com</span>
+                <span className="leading-relaxed">info@cowartind.com</span>
               </a>
             </div>
             <div className="mt-6 pt-4 border-t border-[#1F2D40]">

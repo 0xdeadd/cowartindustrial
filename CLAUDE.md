@@ -110,7 +110,7 @@ The site has an opinionated, cohesive look. Don't fight it.
 
 ## Known gaps / stubs
 
-- **Resend notification** in `app/api/contact/route.ts` is a `TODO`. Contact form submissions land in DB but Brenda is not emailed. Wiring requires `RESEND_API_KEY` + a `resend.emails.send(...)` call.
+- **Resend notification** in `app/api/contact/route.ts` is a `TODO`. Contact form submissions land in DB but no email is sent to `info@cowartind.com`. Wiring requires `RESEND_API_KEY` + a `resend.emails.send(...)` call.
 - **No `/api/jobs`** route. Jobs page routes applications to `/contact`.
 - **No SEO foundations**: no `sitemap.xml`, no `robots.txt`, no LocalBusiness JSON-LD, no OG image. The `keywords` meta tag in `layout.tsx` is dead weight (Google ignored it since 2009) but kept for backwards-compat.
 - **Keyword content gaps** vs. owner's SEO target list: dedicated pages exist for industrial cleaning, hydro blasting, vacuum trucks. Missing or partial: *liquid waste disposal*, *hydro excavation*, *roll off* (bundled into vacuum-trucks), *environmental services*, *waste transport*.

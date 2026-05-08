@@ -69,7 +69,7 @@ const sections = [
       {
         question: "How do I request a quote?",
         answer:
-          "You can request a quote by calling us at 770-834-2158, emailing brenda.mckoon@cowartind.com, or filling out the contact form on our website. Quotes typically come back within one business day.",
+          "You can request a quote by calling us at 770-834-2158, emailing info@cowartind.com, or filling out the contact form on our website. Quotes typically come back within one business day.",
       },
     ],
   },

@@ -211,14 +211,14 @@ export default function JobsPage() {
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
               <a
-                href="mailto:brenda.mckoon@cowartind.com"
+                href="mailto:info@cowartind.com"
                 className="group flex items-center justify-between border border-[#0E1A2B] hover:bg-[#0E1A2B] hover:text-[#F2EEE5] text-[#0E1A2B] px-6 py-6 transition-colors"
               >
                 <div className="flex items-center gap-4">
                   <Mail className="h-5 w-5 text-[#B8252F]" />
                   <div>
                     <div className="label-mono opacity-60">— Email</div>
-                    <div className="display-serif text-xl">brenda.mckoon@cowartind.com</div>
+                    <div className="display-serif text-xl">info@cowartind.com</div>
                   </div>
                 </div>
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
