@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Award, Users, Shield, Truck } from "lucide-react"
+import Link from "next/link"
+import { ArrowUpRight, Phone } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -7,97 +8,181 @@ export const metadata: Metadata = {
     "Cowart Industrial Services has been providing environmental and industrial services since 1974. Learn about our history and capabilities.",
 }
 
-const highlights = [
+const timeline = [
   {
-    icon: Award,
+    year: "1974",
+    title: "Founded",
+    detail:
+      "Established as a septic tank pumping service in Carrollton, Georgia. Local roots, family-operated.",
+  },
+  {
+    year: "2006",
+    title: "Industrial expansion",
+    detail:
+      "Expanded into industrial services, bringing decades of operational rigor to manufacturing and processing facilities.",
+  },
+  {
+    year: "Today",
+    title: "Full-service operation",
+    detail:
+      "Non-hazardous waste management, industrial cleaning, hydro blasting, vacuum services across the Southeast — with our own treatment plant and fleet.",
+  },
+]
+
+const capabilities = [
+  { code: "C—01", label: "40-Hour HAZWOPER Certified Personnel" },
+  { code: "C—02", label: "Confined Space Entry Capable" },
+  { code: "C—03", label: "UST and AST Entry and Cleaning" },
+  { code: "C—04", label: "Own Wastewater Treatment Plant" },
+  { code: "C—05", label: "24-Hour Emergency Service" },
+  { code: "C—06", label: "Full Fleet of Specialized Equipment" },
+  { code: "C—07", label: "DOT Hazmat Transport Certified" },
+  { code: "C—08", label: "EPA RCRA Compliant" },
+]
+
+const pillars = [
+  {
+    code: "01",
     title: "Established 1974",
-    description:
-      "Originally founded as a septic tank pumping service, we expanded into industrial services in 2006.",
+    desc: "Five decades of family-operated continuity. Same ownership, same standards, same accountability.",
   },
   {
-    icon: Users,
-    title: "Experienced Team",
-    description:
-      "Our personnel are trained with 40-hour HAZWOPER certification and are capable of confined space entry.",
+    code: "02",
+    title: "Experienced Crews",
+    desc: "All field personnel hold 40-hour HAZWOPER certification and confined-space credentials.",
   },
   {
-    icon: Shield,
-    title: "Safety First",
-    description:
-      "We maintain strict safety protocols and full regulatory compliance on every project.",
+    code: "03",
+    title: "Safety Discipline",
+    desc: "Strict protocols, full regulatory compliance, zero corner-cutting on every job site.",
   },
   {
-    icon: Truck,
-    title: "Full Fleet",
-    description:
-      "Our extensive fleet of specialized equipment allows us to handle any project, large or small.",
+    code: "04",
+    title: "Owned Equipment",
+    desc: "Our own treatment plant, our own fleet, our own crews — no subcontractor handoffs.",
   },
 ]
 
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-[#32373c] text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold">About Us</h1>
-          <p className="mt-4 text-xl text-gray-300 max-w-2xl">
-            Over 40 years of trusted industrial and environmental services in the
-            Southeastern United States.
-          </p>
-        </div>
-      </section>
+      {/* HERO */}
+      <section className="navy-grain text-[#F2EEE5] relative overflow-hidden">
+        <div className="blueprint-grid absolute inset-0" />
+        <div className="absolute top-6 left-6 w-6 h-6 border-l border-t border-[#B8252F]/60" />
+        <div className="absolute top-6 right-6 w-6 h-6 border-r border-t border-[#B8252F]/60" />
 
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Cowart Industrial Services LLC was established in 1974 as a septic
-                tank pumping service in Carrollton, Georgia. Over the decades, we
-                recognized the growing need for comprehensive industrial services
-                in the region and expanded our operations accordingly.
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
+          <div className="flex items-center gap-6 mb-12 lg:mb-16">
+            <div className="label-mono text-[#B8252F]">— File 02 / About</div>
+            <div className="flex-1 h-px bg-[#1F2D40]" />
+            <div className="label-mono text-[#C9C2B0]">Index · Company</div>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+            <div className="lg:col-span-8">
+              <div className="label-mono text-[#C9C2B0] mb-6 flex items-center gap-3">
+                <span className="w-8 h-px bg-[#B8252F]" />
+                Family-operated since 1974 · Carrollton, GA
+              </div>
+              <h1 className="display-serif text-[clamp(2.5rem,6.5vw,5.25rem)] leading-[0.95] font-medium">
+                Five decades of
+                <br />
+                <span className="italic font-normal text-[#C9C2B0]">doing what we say</span>
+                <br />
+                we&apos;ll do.
+              </h1>
+              <p className="mt-10 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
+                Cowart Industrial Services has provided full-service, non-hazardous waste management
+                across the Southeastern United States since 1974. Same family, same name on the
+                door, same number that&apos;s answered when you call.
               </p>
-              <p>
-                In 2006, we made the strategic decision to expand into industrial
-                services, bringing the same dedication to quality and customer
-                satisfaction that built our reputation in the septic services
-                industry.
-              </p>
-              <p>
-                Today, Cowart Industrial Services has grown into a full service,
-                non-hazardous waste management service organization. We serve
-                clients across the Southeastern United States with a comprehensive
-                range of environmental and industrial solutions.
-              </p>
-              <p>
-                Our commitment to safety, responsiveness, and flexibility has made
-                us the trusted partner for businesses that need reliable industrial
-                services. With 24-hour emergency service availability, we&apos;re
-                always ready when our clients need us most.
-              </p>
+            </div>
+            <div className="lg:col-span-4 hidden lg:block">
+              <div className="grid grid-cols-2 border border-[#1F2D40]">
+                <div className="p-5 border-r border-[#1F2D40]">
+                  <div className="label-mono text-[#C9C2B0] opacity-60">Founded</div>
+                  <div className="display-serif text-3xl text-[#F2EEE5] mt-1">1974</div>
+                </div>
+                <div className="p-5">
+                  <div className="label-mono text-[#C9C2B0] opacity-60">Years</div>
+                  <div className="display-serif text-3xl text-[#F2EEE5] mt-1">50+</div>
+                </div>
+                <div className="p-5 border-r border-t border-[#1F2D40]">
+                  <div className="label-mono text-[#C9C2B0] opacity-60">Plant</div>
+                  <div className="display-serif text-3xl text-[#F2EEE5] mt-1">1</div>
+                </div>
+                <div className="p-5 border-t border-[#1F2D40]">
+                  <div className="label-mono text-[#C9C2B0] opacity-60">Fleet</div>
+                  <div className="display-serif text-3xl text-[#F2EEE5] mt-1">Full</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-10 text-center">
-            Why Choose Cowart Industrial
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {highlights.map((item) => (
+      {/* OUR STORY */}
+      <section className="paper-texture py-24 lg:py-32 relative">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+            <div className="lg:col-span-4">
+              <div className="label-mono text-[#B8252F] mb-4">— File 02.1 / History</div>
+              <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
+                Our
+                <br />
+                <span className="italic">story.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-7 lg:col-start-6">
+              <div className="space-y-6 text-[#3A3D44] text-lg leading-relaxed font-light">
+                <p>
+                  <span className="display-serif text-[#0E1A2B] font-medium text-xl">
+                    Cowart Industrial Services LLC was established in 1974
+                  </span>{" "}
+                  as a septic tank pumping service in Carrollton, Georgia. Over the decades, we
+                  recognized the growing need for comprehensive industrial services in the region
+                  and expanded our operations accordingly.
+                </p>
+                <p>
+                  In 2006, we made the strategic decision to expand into industrial services,
+                  bringing the same dedication to quality and customer satisfaction that built our
+                  reputation.
+                </p>
+                <p>
+                  Today, Cowart Industrial Services has grown into a full service, non-hazardous
+                  waste management organization. We serve clients across the Southeastern United
+                  States with a comprehensive range of environmental and industrial solutions.
+                </p>
+                <p>
+                  Our commitment to safety, responsiveness, and flexibility has made us the trusted
+                  partner for businesses that need reliable industrial services. With 24-hour
+                  emergency response, we&apos;re always ready when our clients need us most.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="mt-20 lg:mt-28 border-t border-[#C9C2B0]">
+            {timeline.map((t, i) => (
               <div
-                key={item.title}
-                className="flex items-start gap-4 bg-white p-6 rounded-lg border border-border"
+                key={t.year}
+                className="grid grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 border-b border-[#C9C2B0]"
               >
-                <item.icon className="h-8 w-8 text-[#32373c] shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">
-                    {item.description}
-                  </p>
+                <div className="col-span-3 lg:col-span-2">
+                  <div className="label-mono text-[#B8252F] mb-2">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div className="display-serif text-3xl lg:text-4xl text-[#0E1A2B]">{t.year}</div>
+                </div>
+                <div className="col-span-9 lg:col-span-4">
+                  <h3 className="display-serif text-2xl lg:text-3xl text-[#0E1A2B] leading-tight">
+                    {t.title}
+                  </h3>
+                </div>
+                <div className="col-span-12 lg:col-span-6">
+                  <p className="text-[#3A3D44] leading-relaxed font-light">{t.detail}</p>
                 </div>
               </div>
             ))}
@@ -105,31 +190,121 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-6">Certifications & Capabilities</h2>
-          <ul className="space-y-3 text-muted-foreground">
-            <li className="flex items-start gap-2">
-              <span className="text-foreground font-medium">&#8226;</span>
-              40-Hour HAZWOPER Certified Personnel
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-foreground font-medium">&#8226;</span>
-              Confined Space Entry Capable
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-foreground font-medium">&#8226;</span>
-              UST and AST Entry and Cleaning
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-foreground font-medium">&#8226;</span>
-              Own Wastewater Treatment Plant
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-foreground font-medium">&#8226;</span>
-              24-Hour Emergency Service
-            </li>
-          </ul>
+      {/* PILLARS — on navy */}
+      <section className="bg-[#0E1A2B] text-[#F2EEE5] py-24 lg:py-32 relative overflow-hidden">
+        <div className="blueprint-grid absolute inset-0 opacity-40" />
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16 lg:mb-20">
+            <div className="lg:col-span-5">
+              <div className="label-mono text-[#B8252F] mb-4">— File 02.2 / Why Cowart</div>
+              <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95]">
+                Why crews,
+                <br />
+                <span className="italic text-[#C9C2B0]">plants, and</span>
+                <br />
+                clients pick us.
+              </h2>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7 lg:pt-4">
+              <p className="text-[#C9C2B0] text-lg leading-relaxed font-light">
+                Industrial customers across the Southeast pick Cowart for the same four reasons,
+                project after project. They&apos;re not slogans — they&apos;re what we&apos;ve been
+                building for fifty years.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 border-t border-l border-[#1F2D40]">
+            {pillars.map((p) => (
+              <div key={p.code} className="border-r border-b border-[#1F2D40] p-8 lg:p-10">
+                <div className="label-mono text-[#B8252F] mb-4">{p.code}</div>
+                <h3 className="display-serif text-2xl lg:text-3xl text-[#F2EEE5] mb-3">
+                  {p.title}
+                </h3>
+                <p className="text-sm text-[#C9C2B0] leading-relaxed font-light">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CAPABILITIES — editorial list */}
+      <section className="paper-texture py-24 lg:py-32 relative">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
+            <div className="lg:col-span-4">
+              <div className="label-mono text-[#B8252F] mb-4">— File 02.3 / Credentials</div>
+              <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
+                Certifications
+                <br />
+                <span className="italic">&amp; capabilities.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-7 lg:col-start-6">
+              <p className="text-lg text-[#3A3D44] leading-relaxed font-light pt-4">
+                Every Cowart crew member is trained, certified, and current on the credentials
+                required for safe industrial work. The list below is current as of {new Date().getFullYear()}.
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-[#C9C2B0]">
+            {capabilities.map((c) => (
+              <div
+                key={c.code}
+                className="grid grid-cols-12 gap-4 py-5 border-b border-[#C9C2B0] hover:bg-[#E8E2D3]/40 transition-colors"
+              >
+                <div className="col-span-3 lg:col-span-2">
+                  <div className="label-mono text-[#B8252F]">{c.code}</div>
+                </div>
+                <div className="col-span-9 lg:col-span-10">
+                  <div className="display-serif text-xl lg:text-2xl text-[#0E1A2B]">{c.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="paper-texture pb-24 relative">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="border-t border-b border-[#0E1A2B]">
+            <div className="grid lg:grid-cols-12 gap-8 py-16 lg:py-20 items-center">
+              <div className="lg:col-span-7">
+                <div className="label-mono text-[#B8252F] mb-4">— File 02.4 / Next</div>
+                <h2 className="display-serif text-4xl lg:text-5xl leading-[0.95] text-[#0E1A2B]">
+                  Ready to put us to
+                  <br />
+                  <span className="italic">work?</span>
+                </h2>
+                <p className="mt-6 text-[#3A3D44] text-lg font-light max-w-xl">
+                  Free consultation. Quote within one business day. 24-hour emergency dispatch.
+                </p>
+              </div>
+              <div className="lg:col-span-5 lg:pl-8 lg:border-l lg:border-[#0E1A2B]">
+                <div className="space-y-4">
+                  <Link
+                    href="/contact"
+                    className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-5 transition-colors"
+                  >
+                    <span className="label-mono">Request a Quote</span>
+                    <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                  <a
+                    href="tel:770-834-2158"
+                    className="group flex items-center justify-between border border-[#0E1A2B] hover:bg-[#0E1A2B] hover:text-[#F2EEE5] text-[#0E1A2B] px-6 py-5 transition-colors"
+                  >
+                    <span className="label-mono flex items-center gap-3">
+                      <Phone className="h-4 w-4" />
+                      770.834.2158
+                    </span>
+                    <span className="label-mono opacity-60 group-hover:opacity-100">24/7</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

@@ -1,141 +1,324 @@
 import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/lib/button-variants"
 import {
   Phone,
-  Shield,
-  Clock,
-  Award,
   Droplets,
   Factory,
   Waves,
   Truck,
   Filter,
-  ArrowRight,
-  CheckCircle2,
+  ArrowUpRight,
 } from "lucide-react"
 
 const services = [
   {
+    code: "S—01",
     title: "Waste Water Management",
     description:
       "On-site sludge solidification and wastewater treatment with our own treatment plant.",
     href: "/services/waste-water-management",
     icon: Droplets,
+    keywords: "Sludge · Treatment · Solidification",
   },
   {
+    code: "S—02",
     title: "Industrial Cleaning",
     description:
       "Removal of non-hazardous buildup using vacuuming, pressure washing, and chemical methods.",
     href: "/services/industrial-cleaning",
     icon: Factory,
+    keywords: "Vacuuming · Pressure Wash · Chemical",
   },
   {
+    code: "S—03",
     title: "Hydro Blasting",
     description:
       "High-pressure water cleaning for efficient material removal in industrial settings.",
     href: "/services/hydro-blasting",
     icon: Waves,
+    keywords: "10K—40K PSI · Surface Prep",
   },
   {
+    code: "S—04",
     title: "Vacuum Trucks & Roll Offs",
     description:
       "Pneumatic conveyance equipment for efficient material transport and disposal.",
     href: "/services/vacuum-trucks",
     icon: Truck,
+    keywords: "Pneumatic · Transport · Disposal",
   },
   {
+    code: "S—05",
     title: "On-Site Filtration",
     description:
       "Water filtration services with comprehensive testing and monitoring.",
     href: "/services/on-site-filtration",
     icon: Filter,
+    keywords: "Testing · Monitoring · Compliance",
   },
 ]
 
-const stats = [
-  { value: "50+", label: "Years in Business" },
-  { value: "24/7", label: "Emergency Service" },
-  { value: "SE US", label: "Service Area" },
-  { value: "100%", label: "Safety Focused" },
+const metrics = [
+  { value: "50+", label: "Years Operating", sub: "Est. 1974" },
+  { value: "24/7", label: "Emergency Response", sub: "Always Available" },
+  { value: "8", label: "States Served", sub: "Southeast US" },
+  { value: "100%", label: "Compliance Rate", sub: "OSHA · EPA · DOT" },
+]
+
+const certifications = [
+  "HAZWOPER 40-Hour",
+  "Confined Space Entry",
+  "DOT Hazmat",
+  "EPA RCRA Compliant",
+  "OSHA 30-Hour",
 ]
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex items-center bg-gradient-to-br from-[#0f1b3d] via-[#1A2857] to-[#243470] text-white overflow-hidden">
-        {/* Grid pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        {/* Glow effects */}
-        <div className="absolute top-[-100px] right-[-100px] w-[600px] h-[600px] rounded-full bg-[#CC2229]/20 blur-[120px]" />
-        <div className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full bg-[#1A2857]/60 blur-[100px]" />
+      {/* HERO */}
+      <section className="navy-grain text-[#F2EEE5] relative overflow-hidden">
+        <div className="blueprint-grid absolute inset-0" />
+        {/* corner brackets */}
+        <div className="absolute top-6 left-6 w-6 h-6 border-l border-t border-[#B8252F]/60" />
+        <div className="absolute top-6 right-6 w-6 h-6 border-r border-t border-[#B8252F]/60" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14 w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 text-sm mb-8">
-                <span className="w-2 h-2 rounded-full bg-[#CC2229] animate-pulse" />
-                Serving the Southeast since 1974
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-12 lg:pt-24 lg:pb-16">
+          {/* meta strip */}
+          <div className="flex items-center gap-6 mb-12 lg:mb-16">
+            <div className="label-mono text-[#B8252F]">— File 01 / Overview</div>
+            <div className="flex-1 h-px bg-[#1F2D40]" />
+            <div className="label-mono text-[#C9C2B0]">Carrollton, GA · 30117</div>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+            <div className="lg:col-span-8">
+              <div className="label-mono text-[#C9C2B0] mb-6 flex items-center gap-3">
+                <span className="w-8 h-px bg-[#B8252F]" />
+                Industrial Services · Southeast US · Since 1974
               </div>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
-                Industrial
+              <h1 className="display-serif text-[clamp(2.75rem,7vw,5.75rem)] leading-[0.95] font-medium">
+                Heavy work,
                 <br />
-                <span className="text-[#CC2229]">Services</span> You
+                <span className="italic font-normal text-[#C9C2B0]">handled with</span>
                 <br />
-                Can Count On
+                precision <span className="text-[#B8252F]">&</span> care.
               </h1>
-              <p className="mt-8 text-lg text-blue-200/80 leading-relaxed max-w-lg">
-                Full service, non-hazardous waste management for the
-                Southeastern United States. No project too big or too small.
+              <p className="mt-10 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
+                Cowart Industrial Services has provided full-service, non-hazardous waste management
+                across the Southeastern United States for five decades. Wastewater, industrial
+                cleaning, hydro blasting, vacuum service — done right, done safely, on schedule.
               </p>
-              <div className="mt-10 flex flex-wrap gap-4">
+
+              <div className="mt-12 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className={cn(
-                    buttonVariants({ size: "lg" }),
-                    "bg-[#CC2229] text-white hover:bg-[#e0262d] border-0 shadow-lg shadow-[#CC2229]/25 text-base px-8 py-6"
-                  )}
+                  className="group flex items-center gap-4 bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-7 py-4 transition-colors"
                 >
-                  Request a Quote
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <span className="label-mono">Request a Quote</span>
+                  <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
                 <a
                   href="tel:770-834-2158"
-                  className={cn(
-                    buttonVariants({ variant: "outline", size: "lg" }),
-                    "border-2 border-white text-white !bg-transparent hover:!bg-white/10 backdrop-blur-sm text-base px-8 py-6"
-                  )}
+                  className="flex items-center gap-3 border border-[#1F2D40] hover:border-[#C9C2B0] text-[#F2EEE5] px-7 py-4 transition-colors"
                 >
-                  <Phone className="mr-2 h-5 w-5" />
-                  770-834-2158
+                  <Phone className="h-4 w-4 text-[#B8252F]" />
+                  <span className="label-mono">770.834.2158</span>
                 </a>
               </div>
             </div>
 
-            {/* Right side — key selling points */}
-            <div className="hidden lg:block">
-              <div className="space-y-5">
+            {/* hero photo slot — currently a typographic stamp, ready to receive real jobsite photo */}
+            <div className="lg:col-span-4 hidden lg:block">
+              <div className="relative aspect-[4/5] border border-[#1F2D40] bg-gradient-to-b from-[#0E1A2B] to-[#08111E] p-6 overflow-hidden">
+                <div className="absolute inset-0 blueprint-grid opacity-40" />
+                <div className="relative h-full flex flex-col justify-between">
+                  <div>
+                    <div className="label-mono text-[#B8252F] mb-1">/ Stamp</div>
+                    <div className="label-mono text-[#C9C2B0] text-[10px]">PHOTO·SLOT·HERO</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="display-serif text-7xl text-[#F2EEE5] leading-none">50</div>
+                    <div className="label-mono text-[#B8252F] mt-2">Years</div>
+                    <div className="label-mono text-[#C9C2B0] text-[10px] mt-1 opacity-60">
+                      In Service
+                    </div>
+                  </div>
+                  <div className="border-t border-[#1F2D40] pt-4">
+                    <div className="label-mono text-[#C9C2B0] text-[10px] flex justify-between">
+                      <span>EST.</span>
+                      <span>1974</span>
+                    </div>
+                    <div className="label-mono text-[#C9C2B0] text-[10px] flex justify-between mt-1 opacity-60">
+                      <span>REF.</span>
+                      <span>CIS-001</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* metric strip */}
+        <div className="relative border-t border-[#1F2D40]">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1F2D40]">
+              {metrics.map((m, i) => (
+                <div key={m.label} className="py-6 lg:py-8 px-4 lg:px-6 first:pl-0">
+                  <div className="label-mono text-[#B8252F] mb-3">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div className="display-serif text-4xl lg:text-5xl text-[#F2EEE5] leading-none">
+                    {m.value}
+                  </div>
+                  <div className="mt-3 text-sm font-medium text-[#F2EEE5]">{m.label}</div>
+                  <div className="label-mono text-[#C9C2B0] mt-1 opacity-60">{m.sub}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* certifications ticker */}
+        <div className="border-t border-[#1F2D40] bg-[#08111E]">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-2 label-mono text-[#C9C2B0]">
+              <span className="text-[#B8252F]">— Certifications</span>
+              {certifications.map((cert) => (
+                <span key={cert} className="flex items-center gap-2">
+                  <span className="w-1 h-1 bg-[#B8252F]" />
+                  {cert}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES — editorial numbered list */}
+      <section className="paper-texture py-24 lg:py-32 relative">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-8 mb-16 lg:mb-20">
+            <div className="lg:col-span-4">
+              <div className="label-mono text-[#B8252F] mb-4">— File 02 / Capabilities</div>
+              <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
+                What we
+                <br />
+                <span className="italic">do best.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-7 lg:col-start-6 lg:pt-4">
+              <p className="text-lg text-[#3A3D44] leading-relaxed font-light">
+                Five service lines, one operation. From wastewater treatment to hydro blasting,
+                Cowart handles industrial work end-to-end — with our own treatment plant, our own
+                fleet, and crews trained to do tough jobs without cutting corners.
+              </p>
+            </div>
+          </div>
+
+          {/* service rows */}
+          <div className="border-t border-[#C9C2B0]">
+            {services.map((service) => {
+              const Icon = service.icon
+              return (
+                <Link
+                  key={service.code}
+                  href={service.href}
+                  className="group block border-b border-[#C9C2B0] hover:bg-[#E8E2D3]/40 transition-colors"
+                >
+                  <div className="grid grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 items-start">
+                    <div className="col-span-2 lg:col-span-1">
+                      <div className="label-mono text-[#B8252F]">{service.code}</div>
+                    </div>
+                    <div className="col-span-10 lg:col-span-1">
+                      <div className="w-10 h-10 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
+                        <Icon className="h-4 w-4 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
+                      </div>
+                    </div>
+                    <div className="col-span-12 lg:col-span-5">
+                      <h3 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-tight group-hover:text-[#B8252F] transition-colors">
+                        {service.title}
+                      </h3>
+                      <div className="label-mono text-[#3A3D44] mt-2 opacity-70">
+                        {service.keywords}
+                      </div>
+                    </div>
+                    <div className="col-span-10 lg:col-span-4">
+                      <p className="text-[#3A3D44] leading-relaxed font-light">
+                        {service.description}
+                      </p>
+                    </div>
+                    <div className="col-span-2 lg:col-span-1 flex justify-end">
+                      <div className="w-10 h-10 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#B8252F] group-hover:border-[#B8252F] transition-colors">
+                        <ArrowUpRight className="h-4 w-4 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY COWART — letterpress two-column */}
+      <section className="bg-[#0E1A2B] text-[#F2EEE5] py-24 lg:py-32 relative overflow-hidden">
+        <div className="blueprint-grid absolute inset-0 opacity-40" />
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <div className="label-mono text-[#B8252F] mb-4">— File 03 / Trust</div>
+              <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95]">
+                Built on
+                <br />
+                <span className="italic text-[#C9C2B0]">fifty years</span>
+                <br />
+                of trust.
+              </h2>
+              <p className="mt-8 text-[#C9C2B0] leading-relaxed font-light">
+                Since 1974, Cowart Industrial Services has been the go-to partner for industrial
+                cleaning and waste management across the Southeast. Family-operated, safety-first,
+                and built to handle the work nobody else wants to take on.
+              </p>
+              <Link
+                href="/about"
+                className="group inline-flex items-center gap-3 mt-10 label-mono text-[#F2EEE5] hover:text-[#B8252F] transition-colors"
+              >
+                Read our story
+                <span className="w-8 h-px bg-[#F2EEE5] group-hover:bg-[#B8252F] group-hover:w-12 transition-all" />
+              </Link>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-2 border-t border-l border-[#1F2D40]">
                 {[
-                  "HAZWOPER certified technicians",
-                  "Confined space entry capable",
-                  "Own wastewater treatment plant",
-                  "Full fleet of vacuum & hydro trucks",
-                  "Emergency response available 24/7",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-4"
-                  >
-                    <CheckCircle2 className="h-5 w-5 text-[#CC2229] shrink-0" />
-                    <span className="text-blue-100 font-medium">{item}</span>
+                  {
+                    title: "Expertise",
+                    code: "01",
+                    desc: "Five decades of hands-on industrial experience across paper, food, and manufacturing.",
+                  },
+                  {
+                    title: "Responsiveness",
+                    code: "02",
+                    desc: "Round-the-clock emergency dispatch. On-site response anywhere in the Southeast.",
+                  },
+                  {
+                    title: "Safety",
+                    code: "03",
+                    desc: "HAZWOPER certified crews with full confined-space and respiratory protection.",
+                  },
+                  {
+                    title: "Flexibility",
+                    code: "04",
+                    desc: "Right-sized solutions for projects from single-truck cleanouts to multi-week jobs.",
+                  },
+                ].map((p) => (
+                  <div key={p.code} className="border-r border-b border-[#1F2D40] p-8 lg:p-10">
+                    <div className="label-mono text-[#B8252F] mb-4">{p.code}</div>
+                    <h3 className="display-serif text-2xl lg:text-3xl text-[#F2EEE5] mb-3">
+                      {p.title}
+                    </h3>
+                    <p className="text-sm text-[#C9C2B0] leading-relaxed font-light">{p.desc}</p>
                   </div>
                 ))}
               </div>
@@ -144,176 +327,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="relative z-10 -mt-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
-            {stats.map((stat) => (
-              <div key={stat.label} className="px-6 py-8 text-center">
-                <div className="text-3xl font-extrabold text-[#1A2857]">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-500 mt-1 font-medium">
-                  {stat.label}
+      {/* CTA — calm, structural */}
+      <section className="paper-texture py-20 lg:py-28 relative">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="border-t border-b border-[#0E1A2B]">
+            <div className="grid lg:grid-cols-12 gap-8 py-16 lg:py-20 items-center">
+              <div className="lg:col-span-7">
+                <div className="label-mono text-[#B8252F] mb-4">— File 04 / Contact</div>
+                <h2 className="display-serif text-4xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
+                  Got a job no one else
+                  <br />
+                  <span className="italic">will touch?</span>
+                </h2>
+                <p className="mt-6 text-[#3A3D44] text-lg font-light max-w-xl">
+                  Free consultation. 24-hour emergency response. Quote within one business day.
+                </p>
+              </div>
+              <div className="lg:col-span-5 lg:pl-8 lg:border-l lg:border-[#0E1A2B]">
+                <div className="space-y-4">
+                  <Link
+                    href="/contact"
+                    className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-5 transition-colors"
+                  >
+                    <span className="label-mono">Request a Quote</span>
+                    <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                  <a
+                    href="tel:770-834-2158"
+                    className="group flex items-center justify-between border border-[#0E1A2B] hover:bg-[#0E1A2B] hover:text-[#F2EEE5] text-[#0E1A2B] px-6 py-5 transition-colors"
+                  >
+                    <span className="label-mono flex items-center gap-3">
+                      <Phone className="h-4 w-4" />
+                      770.834.2158
+                    </span>
+                    <span className="label-mono opacity-60 group-hover:opacity-100">24/7</span>
+                  </a>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-24 pt-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-16">
-            <p className="text-[#CC2229] font-semibold text-sm uppercase tracking-widest mb-3">
-              What We Do
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1A2857] leading-tight">
-              Comprehensive Industrial Solutions
-            </h2>
-            <p className="mt-5 text-gray-500 text-lg leading-relaxed">
-              From wastewater treatment to hydro blasting, we handle the tough
-              jobs so you don&apos;t have to.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-[#CC2229]/20 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#1A2857] to-[#243470] mb-6">
-                  <service.icon className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-[#1A2857] group-hover:text-[#CC2229] transition-colors">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-gray-500 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-                <div className="mt-5 flex items-center text-[#CC2229] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Cowart */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-[#CC2229] font-semibold text-sm uppercase tracking-widest mb-3">
-                Why Cowart
-              </p>
-              <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1A2857] leading-tight">
-                Built on 50 Years of Trust
-              </h2>
-              <p className="mt-5 text-gray-500 text-lg leading-relaxed">
-                Since 1974, Cowart Industrial Services has been the go-to
-                partner for industrial cleaning and waste management across the
-                Southeast. We combine decades of expertise with modern equipment
-                and an unwavering commitment to safety.
-              </p>
-              <Link
-                href="/about"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "mt-8 border-[#1A2857] text-[#1A2857] hover:bg-[#1A2857] hover:text-white text-base"
-                )}
-              >
-                About Our Company
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {[
-                {
-                  icon: Award,
-                  title: "Expertise",
-                  desc: "50+ years of hands-on industrial experience across the Southeast.",
-                },
-                {
-                  icon: Clock,
-                  title: "Responsiveness",
-                  desc: "24/7 emergency service. We're there when you need us most.",
-                },
-                {
-                  icon: Shield,
-                  title: "Safety First",
-                  desc: "HAZWOPER certified with full confined space entry capabilities.",
-                },
-                {
-                  icon: Factory,
-                  title: "Flexibility",
-                  desc: "Tailored solutions for any project size — big or small.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-[#CC2229]/10 flex items-center justify-center mb-4">
-                    <item.icon className="h-5 w-5 text-[#CC2229]" />
-                  </div>
-                  <h3 className="font-bold text-[#1A2857] text-lg">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-gray-500 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="relative bg-gradient-to-br from-[#0f1b3d] via-[#1A2857] to-[#243470] text-white py-24 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#CC2229]/10 blur-[100px]" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-            Ready to Get <span className="text-[#CC2229]">Started?</span>
-          </h2>
-          <p className="mt-6 text-blue-200/80 text-lg max-w-xl mx-auto leading-relaxed">
-            Contact us today for a free consultation. We provide 24-hour
-            emergency service for urgent needs.
-          </p>
-          <div className="mt-10 flex justify-center gap-4 flex-wrap">
-            <Link
-              href="/contact"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "bg-[#CC2229] text-white hover:bg-[#e0262d] border-0 shadow-lg shadow-[#CC2229]/25 text-base px-8 py-6"
-              )}
-            >
-              Contact Us
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <a
-              href="tel:770-834-2158"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "border-2 border-white text-white !bg-transparent hover:!bg-white/10 backdrop-blur-sm text-base px-8 py-6"
-              )}
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              Call Now
-            </a>
           </div>
         </div>
       </section>

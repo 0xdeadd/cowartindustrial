@@ -1,7 +1,21 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { ArrowUpRight, RotateCcw, AlertTriangle } from "lucide-react"
+
+const inputBase =
+  "w-full bg-transparent border-b border-[#0E1A2B] focus:border-[#B8252F] focus:outline-none px-0 py-3 text-[#0E1A2B] placeholder:text-[#3A3D44] placeholder:opacity-50 transition-colors text-base"
+
+const labelBase = "label-mono text-[#3A3D44] mb-2 flex items-center gap-2"
+
+const services = [
+  "Waste Water Management",
+  "Industrial Cleaning",
+  "Hydro Blasting",
+  "Vacuum Trucks & Roll Offs",
+  "On-Site Filtration",
+  "Other",
+]
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
@@ -30,108 +44,153 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-muted p-8 rounded-lg text-center">
-        <h3 className="text-xl font-semibold">Message Sent</h3>
-        <p className="text-muted-foreground mt-2">
-          Thank you for contacting us. We&apos;ll get back to you as soon as possible.
+      <div className="border border-[#0E1A2B] bg-[#E8E2D3]/40 p-10">
+        <div className="label-mono text-[#B8252F] mb-4">— Form 01 / Submitted</div>
+        <h3 className="display-serif text-3xl text-[#0E1A2B] leading-tight mb-3">
+          Message received.
+        </h3>
+        <p className="text-[#3A3D44] leading-relaxed font-light mb-8 max-w-md">
+          Thanks for reaching out. We&apos;ll respond within one business day. For urgent needs,
+          call <a href="tel:770-834-2158" className="text-[#B8252F] underline">770.834.2158</a>.
         </p>
-        <Button className="mt-4" onClick={() => setStatus("idle")}>
+        <button
+          onClick={() => setStatus("idle")}
+          className="group flex items-center gap-3 label-mono text-[#0E1A2B] hover:text-[#B8252F] transition-colors"
+        >
+          <RotateCcw className="h-3.5 w-3.5" />
           Send Another Message
-        </Button>
+        </button>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit} className="space-y-8">
+      {status === "error" && (
+        <div className="border border-[#B8252F] bg-[#B8252F]/10 px-4 py-3 flex items-center gap-3">
+          <AlertTriangle className="h-4 w-4 text-[#B8252F] shrink-0" />
+          <span className="text-sm text-[#0E1A2B]">
+            Something went wrong. Please call{" "}
+            <a href="tel:770-834-2158" className="underline">
+              770.834.2158
+            </a>{" "}
+            or try again.
+          </span>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-1.5">
-            Name *
+          <label htmlFor="name" className={labelBase}>
+            <span className="text-[#B8252F]">01</span>
+            <span>Name</span>
+            <span className="text-[#B8252F] opacity-70">*</span>
           </label>
           <input
             type="text"
             id="name"
             name="name"
             required
-            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            placeholder="Jane Smith"
+            className={inputBase}
           />
         </div>
         <div>
-          <label htmlFor="company" className="block text-sm font-medium mb-1.5">
-            Company
+          <label htmlFor="company" className={labelBase}>
+            <span className="text-[#B8252F]">02</span>
+            <span>Company</span>
           </label>
           <input
             type="text"
             id="company"
             name="company"
-            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            placeholder="Acme Manufacturing"
+            className={inputBase}
           />
         </div>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-1.5">
-            Email *
+          <label htmlFor="email" className={labelBase}>
+            <span className="text-[#B8252F]">03</span>
+            <span>Email</span>
+            <span className="text-[#B8252F] opacity-70">*</span>
           </label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            placeholder="jane@acme.com"
+            className={inputBase}
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium mb-1.5">
-            Phone
+          <label htmlFor="phone" className={labelBase}>
+            <span className="text-[#B8252F]">04</span>
+            <span>Phone</span>
           </label>
           <input
             type="tel"
             id="phone"
             name="phone"
-            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            placeholder="(770) 555-0100"
+            className={inputBase}
           />
         </div>
       </div>
+
       <div>
-        <label htmlFor="service" className="block text-sm font-medium mb-1.5">
-          Service Interested In
+        <label htmlFor="service" className={labelBase}>
+          <span className="text-[#B8252F]">05</span>
+          <span>Service Interested In</span>
         </label>
         <select
           id="service"
           name="service"
-          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          defaultValue=""
+          className={inputBase + " appearance-none cursor-pointer"}
         >
-          <option value="">Select a service...</option>
-          <option value="waste-water">Waste Water Management</option>
-          <option value="industrial-cleaning">Industrial Cleaning</option>
-          <option value="hydro-blasting">Hydro Blasting</option>
-          <option value="vacuum-trucks">Vacuum Trucks & Roll Offs</option>
-          <option value="filtration">On-Site Filtration</option>
-          <option value="other">Other</option>
+          <option value="" disabled>
+            Select a service
+          </option>
+          {services.map((s) => (
+            <option key={s} value={s}>
+              {s}
+            </option>
+          ))}
         </select>
       </div>
+
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-1.5">
-          Message *
+        <label htmlFor="message" className={labelBase}>
+          <span className="text-[#B8252F]">06</span>
+          <span>Project Details</span>
+          <span className="text-[#B8252F] opacity-70">*</span>
         </label>
         <textarea
           id="message"
           name="message"
           required
           rows={5}
-          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-none"
+          placeholder="Tell us about the job — facility type, scope, timing, anything urgent…"
+          className={inputBase + " resize-none"}
         />
       </div>
-      {status === "error" && (
-        <p className="text-sm text-destructive">
-          Something went wrong. Please try again or call us directly.
-        </p>
-      )}
-      <Button type="submit" disabled={status === "loading"} className="w-full sm:w-auto">
-        {status === "loading" ? "Sending..." : "Send Message"}
-      </Button>
+
+      <div className="pt-6 border-t border-[#0E1A2B]">
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="group w-full md:w-auto flex items-center justify-between gap-12 bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-8 py-5 transition-colors disabled:opacity-60"
+        >
+          <span className="label-mono">
+            {status === "loading" ? "Sending…" : "Send Message"}
+          </span>
+          <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        </button>
+        <div className="mt-4 label-mono text-[#3A3D44] opacity-60">
+          We respond within 1 business day · 24-hr emergency: 770.834.2158
+        </div>
+      </div>
     </form>
   )
 }

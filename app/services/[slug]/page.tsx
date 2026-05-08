@@ -1,20 +1,39 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/lib/button-variants"
-import { Phone } from "lucide-react"
+import {
+  Phone,
+  Droplets,
+  Factory,
+  Waves,
+  Truck,
+  Filter,
+  ArrowUpRight,
+  ArrowLeft,
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
-const serviceData: Record<
-  string,
-  { title: string; description: string; content: string[]; capabilities: string[] }
-> = {
+type ServiceEntry = {
+  code: string
+  title: string
+  description: string
+  intro: string
+  content: string[]
+  capabilities: string[]
+  keywords: string
+  icon: LucideIcon
+}
+
+const serviceData: Record<string, ServiceEntry> = {
   "waste-water-management": {
+    code: "S—01",
     title: "Waste Water Management",
     description:
-      "Comprehensive liquid waste management solutions for industrial facilities across the Southeast.",
+      "Comprehensive liquid waste management for industrial facilities across the Southeast.",
+    intro:
+      "Cowart operates its own non-hazardous wastewater treatment plant — meaning your liquid waste is processed end-to-end without subcontractor handoffs.",
     content: [
-      "Cowart Industrial Services provides complete wastewater management solutions, including on-site sludge solidification and wastewater treatment. We operate our own treatment plant, giving us the capability to process and properly dispose of a wide range of non-hazardous liquid wastes.",
+      "Cowart Industrial Services provides complete wastewater management, including on-site sludge solidification and wastewater treatment. We operate our own treatment plant, giving us the capability to process and properly dispose of a wide range of non-hazardous liquid wastes.",
       "Our team handles everything from routine wastewater pickup and disposal to complex on-site treatment projects. We work with manufacturing facilities, processing plants, and other industrial operations to ensure their wastewater is managed safely, efficiently, and in full regulatory compliance.",
       "Whether you need scheduled service or emergency response, our experienced technicians and specialized equipment are ready to handle your wastewater management needs.",
     ],
@@ -26,11 +45,16 @@ const serviceData: Record<
       "Regulatory compliance management",
       "Liquid waste transportation",
     ],
+    keywords: "Sludge · Treatment · Solidification",
+    icon: Droplets,
   },
   "industrial-cleaning": {
+    code: "S—02",
     title: "Industrial Cleaning",
     description:
-      "Professional industrial cleaning services using vacuuming, pressure washing, and chemical methods.",
+      "Professional industrial cleaning using vacuuming, pressure washing, and chemical methods.",
+    intro:
+      "Routine maintenance through major turnaround projects — handled by HAZWOPER-certified crews with full confined-space credentials.",
     content: [
       "Our industrial cleaning services address the buildup of non-hazardous materials in industrial facilities. Using a combination of vacuuming, pressure washing, and chemical cleaning methods, we restore equipment and facilities to optimal operating condition.",
       "Cowart Industrial's trained personnel are capable of confined space entry, UST and AST entry and cleaning, and other specialized cleaning operations. All team members hold 40-hour HAZWOPER certification, ensuring safe and compliant operations.",
@@ -44,11 +68,16 @@ const serviceData: Record<
       "UST and AST entry and cleaning",
       "Tank cleaning and decommissioning",
     ],
+    keywords: "Vacuuming · Pressure · Chemical",
+    icon: Factory,
   },
   "hydro-blasting": {
+    code: "S—03",
     title: "Hydro Blasting",
     description:
-      "High-pressure water cleaning for efficient removal of scale, coatings, and industrial buildup.",
+      "Ultra-high-pressure water cleaning for scale, coatings, and stubborn industrial buildup.",
+    intro:
+      "Water-only material removal at 10,000–40,000 PSI. No chemicals, no secondary waste, no surface damage when done by trained operators.",
     content: [
       "Hydro blasting uses ultra-high-pressure water to remove scale, rust, old coatings, and other stubborn materials from industrial surfaces. This method is highly efficient and often preferred over traditional cleaning methods because it requires no chemicals and produces no secondary waste.",
       "Our hydro blasting services are ideal for heat exchangers, boilers, piping systems, tanks, and other industrial equipment. The precision of water pressure allows us to clean effectively without damaging the underlying surface.",
@@ -62,11 +91,16 @@ const serviceData: Record<
       "Pipe and line cleaning",
       "Tank and vessel cleaning",
     ],
+    keywords: "10K—40K PSI · Surface Prep",
+    icon: Waves,
   },
   "vacuum-trucks": {
+    code: "S—04",
     title: "Vacuum Trucks & Roll Offs",
     description:
-      "Pneumatic conveyance equipment and air movers for efficient material transport and disposal.",
+      "Pneumatic conveyance equipment, air movers, and roll-off containers for material transport.",
+    intro:
+      "Cowart's full fleet handles dry bulk, liquids, sludge, and waste in a single dispatch — with proper containment, transport, and disposal end-to-end.",
     content: [
       "Our fleet of vacuum trucks and air movers provides pneumatic conveyance for a wide range of industrial materials. Whether you need to move dry bulk materials, liquids, or sludge, our equipment is up to the task.",
       "We also provide roll-off container service for industrial waste collection and disposal. Our containers are available in multiple sizes to match your project requirements, and our team handles delivery, pickup, and proper disposal.",
@@ -80,11 +114,16 @@ const serviceData: Record<
       "Dry and wet material transport",
       "Industrial waste disposal",
     ],
+    keywords: "Pneumatic · Roll-Off · Transport",
+    icon: Truck,
   },
   "on-site-filtration": {
+    code: "S—05",
     title: "On-Site Filtration",
     description:
-      "Mobile water filtration services with comprehensive testing and monitoring at your facility.",
+      "Mobile water filtration with comprehensive testing and monitoring at your facility.",
+    intro:
+      "Treat water where it's generated. Lower transport costs, less downtime, full compliance documentation included with every job.",
     content: [
       "Cowart Industrial brings filtration directly to your facility with our mobile on-site filtration services. By treating water on-site, we reduce transportation costs, minimize downtime, and provide a more efficient solution for your water treatment needs.",
       "Our filtration services include comprehensive water testing and monitoring throughout the treatment process. We work with you to ensure the treated water meets all applicable standards and specifications before discharge or reuse.",
@@ -98,11 +137,15 @@ const serviceData: Record<
       "Custom filtration solutions",
       "Compliance documentation",
     ],
+    keywords: "Mobile · Testing · Compliance",
+    icon: Filter,
   },
 }
 
+const allSlugs = Object.keys(serviceData)
+
 export async function generateStaticParams() {
-  return Object.keys(serviceData).map((slug) => ({ slug }))
+  return allSlugs.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -128,76 +171,198 @@ export default async function ServicePage({
   const service = serviceData[slug]
   if (!service) notFound()
 
+  const Icon = service.icon
+  const otherServices = allSlugs
+    .filter((s) => s !== slug)
+    .map((s) => ({ slug: s, ...serviceData[s] }))
+
   return (
     <>
-      <section className="bg-[#32373c] text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm text-gray-400 mb-2">
-            <Link href="/services" className="hover:text-white">
-              Services
-            </Link>{" "}
-            / {service.title}
-          </p>
-          <h1 className="text-4xl sm:text-5xl font-bold">{service.title}</h1>
-          <p className="mt-4 text-xl text-gray-300 max-w-2xl">
-            {service.description}
-          </p>
-        </div>
-      </section>
+      {/* HERO */}
+      <section className="navy-grain text-[#F2EEE5] relative overflow-hidden">
+        <div className="blueprint-grid absolute inset-0" />
+        <div className="absolute top-6 left-6 w-6 h-6 border-l border-t border-[#B8252F]/60" />
+        <div className="absolute top-6 right-6 w-6 h-6 border-r border-t border-[#B8252F]/60" />
 
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-4 text-muted-foreground leading-relaxed">
-              {service.content.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-            </div>
-            <div>
-              <div className="bg-muted p-6 rounded-lg border border-border">
-                <h2 className="font-semibold text-lg mb-4">Capabilities</h2>
-                <ul className="space-y-2">
-                  {service.capabilities.map((cap) => (
-                    <li
-                      key={cap}
-                      className="flex items-start gap-2 text-sm text-muted-foreground"
-                    >
-                      <span className="text-foreground mt-0.5">&#10003;</span>
-                      {cap}
-                    </li>
-                  ))}
-                </ul>
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
+          <div className="flex items-center gap-6 mb-12 lg:mb-16">
+            <div className="label-mono text-[#B8252F]">— File 03 / {service.code}</div>
+            <div className="flex-1 h-px bg-[#1F2D40]" />
+            <Link
+              href="/services"
+              className="label-mono text-[#C9C2B0] hover:text-[#F2EEE5] flex items-center gap-2 transition-colors"
+            >
+              <ArrowLeft className="h-3 w-3" />
+              All Services
+            </Link>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+            <div className="lg:col-span-8">
+              <div className="label-mono text-[#C9C2B0] mb-6 flex items-center gap-3">
+                <span className="w-8 h-px bg-[#B8252F]" />
+                {service.keywords}
               </div>
-
-              <div className="mt-6 bg-[#32373c] text-white p-6 rounded-lg">
-                <h3 className="font-semibold text-lg mb-2">Need this service?</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  Contact us for a free quote or call for 24-hour emergency
-                  service.
-                </p>
-                <div className="space-y-3">
-                  <Link
-                    href="/contact"
-                    className={cn(
-                      buttonVariants(),
-                      "w-full bg-white text-[#32373c] hover:bg-gray-100"
-                    )}
-                  >
-                    Request a Quote
-                  </Link>
-                  <a
-                    href="tel:770-834-2158"
-                    className={cn(
-                      buttonVariants({ variant: "outline" }),
-                      "w-full border-white text-white hover:bg-white/10"
-                    )}
-                  >
-                    <Phone className="mr-2 h-4 w-4" />
-                    770-834-2158
-                  </a>
+              <h1 className="display-serif text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] font-medium">
+                {service.title}
+              </h1>
+              <p className="mt-8 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
+                {service.description}
+              </p>
+            </div>
+            <div className="lg:col-span-4 hidden lg:block">
+              <div className="border border-[#1F2D40] bg-gradient-to-b from-[#0E1A2B] to-[#08111E] aspect-square p-6 relative overflow-hidden">
+                <div className="absolute inset-0 blueprint-grid opacity-30" />
+                <div className="relative h-full flex flex-col justify-between">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <div className="label-mono text-[#B8252F] mb-1">/ Spec</div>
+                      <div className="label-mono text-[#C9C2B0] opacity-60 text-[10px]">
+                        PHOTO·SLOT·{service.code.replace("—", "")}
+                      </div>
+                    </div>
+                    <div className="border border-[#1F2D40] p-3">
+                      <Icon className="h-6 w-6 text-[#B8252F]" />
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="display-serif text-7xl text-[#F2EEE5] leading-none">
+                      {service.code.split("—")[1]}
+                    </div>
+                    <div className="label-mono text-[#B8252F] mt-2">{service.code.split("—")[0]}</div>
+                  </div>
+                  <div className="border-t border-[#1F2D40] pt-4">
+                    <div className="label-mono text-[#C9C2B0] text-[10px] flex justify-between">
+                      <span>Cowart</span>
+                      <span>Industrial</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OVERVIEW BODY */}
+      <section className="paper-texture py-24 lg:py-32 relative">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+            {/* Article column */}
+            <div className="lg:col-span-8">
+              <div className="label-mono text-[#B8252F] mb-4">— Overview</div>
+              <div className="display-serif text-2xl lg:text-3xl text-[#0E1A2B] leading-snug mb-10 pb-10 border-b border-[#C9C2B0]">
+                {service.intro}
+              </div>
+              <div className="space-y-6 text-[#3A3D44] text-lg leading-relaxed font-light">
+                {service.content.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <aside className="lg:col-span-4">
+              <div className="lg:sticky lg:top-32 space-y-8">
+                <div className="border-t border-[#0E1A2B]">
+                  <div className="py-4 border-b border-[#C9C2B0] flex items-center justify-between">
+                    <div className="label-mono text-[#B8252F]">— Capabilities</div>
+                    <div className="label-mono text-[#3A3D44]">
+                      {service.capabilities.length} items
+                    </div>
+                  </div>
+                  <ul className="divide-y divide-[#C9C2B0]">
+                    {service.capabilities.map((cap, i) => (
+                      <li
+                        key={cap}
+                        className="py-3 flex items-baseline gap-4 text-[#0E1A2B]"
+                      >
+                        <span className="label-mono text-[#B8252F] shrink-0">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-base">{cap}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Quote box */}
+                <div className="bg-[#0E1A2B] text-[#F2EEE5] p-6 lg:p-8 relative overflow-hidden">
+                  <div className="blueprint-grid absolute inset-0 opacity-30" />
+                  <div className="relative">
+                    <div className="label-mono text-[#B8252F] mb-3">— Get a Quote</div>
+                    <div className="display-serif text-2xl leading-tight mb-5">
+                      Need this service?
+                    </div>
+                    <p className="text-sm text-[#C9C2B0] leading-relaxed font-light mb-6">
+                      Free quote within one business day. 24-hour emergency dispatch.
+                    </p>
+                    <div className="space-y-3">
+                      <Link
+                        href="/contact"
+                        className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-5 py-4 transition-colors"
+                      >
+                        <span className="label-mono">Request Quote</span>
+                        <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </Link>
+                      <a
+                        href="tel:770-834-2158"
+                        className="group flex items-center justify-between border border-[#1F2D40] hover:border-[#C9C2B0] text-[#F2EEE5] px-5 py-4 transition-colors"
+                      >
+                        <span className="label-mono flex items-center gap-2">
+                          <Phone className="h-3.5 w-3.5 text-[#B8252F]" />
+                          770.834.2158
+                        </span>
+                        <span className="label-mono opacity-60">24/7</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* RELATED SERVICES */}
+      <section className="bg-[#0E1A2B] text-[#F2EEE5] py-20 lg:py-24 relative overflow-hidden">
+        <div className="blueprint-grid absolute inset-0 opacity-40" />
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="flex items-end justify-between mb-10 pb-6 border-b border-[#1F2D40]">
+            <div>
+              <div className="label-mono text-[#B8252F] mb-3">— Related</div>
+              <h2 className="display-serif text-3xl lg:text-4xl">
+                Other service lines
+              </h2>
+            </div>
+            <Link
+              href="/services"
+              className="label-mono text-[#C9C2B0] hover:text-[#F2EEE5] flex items-center gap-2 transition-colors"
+            >
+              All Services
+              <ArrowUpRight className="h-3 w-3" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#1F2D40]">
+            {otherServices.map((s) => {
+              const SIcon = s.icon
+              return (
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}`}
+                  className="group border-r border-b border-[#1F2D40] p-6 lg:p-8 hover:bg-[#1F2D40]/40 transition-colors"
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="label-mono text-[#B8252F]">{s.code}</div>
+                    <SIcon className="h-5 w-5 text-[#C9C2B0] group-hover:text-[#B8252F] transition-colors" />
+                  </div>
+                  <h3 className="display-serif text-2xl text-[#F2EEE5] leading-tight group-hover:text-[#B8252F] transition-colors">
+                    {s.title}
+                  </h3>
+                  <div className="mt-4 label-mono text-[#C9C2B0] opacity-60">{s.keywords}</div>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
