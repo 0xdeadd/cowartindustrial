@@ -82,7 +82,7 @@ export function Header() {
                 item.hasMegaPanel ? (
                   <div
                     key={item.name}
-                    className="h-full flex items-center"
+                    className="h-20 flex items-center"
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
                   >
