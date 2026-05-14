@@ -1,7 +1,10 @@
 import type { Metadata } from "next"
 import { IBM_Plex_Sans, IBM_Plex_Serif, IBM_Plex_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { localBusinessSchema, SITE_URL } from "@/lib/schema"
 import "./globals.css"
 
 const plexSans = IBM_Plex_Sans({
@@ -23,22 +26,52 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Cowart Industrial Services | Carrollton, GA",
     template: "%s | Cowart Industrial Services",
   },
   description:
-    "Full service non-hazardous waste management and industrial services since 1974. Serving the Southeastern United States from Carrollton, GA.",
+    "Environmental services and industrial cleaning across the Southeast since 1974. Waste disposal, hydro blasting, vacuum trucks, frac tanks, and on-site treatment — Carrollton, GA.",
   keywords: [
-    "industrial services",
-    "waste water management",
-    "hydro blasting",
+    "environmental services",
     "industrial cleaning",
-    "vacuum trucks",
+    "waste disposal",
+    "waste transport",
+    "hydro blasting",
+    "40000 psi hydro blasting",
+    "vacuum truck service",
+    "liquid vacuum service",
+    "air mover vacuum",
+    "vacuum box service",
+    "roll off service",
+    "frac tank rental",
+    "chemical cleaning",
+    "line jetting",
+    "pipe cleaning",
+    "line flushing",
+    "decontamination",
     "on-site filtration",
-    "Carrollton GA",
+    "wastewater management",
     "non-hazardous waste",
+    "Carrollton GA",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Cowart Industrial Services",
+    locale: "en_US",
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -52,9 +85,17 @@ export default function RootLayout({
       className={`${plexSans.variable} ${plexSerif.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema()),
+          }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

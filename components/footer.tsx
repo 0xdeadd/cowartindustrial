@@ -1,13 +1,10 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react"
-
-const services = [
-  { name: "Waste Water Management", href: "/services/waste-water-management" },
-  { name: "Industrial Cleaning", href: "/services/industrial-cleaning" },
-  { name: "Hydro Blasting", href: "/services/hydro-blasting" },
-  { name: "Vacuum Trucks & Roll Offs", href: "/services/vacuum-trucks" },
-  { name: "On-Site Filtration", href: "/services/on-site-filtration" },
-]
+import {
+  categories,
+  allCategoryIds,
+  getServicesByCategory,
+} from "@/lib/services"
 
 const company = [
   { name: "About", href: "/about" },
@@ -26,6 +23,14 @@ const certifications = [
 ]
 
 export function Footer() {
+  // Balance 4 categories across 2 columns:
+  //   Column A: waste-management + on-site-treatment
+  //   Column B: vacuum-containment + industrial-cleaning
+  const footerColumns: Array<typeof allCategoryIds> = [
+    ["waste-management", "on-site-treatment"],
+    ["vacuum-containment", "industrial-cleaning"],
+  ]
+
   return (
     <footer className="bg-[#08111E] text-[#C9C2B0] mt-auto relative overflow-hidden">
       <div className="blueprint-grid absolute inset-0 opacity-30" />
@@ -49,7 +54,7 @@ export function Footer() {
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Brand block */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <div className="label-mono text-[#B8252F] mb-4">— Index 01</div>
             <h2 className="display-serif text-4xl lg:text-5xl text-[#F2EEE5] leading-[0.95] mb-6">
               Cowart
@@ -57,8 +62,8 @@ export function Footer() {
               <span className="italic text-[#C9C2B0]">Industrial</span>
             </h2>
             <p className="text-sm text-[#C9C2B0] leading-relaxed font-light max-w-md">
-              Full-service, non-hazardous waste management and industrial cleaning across the
-              Southeastern United States. Family-operated since 1974.
+              Environmental services and industrial cleaning across the Southeastern United
+              States. Family-operated since 1974.
             </p>
             <div className="mt-8 flex items-center gap-4">
               <div className="border border-[#1F2D40] px-3 py-2">
@@ -72,25 +77,41 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services */}
-          <div className="lg:col-span-3">
+          {/* Services — 2 sub-columns grouped by category */}
+          <div className="lg:col-span-4">
             <div className="label-mono text-[#B8252F] mb-4">— Index 02</div>
             <h3 className="label-mono text-[#F2EEE5] mb-5 pb-3 border-b border-[#1F2D40]">
               / Services
             </h3>
-            <ul className="space-y-2.5">
-              {services.map((s, i) => (
-                <li key={s.name}>
-                  <Link
-                    href={s.href}
-                    className="group flex items-center gap-2 text-sm text-[#C9C2B0] hover:text-[#F2EEE5] transition-colors"
-                  >
-                    <span className="label-mono opacity-40 w-6">{`0${i + 1}`}</span>
-                    <span className="flex-1">{s.name}</span>
-                  </Link>
-                </li>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6">
+              {footerColumns.map((column, ci) => (
+                <div key={ci} className="space-y-6">
+                  {column.map((catId) => {
+                    const cat = categories[catId]
+                    const catServices = getServicesByCategory(catId)
+                    return (
+                      <div key={cat.id}>
+                        <div className="label-mono text-[#B8252F] mb-2 opacity-80">
+                          {cat.shortTitle}
+                        </div>
+                        <ul className="space-y-1.5">
+                          {catServices.map((s) => (
+                            <li key={s.slug}>
+                              <Link
+                                href={`/services/${s.slug}`}
+                                className="text-sm text-[#C9C2B0] hover:text-[#F2EEE5] transition-colors"
+                              >
+                                {s.shortTitle || s.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )
+                  })}
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Company */}

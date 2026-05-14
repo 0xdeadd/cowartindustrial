@@ -1,67 +1,9 @@
 import Link from "next/link"
 import Image from "next/image"
-import {
-  Phone,
-  Droplets,
-  Factory,
-  Waves,
-  Truck,
-  Filter,
-  ArrowUpRight,
-} from "lucide-react"
+import { Phone, ArrowUpRight } from "lucide-react"
+import { getFeaturedServices } from "@/lib/services"
 
-const services = [
-  {
-    code: "S—01",
-    title: "Waste Water Management",
-    description:
-      "On-site sludge solidification and wastewater treatment with our own treatment plant.",
-    href: "/services/waste-water-management",
-    icon: Droplets,
-    keywords: "Sludge · Treatment · Solidification",
-    photo: "/photos/service-waste-water.jpg",
-  },
-  {
-    code: "S—02",
-    title: "Industrial Cleaning",
-    description:
-      "Removal of non-hazardous buildup using vacuuming, pressure washing, and chemical methods.",
-    href: "/services/industrial-cleaning",
-    icon: Factory,
-    keywords: "Vacuuming · Pressure Wash · Chemical",
-    photo: "/photos/service-industrial-cleaning.jpg",
-  },
-  {
-    code: "S—03",
-    title: "Hydro Blasting",
-    description:
-      "High-pressure water cleaning for efficient material removal in industrial settings.",
-    href: "/services/hydro-blasting",
-    icon: Waves,
-    keywords: "10K—40K PSI · Surface Prep",
-    photo: "/photos/service-hydro-blasting.jpg",
-  },
-  {
-    code: "S—04",
-    title: "Vacuum Trucks & Roll Offs",
-    description:
-      "Pneumatic conveyance equipment for efficient material transport and disposal.",
-    href: "/services/vacuum-trucks",
-    icon: Truck,
-    keywords: "Pneumatic · Transport · Disposal",
-    photo: "/photos/service-vacuum-trucks.jpg",
-  },
-  {
-    code: "S—05",
-    title: "On-Site Filtration",
-    description:
-      "Water filtration services with comprehensive testing and monitoring.",
-    href: "/services/on-site-filtration",
-    icon: Filter,
-    keywords: "Testing · Monitoring · Compliance",
-    photo: undefined as string | undefined,
-  },
-]
+const services = getFeaturedServices()
 
 const metrics = [
   { value: "50+", label: "Years Operating", sub: "Est. 1974" },
@@ -157,7 +99,7 @@ export default function HomePage() {
             <div className="lg:col-span-8 xl:col-span-7">
               <div className="label-mono text-[#C9C2B0] mb-6 flex items-center gap-3">
                 <span className="w-8 h-px bg-[#B8252F]" />
-                Industrial Services · Southeast US · Since 1974
+                Environmental Services · Southeast US · Since 1974
               </div>
               <h1
                 className="display-serif text-[clamp(2.75rem,7.5vw,6.5rem)] leading-[0.95] font-medium"
@@ -179,9 +121,10 @@ export default function HomePage() {
                     "0 1px 2px rgba(8,17,30,0.95), 0 2px 8px rgba(8,17,30,0.85), 0 0 1px rgba(8,17,30,1)",
                 }}
               >
-                Cowart Industrial Services has provided full-service, non-hazardous waste management
-                across the Southeastern United States for five decades. Wastewater, industrial
-                cleaning, hydro blasting, vacuum service — done right, done safely, on schedule.
+                Cowart Industrial Services has provided full-service environmental services and
+                non-hazardous waste management across the Southeast for five decades. Industrial
+                cleaning, hydro blasting, vacuum trucks, waste disposal, frac tanks, and on-site
+                treatment — done right, done safely, on schedule.
               </p>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">
@@ -277,9 +220,10 @@ export default function HomePage() {
             </div>
             <div className="lg:col-span-7 lg:col-start-6 lg:pt-4">
               <p className="text-lg text-[#3A3D44] leading-relaxed font-light">
-                Five service lines, one operation. From wastewater treatment to hydro blasting,
-                Cowart handles industrial work end-to-end — with our own treatment plant, our own
-                fleet, and crews trained to do tough jobs without cutting corners.
+                Four capability categories, one operation. Industrial cleaning, hydro blasting,
+                hydro excavating, vacuum service, waste disposal, frac tank storage, and on-site
+                treatment — end-to-end, with our own treatment plant, our own fleet, and crews
+                trained to do tough jobs without cutting corners.
               </p>
             </div>
           </div>
@@ -290,8 +234,8 @@ export default function HomePage() {
               const Icon = service.icon
               return (
                 <Link
-                  key={service.code}
-                  href={service.href}
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
                   className="group block border-b border-[#C9C2B0] hover:bg-[#E8E2D3]/40 transition-colors"
                 >
                   <div className="grid grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 items-start">

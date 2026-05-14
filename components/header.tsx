@@ -3,22 +3,17 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { Menu, X, Phone, Clock, MapPin } from "lucide-react"
+import { Menu, X, Phone, Clock, MapPin, ArrowUpRight } from "lucide-react"
+import {
+  services,
+  categories,
+  allCategoryIds,
+  getServicesByCategory,
+} from "@/lib/services"
 
 const navigation = [
   { name: "About", href: "/about", code: "01" },
-  {
-    name: "Services",
-    href: "/services",
-    code: "02",
-    children: [
-      { name: "Waste Water Management", href: "/services/waste-water-management" },
-      { name: "Industrial Cleaning", href: "/services/industrial-cleaning" },
-      { name: "Hydro Blasting", href: "/services/hydro-blasting" },
-      { name: "Vacuum Trucks & Roll Offs", href: "/services/vacuum-trucks" },
-      { name: "On-Site Filtration", href: "/services/on-site-filtration" },
-    ],
-  },
+  { name: "Services", href: "/services", code: "02", hasMegaPanel: true },
   { name: "FAQ", href: "/faq", code: "03" },
   { name: "Jobs", href: "/jobs", code: "04" },
   { name: "Forms", href: "/forms", code: "05" },
@@ -65,7 +60,7 @@ export function Header() {
 
       {/* Main bar */}
       <div className="bg-white border-b border-[#C9C2B0]">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative">
@@ -84,10 +79,9 @@ export function Header() {
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center">
               {navigation.map((item, i) =>
-                item.children ? (
+                item.hasMegaPanel ? (
                   <div
                     key={item.name}
-                    className="relative"
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
                   >
@@ -98,22 +92,6 @@ export function Header() {
                       <span className="label-mono opacity-50">{item.code}</span>
                       <span className="font-sans">{item.name}</span>
                     </Link>
-                    {servicesOpen && (
-                      <div className="absolute top-full left-0 w-72 bg-[#0E1A2B] border border-[#1F2D40] py-3 shadow-2xl">
-                        <div className="px-5 pb-2 mb-2 border-b border-[#1F2D40] label-mono text-[#B8252F]">
-                          / Services
-                        </div>
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.name}
-                            href={child.href}
-                            className="block px-5 py-2 text-sm text-[#C9C2B0] hover:text-[#F2EEE5] hover:bg-[#1F2D40] transition-colors"
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 ) : (
                   <Link
@@ -138,7 +116,6 @@ export function Header() {
               </Link>
             </div>
 
-            {/* Mobile menu button */}
             <button
               className="lg:hidden p-2 text-[#0E1A2B]"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -147,6 +124,62 @@ export function Header() {
               {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
+
+          {/* Services mega-panel — anchored to the main-bar container so it can't get clipped */}
+          {servicesOpen && (
+            <div
+              className="hidden lg:block absolute top-full left-6 lg:left-10 right-6 lg:right-10 z-40"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <div className="bg-[#0E1A2B] border border-[#1F2D40] shadow-2xl relative overflow-hidden">
+                <div className="blueprint-grid absolute inset-0 opacity-30 pointer-events-none" />
+                <div className="relative">
+                  <div className="px-6 py-4 border-b border-[#1F2D40] flex items-baseline justify-between">
+                    <div className="label-mono text-[#B8252F]">/ Service Lines</div>
+                    <div className="label-mono text-[#C9C2B0] opacity-60">
+                      {services.length} entries · {allCategoryIds.length} categories
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-4 divide-x divide-[#1F2D40]">
+                    {allCategoryIds.map((catId) => {
+                      const cat = categories[catId]
+                      const catServices = getServicesByCategory(catId)
+                      return (
+                        <div key={cat.id} className="px-5 py-5">
+                          <div className="label-mono text-[#B8252F] mb-3">
+                            {cat.code} / {cat.shortTitle}
+                          </div>
+                          <h3 className="display-serif text-[#F2EEE5] text-lg leading-tight mb-4">
+                            {cat.title}
+                          </h3>
+                          <ul className="space-y-1.5">
+                            {catServices.map((s) => (
+                              <li key={s.slug}>
+                                <Link
+                                  href={`/services/${s.slug}`}
+                                  className="block text-sm text-[#C9C2B0] hover:text-[#F2EEE5] transition-colors"
+                                >
+                                  {s.shortTitle || s.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <Link
+                    href="/services"
+                    className="group flex items-center justify-between px-6 py-4 border-t border-[#1F2D40] text-[#F2EEE5] hover:bg-[#1F2D40] transition-colors"
+                  >
+                    <span className="label-mono">View all services</span>
+                    <ArrowUpRight className="h-4 w-4 text-[#B8252F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -164,18 +197,29 @@ export function Header() {
                   <span className="label-mono text-[#B8252F]">{item.code}</span>
                   <span className="text-base">{item.name}</span>
                 </Link>
-                {item.children && (
-                  <div className="ml-8 my-2 space-y-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.name}
-                        href={child.href}
-                        className="block px-3 py-2 text-sm text-[#C9C2B0] hover:text-[#F2EEE5]"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        — {child.name}
-                      </Link>
-                    ))}
+                {item.hasMegaPanel && (
+                  <div className="ml-4 my-2 space-y-3">
+                    {allCategoryIds.map((catId) => {
+                      const cat = categories[catId]
+                      const catServices = getServicesByCategory(catId)
+                      return (
+                        <div key={cat.id} className="space-y-1">
+                          <div className="label-mono text-[#B8252F] px-3 pt-2 pb-1">
+                            {cat.code} / {cat.title}
+                          </div>
+                          {catServices.map((s) => (
+                            <Link
+                              key={s.slug}
+                              href={`/services/${s.slug}`}
+                              className="block px-3 py-1.5 text-sm text-[#C9C2B0] hover:text-[#F2EEE5]"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              — {s.shortTitle || s.title}
+                            </Link>
+                          ))}
+                        </div>
+                      )
+                    })}
                   </div>
                 )}
               </div>

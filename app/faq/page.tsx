@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight, Phone } from "lucide-react"
+import { faqSchema } from "@/lib/schema"
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -77,8 +78,15 @@ const sections = [
 
 export default function FAQPage() {
   let qIndex = 0
+  const allFaqs = sections.flatMap((s) => s.faqs)
+  const ld = faqSchema(allFaqs)
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+      />
+
       {/* HERO */}
       <section className="navy-grain text-[#F2EEE5] relative overflow-hidden">
         <div className="blueprint-grid absolute inset-0" />

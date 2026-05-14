@@ -1,73 +1,18 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ArrowUpRight, Phone } from "lucide-react"
 import {
-  Droplets,
-  Factory,
-  Waves,
-  Truck,
-  Filter,
-  ArrowUpRight,
-  Phone,
-} from "lucide-react"
+  services,
+  categories,
+  allCategoryIds,
+  getServicesByCategory,
+} from "@/lib/services"
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Comprehensive industrial and environmental services including waste water management, industrial cleaning, hydro blasting, vacuum trucks, and on-site filtration.",
+    "Industrial environmental services across the Southeast: waste disposal, hydro blasting up to 40,000 PSI, vacuum trucks, frac tanks, line jetting, chemical cleaning, and on-site treatment.",
 }
-
-const services = [
-  {
-    code: "S—01",
-    title: "Waste Water Management",
-    description:
-      "On-site sludge solidification and wastewater treatment. We operate our own treatment plant and provide comprehensive liquid waste management for industrial facilities.",
-    href: "/services/waste-water-management",
-    icon: Droplets,
-    keywords: "Sludge · Treatment · Solidification",
-    typical: "Manufacturing · Processing · Power",
-  },
-  {
-    code: "S—02",
-    title: "Industrial Cleaning",
-    description:
-      "Professional removal of non-hazardous buildup using vacuuming, pressure washing, and chemical cleaning methods. Routine maintenance through complex turnaround projects.",
-    href: "/services/industrial-cleaning",
-    icon: Factory,
-    keywords: "Vacuuming · Pressure · Chemical",
-    typical: "Plants · Tanks · Vessels",
-  },
-  {
-    code: "S—03",
-    title: "Hydro Blasting",
-    description:
-      "Ultra-high-pressure water cleaning for efficient removal of scale, rust, coatings, and stubborn industrial buildup. No chemicals, no secondary waste.",
-    href: "/services/hydro-blasting",
-    icon: Waves,
-    keywords: "10K—40K PSI · Surface Prep",
-    typical: "Heat Exchangers · Boilers · Lines",
-  },
-  {
-    code: "S—04",
-    title: "Vacuum Trucks & Roll Offs",
-    description:
-      "Pneumatic conveyance equipment, air movers, and roll-off containers for efficient material transport and disposal. Multiple container sizes, full delivery and pickup.",
-    href: "/services/vacuum-trucks",
-    icon: Truck,
-    keywords: "Pneumatic · Roll-Off · Transport",
-    typical: "Bulk · Liquid · Sludge",
-  },
-  {
-    code: "S—05",
-    title: "On-Site Filtration",
-    description:
-      "Mobile water filtration with comprehensive testing and monitoring at your facility. Reduces transportation costs and minimizes downtime.",
-    href: "/services/on-site-filtration",
-    icon: Filter,
-    keywords: "Mobile · Testing · Compliance",
-    typical: "Treatment · Reuse · Discharge",
-  },
-]
 
 export default function ServicesPage() {
   return (
@@ -82,7 +27,9 @@ export default function ServicesPage() {
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
             <div className="label-mono text-[#B8252F]">— File 03 / Services</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
-            <div className="label-mono text-[#C9C2B0]">5 Lines · 1 Operation</div>
+            <div className="label-mono text-[#C9C2B0]">
+              {services.length} Lines · {allCategoryIds.length} Categories
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-8 items-end">
@@ -92,24 +39,93 @@ export default function ServicesPage() {
                 Industrial &amp; Environmental Services
               </div>
               <h1 className="display-serif text-[clamp(2.5rem,6.5vw,5.25rem)] leading-[0.95] font-medium">
-                Five service
+                Every service
                 <br />
-                <span className="italic font-normal text-[#C9C2B0]">lines, end-to-end</span>
+                <span className="italic font-normal text-[#C9C2B0]">line, four categories</span>
                 <br />
                 under one roof.
               </h1>
               <p className="mt-10 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
-                Wastewater, industrial cleaning, hydro blasting, vacuum service, and on-site
-                filtration — handled by Cowart crews and Cowart equipment, with no subcontractor
-                handoffs.
+                Industrial cleaning, hydro blasting, hydro excavating, vacuum trucks, frac tanks,
+                waste disposal, line jetting, chemical cleaning, on-site treatment — Cowart crews
+                and Cowart equipment, with no subcontractor handoffs.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SERVICES DIRECTORY */}
-      <section className="paper-texture py-20 lg:py-28 relative">
+      {/* CATEGORY OVERVIEW */}
+      <section className="paper-texture py-16 lg:py-24 relative">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="flex items-end justify-between mb-10 pb-6 border-b border-[#C9C2B0]">
+            <div>
+              <div className="label-mono text-[#B8252F] mb-3">— Categories</div>
+              <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B]">
+                Four capability categories
+              </h2>
+            </div>
+            <div className="hidden md:block label-mono text-[#3A3D44]">
+              {allCategoryIds.length} categories
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-[#C9C2B0]">
+            {allCategoryIds.map((catId) => {
+              const cat = categories[catId]
+              const catServices = getServicesByCategory(catId)
+              const hubHref = catId === "waste-management" ? "/services/waste-management" : null
+              return (
+                <div
+                  key={cat.id}
+                  className="border-r border-b border-[#C9C2B0] p-8 lg:p-10"
+                >
+                  <div className="flex items-baseline justify-between mb-4">
+                    <div className="label-mono text-[#B8252F]">{cat.code}</div>
+                    <div className="label-mono text-[#3A3D44]">
+                      {catServices.length} services
+                    </div>
+                  </div>
+                  <h3 className="display-serif text-2xl lg:text-3xl text-[#0E1A2B] mb-3">
+                    {cat.title}
+                  </h3>
+                  <p className="text-[#3A3D44] leading-relaxed font-light mb-5">
+                    {cat.description}
+                  </p>
+                  {hubHref && (
+                    <Link
+                      href={hubHref}
+                      className="group inline-flex items-baseline gap-2 mb-5 label-mono text-[#0E1A2B] hover:text-[#B8252F] transition-colors"
+                    >
+                      <span>View {cat.shortTitle} overview</span>
+                      <ArrowUpRight className="h-3 w-3" />
+                    </Link>
+                  )}
+                  <ul className="space-y-1.5">
+                    {catServices.map((s) => (
+                      <li key={s.slug}>
+                        <Link
+                          href={`/services/${s.slug}`}
+                          className="group flex items-baseline gap-3 text-[#0E1A2B] hover:text-[#B8252F] transition-colors"
+                        >
+                          <span className="label-mono text-[#B8252F] shrink-0 w-12">
+                            {s.code}
+                          </span>
+                          <span className="text-sm group-hover:underline underline-offset-2">
+                            {s.shortTitle || s.title}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES DIRECTORY — grouped by category */}
+      <section className="paper-texture pt-8 pb-20 lg:pb-28 relative">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex items-end justify-between mb-12 lg:mb-16 border-b border-[#C9C2B0] pb-6">
             <div>
@@ -123,56 +139,72 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="border-t border-[#C9C2B0]">
-            {services.map((service) => {
-              const Icon = service.icon
-              return (
-                <Link
-                  key={service.code}
-                  href={service.href}
-                  className="group block border-b border-[#C9C2B0] hover:bg-[#E8E2D3]/40 transition-colors"
-                >
-                  <div className="grid grid-cols-12 gap-4 lg:gap-8 py-10 lg:py-12 items-start">
-                    <div className="col-span-2 lg:col-span-1">
-                      <div className="label-mono text-[#B8252F]">{service.code}</div>
-                    </div>
-                    <div className="col-span-10 lg:col-span-2">
-                      <div className="aspect-square max-w-[80px] border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
-                        <Icon className="h-7 w-7 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
-                      </div>
-                    </div>
-                    <div className="col-span-12 lg:col-span-5">
-                      <h3 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-tight group-hover:text-[#B8252F] transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="mt-4 text-[#3A3D44] leading-relaxed font-light">
-                        {service.description}
-                      </p>
-                      <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 label-mono text-[#3A3D44] opacity-70">
-                        <span>
-                          <span className="text-[#B8252F]">/</span> {service.keywords}
-                        </span>
-                        <span>
-                          <span className="text-[#B8252F]">~</span> {service.typical}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-span-10 lg:col-span-3 lg:col-start-10 lg:pt-2">
-                      <div className="label-mono text-[#3A3D44] mb-2">Read Spec</div>
-                      <div className="display-serif text-[#0E1A2B] group-hover:text-[#B8252F] transition-colors text-lg">
-                        Full capabilities &amp; equipment →
-                      </div>
-                    </div>
-                    <div className="col-span-2 lg:col-span-1 flex justify-end">
-                      <div className="w-10 h-10 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#B8252F] group-hover:border-[#B8252F] transition-colors">
-                        <ArrowUpRight className="h-4 w-4 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
-                      </div>
-                    </div>
+          {allCategoryIds.map((catId) => {
+            const cat = categories[catId]
+            const catServices = getServicesByCategory(catId)
+            return (
+              <div key={cat.id} className="mb-16 last:mb-0">
+                <div className="flex items-baseline gap-4 pb-4 mb-2 border-b border-[#0E1A2B]">
+                  <div className="label-mono text-[#B8252F]">{cat.code}</div>
+                  <h3 className="display-serif text-2xl lg:text-3xl text-[#0E1A2B]">
+                    {cat.title}
+                  </h3>
+                  <div className="flex-1 h-px bg-[#C9C2B0]" />
+                  <div className="label-mono text-[#3A3D44]">
+                    {catServices.length} lines
                   </div>
-                </Link>
-              )
-            })}
-          </div>
+                </div>
+
+                <div className="border-t border-[#C9C2B0]">
+                  {catServices.map((service) => {
+                    const Icon = service.icon
+                    return (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        className="group block border-b border-[#C9C2B0] hover:bg-[#E8E2D3]/40 transition-colors"
+                      >
+                        <div className="grid grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 items-start">
+                          <div className="col-span-2 lg:col-span-1">
+                            <div className="label-mono text-[#B8252F]">
+                              {service.code}
+                            </div>
+                          </div>
+                          <div className="col-span-10 lg:col-span-1">
+                            <div className="w-12 h-12 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
+                              <Icon className="h-5 w-5 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
+                            </div>
+                          </div>
+                          <div className="col-span-12 lg:col-span-6">
+                            <h4 className="display-serif text-2xl lg:text-3xl text-[#0E1A2B] leading-tight group-hover:text-[#B8252F] transition-colors">
+                              {service.title}
+                            </h4>
+                            <p className="mt-3 text-[#3A3D44] leading-relaxed font-light">
+                              {service.description}
+                            </p>
+                            <div className="mt-3 label-mono text-[#3A3D44] opacity-70">
+                              <span className="text-[#B8252F]">/</span> {service.keywords}
+                            </div>
+                          </div>
+                          <div className="col-span-10 lg:col-span-3 lg:pt-1">
+                            <div className="label-mono text-[#3A3D44] mb-2">Read Spec</div>
+                            <div className="display-serif text-[#0E1A2B] group-hover:text-[#B8252F] transition-colors text-base">
+                              Full capabilities &amp; equipment →
+                            </div>
+                          </div>
+                          <div className="col-span-2 lg:col-span-1 flex justify-end">
+                            <div className="w-10 h-10 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#B8252F] group-hover:border-[#B8252F] transition-colors">
+                              <ArrowUpRight className="h-4 w-4 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
 
