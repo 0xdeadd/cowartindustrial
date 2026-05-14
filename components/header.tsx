@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 import { Menu, X, Phone, Clock, MapPin, ArrowUpRight } from "lucide-react"
 import {
   services,
@@ -23,6 +24,12 @@ const navigation = [
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setServicesOpen(false)
+    setMobileOpen(false)
+  }, [pathname])
 
   return (
     <header className="sticky top-0 z-50">
