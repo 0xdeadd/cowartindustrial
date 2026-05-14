@@ -95,7 +95,7 @@ export function Header() {
                   >
                     <Link
                       href={item.href}
-                      className="flex items-center gap-2 px-5 py-2 text-sm font-medium text-[#14161A] hover:text-[#B8252F] transition-colors border-l border-[#C9C2B0]"
+                      className="flex items-center gap-2 px-5 py-2 text-sm font-medium text-[#14161A] hover:text-[#B8252F] transition-colors border-l border-r border-[#C9C2B0]"
                     >
                       <span className="label-mono opacity-50">{item.code}</span>
                       <span className="font-sans">{item.name}</span>
