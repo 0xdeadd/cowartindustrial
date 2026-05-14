@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowUpRight, Phone } from "lucide-react"
 import {
   services,
@@ -171,9 +172,22 @@ export default function ServicesPage() {
                             </div>
                           </div>
                           <div className="col-span-10 lg:col-span-1">
-                            <div className="w-12 h-12 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
-                              <Icon className="h-5 w-5 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
-                            </div>
+                            {service.photo ? (
+                              <div className="relative w-16 h-16 lg:w-20 lg:h-20 border border-[#0E1A2B] overflow-hidden">
+                                <Image
+                                  src={service.photo}
+                                  alt=""
+                                  fill
+                                  sizes="80px"
+                                  className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-[#0E1A2B]/0 group-hover:bg-[#B8252F]/30 transition-colors" />
+                              </div>
+                            ) : (
+                              <div className="w-16 h-16 lg:w-20 lg:h-20 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
+                                <Icon className="h-5 w-5 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
+                              </div>
+                            )}
                           </div>
                           <div className="col-span-12 lg:col-span-6">
                             <h4 className="display-serif text-2xl lg:text-3xl text-[#0E1A2B] leading-tight group-hover:text-[#B8252F] transition-colors">
