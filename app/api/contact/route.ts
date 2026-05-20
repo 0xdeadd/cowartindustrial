@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
 
-const FROM_ADDRESS = "Cowart Leads <leads@cowartind.com>"
+// Sends from the Resend-verified zanysparties.com domain (shared Resend
+// account; cowartind.com isn't verified there). Only Steve sees this internal
+// lead email, so the from-domain is immaterial. Switch to leads@cowartind.com
+// only if cowartind.com is ever verified in Resend.
+const FROM_ADDRESS = "Cowart Leads <leads@zanysparties.com>"
 
 function escapeHtml(value: string): string {
   return value
