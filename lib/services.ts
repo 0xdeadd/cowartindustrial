@@ -268,7 +268,7 @@ export const services: Service[] = [
     title: "Dump Trailer Service",
     shortTitle: "Dump Trailer",
     description:
-      "End-dump trailer service for high-volume bulk material across the Southeast — contaminated soil, dewatered sludge, ash, aggregates, and demolition debris hauled and tipped at permitted facilities.",
+      "End-dump trailer hauling for bulk material — contaminated soil, dewatered sludge, ash, aggregates, and demolition debris, tipped at permitted facilities.",
     intro:
       "End-dump trailers for loose bulk material — loaded on site, hauled under our DOT number, and tipped at the disposal facility. The right tool when the load is too loose for a roll-off and too solid for a tanker.",
     content: [
