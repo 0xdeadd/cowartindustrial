@@ -259,14 +259,49 @@ export const services: Service[] = [
     ],
     icon: Container,
     photo: "/photos/service-roll-off.jpg",
-    photoAlt: "Cowart roll-off trailers staged for delivery",
+    photoAlt: "Cowart roll-off truck hauling box CRB-060",
+  },
+  {
+    slug: "dump-trailer-service",
+    category: "waste-management",
+    code: "S—06",
+    title: "Dump Trailer Service",
+    shortTitle: "Dump Trailer",
+    description:
+      "End-dump trailer service for high-volume bulk material across the Southeast — contaminated soil, dewatered sludge, ash, aggregates, and demolition debris hauled and tipped at permitted facilities.",
+    intro:
+      "End-dump trailers for loose bulk material — loaded on site, hauled under our DOT number, and tipped at the disposal facility. The right tool when the load is too loose for a roll-off and too solid for a tanker.",
+    content: [
+      "Cowart Industrial provides dump trailer service for industrial sites moving high volumes of loose bulk material. Our end-dump trailers carry far more per load than a roll-off box and discharge by raising the front and tipping the load out the rear — efficient for material that flows: contaminated soil, dewatered sludge cake, industrial ash, sand, aggregates, grit, and demolition debris.",
+      "Dump trailers are the right call when the volume is too large for roll-off boxes and the material is too solid for a vacuum tanker. We load on site — by excavator, loader, conveyor, or directly from a dewatering operation — and haul the material to our own treatment plant or a permitted disposal facility. Multiple trailers can run in rotation to keep a loading operation moving without downtime.",
+      "Every load travels under Cowart's own DOT number with the manifests, scale tickets, and certificates of disposition your environmental department expects. Drivers carry HAZWOPER 40 and DOT Hazmat credentials. Scheduled hauling for ongoing projects and one-call dispatch for turnarounds and cleanouts run under the same paperwork standards, across our 8-state Southeastern footprint.",
+    ],
+    capabilities: [
+      "High-volume end-dump hauling",
+      "Contaminated soil and ash transport",
+      "Dewatered sludge cake haul-off",
+      "Aggregate and bulk material moves",
+      "On-site loading coordination",
+      "Manifests and disposition records",
+    ],
+    keywords: "End-Dump · Bulk · Tipping",
+    metaKeywords: [
+      "dump trailer service",
+      "end dump trailer",
+      "bulk material hauling",
+      "contaminated soil hauling",
+      "industrial dump trailer",
+    ],
+    icon: Truck,
+    photo: "/photos/service-dump-trailer.jpg",
+    photoAlt: "Cowart end-dump trailers staged in the fleet yard",
   },
 
   // ───────────────────────── VACUUM & CONTAINMENT ─────────────────────────
   {
     slug: "vacuum-trucks",
     category: "vacuum-containment",
-    code: "S—06",
+    code: "S—07",
     title: "Vacuum Truck Fleet",
     shortTitle: "Vacuum Trucks",
     description:
@@ -307,7 +342,7 @@ export const services: Service[] = [
   {
     slug: "liquid-vacuum-service",
     category: "vacuum-containment",
-    code: "S—07",
+    code: "S—08",
     title: "Liquid Vacuum Service",
     shortTitle: "Liquid Vacuum",
     description:
@@ -341,7 +376,7 @@ export const services: Service[] = [
   {
     slug: "air-mover-vacuum",
     category: "vacuum-containment",
-    code: "S—08",
+    code: "S—09",
     title: "High-Volume Air Mover Vacuum Service",
     shortTitle: "Air Mover",
     description:
@@ -375,7 +410,7 @@ export const services: Service[] = [
   {
     slug: "vacuum-box-service",
     category: "vacuum-containment",
-    code: "S—09",
+    code: "S—10",
     title: "Vacuum Box Service",
     shortTitle: "Vacuum Box",
     description:
@@ -409,7 +444,7 @@ export const services: Service[] = [
   {
     slug: "hydro-excavating",
     category: "vacuum-containment",
-    code: "S—10",
+    code: "S—11",
     title: "Hydro Excavating",
     shortTitle: "Hydro Excavating",
     description:
@@ -446,7 +481,7 @@ export const services: Service[] = [
   {
     slug: "frac-tank-rental",
     category: "vacuum-containment",
-    code: "S—11",
+    code: "S—12",
     title: "Portable Frac Tank Storage",
     shortTitle: "Frac Tank",
     description:
@@ -482,7 +517,7 @@ export const services: Service[] = [
   {
     slug: "industrial-cleaning",
     category: "industrial-cleaning",
-    code: "S—12",
+    code: "S—13",
     title: "Industrial Cleaning",
     shortTitle: "Industrial Cleaning",
     description:
@@ -518,7 +553,7 @@ export const services: Service[] = [
   {
     slug: "hydro-blasting",
     category: "industrial-cleaning",
-    code: "S—13",
+    code: "S—14",
     title: "Hydro Blasting up to 40,000 PSI",
     shortTitle: "Hydro Blasting",
     description:
@@ -554,7 +589,7 @@ export const services: Service[] = [
   {
     slug: "chemical-cleaning",
     category: "industrial-cleaning",
-    code: "S—14",
+    code: "S—15",
     title: "Chemical Cleaning",
     shortTitle: "Chemical Cleaning",
     description:
@@ -589,7 +624,7 @@ export const services: Service[] = [
   {
     slug: "line-jetting-pipe-cleaning",
     category: "industrial-cleaning",
-    code: "S—15",
+    code: "S—16",
     title: "Line Jetting & Pipe Cleaning",
     shortTitle: "Line Jetting",
     description:
@@ -625,7 +660,7 @@ export const services: Service[] = [
   {
     slug: "line-flushing-decontamination",
     category: "industrial-cleaning",
-    code: "S—16",
+    code: "S—17",
     title: "Line Flushing & Decontamination",
     shortTitle: "Line Flushing & Decon",
     description:
@@ -663,7 +698,7 @@ export const services: Service[] = [
   {
     slug: "on-site-filtration",
     category: "on-site-treatment",
-    code: "S—17",
+    code: "S—18",
     title: "On-Site Filtration",
     shortTitle: "On-Site Filtration",
     description:

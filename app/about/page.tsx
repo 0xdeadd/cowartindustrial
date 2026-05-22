@@ -45,19 +45,19 @@ const fieldWork = [
   {
     src: "/photos/gallery-hydroblast.jpg",
     label: "Hydro-Blasting",
-    code: "S—13",
+    code: "S—14",
     alt: "Cowart operator in PPE hydro-blasting an interior tank wall",
   },
   {
     src: "/photos/gallery-sludge-cleanout.jpg",
     label: "Confined-Space Cleanout",
-    code: "S—12",
+    code: "S—13",
     alt: "Technician in a full suit shoveling sludge inside a confined vessel",
   },
   {
     src: "/photos/gallery-vac-transfer.jpg",
     label: "Liquid Transfer",
-    code: "S—07",
+    code: "S—08",
     alt: "Cowart vacuum tanker transferring liquid to staged containers on-site",
   },
   {
