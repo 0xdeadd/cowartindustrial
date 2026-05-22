@@ -105,11 +105,6 @@ The site has an opinionated, cohesive look. Don't fight it.
 - **Resend is verified and sending.** The contact form delivers from `cowartind.com`.
 - **SEO is clean (100/100).** See `docs/seo-audit-notes.md` for what's checked and how to re-audit.
 
-## Known gaps / pending
-
-- **No real photos yet.** All service pages use the typographic-stamp placeholder. `public/` has `logo.jpg` plus a few service photos but most service slots are empty.
-- **Google Business Profile suspended** (per user's separate notes). Reinstatement is the #1 leverage move for local search visibility; bigger than the website for inbound leads.
-
 ## Deployment
 
 Vercel auto-deploy is **disabled** for this user's projects. Deploy with `vercel --prod` from CLI; push to git separately. (Both branches of the user's main project setup follow this pattern.)
