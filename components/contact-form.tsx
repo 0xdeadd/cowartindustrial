@@ -2,20 +2,12 @@
 
 import { useState } from "react"
 import { ArrowUpRight, RotateCcw, AlertTriangle } from "lucide-react"
+import { allCategoryIds, categories, getServicesByCategory } from "@/lib/services"
 
 const inputBase =
   "w-full bg-transparent border-b border-[#0E1A2B] focus:border-[#B8252F] focus:outline-none px-0 py-3 text-[#0E1A2B] placeholder:text-[#3A3D44] placeholder:opacity-50 transition-colors text-base"
 
 const labelBase = "label-mono text-[#3A3D44] mb-2 flex items-center gap-2"
-
-const services = [
-  "Waste Water Management",
-  "Industrial Cleaning",
-  "Hydro Blasting",
-  "Vacuum Trucks & Roll Offs",
-  "On-Site Filtration",
-  "Other",
-]
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
@@ -152,11 +144,16 @@ export function ContactForm() {
           <option value="" disabled>
             Select a service
           </option>
-          {services.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
+          {allCategoryIds.map((catId) => (
+            <optgroup key={catId} label={categories[catId].title}>
+              {getServicesByCategory(catId).map((s) => (
+                <option key={s.slug} value={s.title}>
+                  {s.title}
+                </option>
+              ))}
+            </optgroup>
           ))}
+          <option value="Other / Not sure">Other / Not sure</option>
         </select>
       </div>
 
