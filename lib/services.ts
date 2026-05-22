@@ -121,7 +121,7 @@ export const services: Service[] = [
     icon: Leaf,
     photo: "/photos/service-environmental.jpg",
     photoAlt:
-      "Cowart Industrial vacuum tanker fleet staged in the Carrollton, GA yard",
+      "Cowart-branded bulk storage tanks in a lined secondary-containment berm",
     featured: true,
   },
   {
