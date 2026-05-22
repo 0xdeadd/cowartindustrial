@@ -99,10 +99,14 @@ The site has an opinionated, cohesive look. Don't fight it.
 - Service detail hero stamp (`app/services/[slug]/page.tsx`) — set `photo` field on the service entry in `lib/services.ts`
 - Service row icon squares (homepage + services index) — small bordered squares ready for thumbnails
 
+## Launched (as of 2026-05-22)
+
+- **Live at `cowartind.com`.** DNS is pointed at Vercel — apex A `76.76.21.21`, `www` CNAME `cname.vercel-dns.com`. The GoDaddy flip in `docs/dns-launch-runbook.md` is done; that runbook is now historical.
+- **Resend is verified and sending.** The contact form delivers from `cowartind.com`.
+- **SEO is clean (100/100).** See `docs/seo-audit-notes.md` for what's checked and how to re-audit.
+
 ## Known gaps / pending
 
-- **DNS not pointed at Vercel yet.** Both `cowartind.com` and `www.cowartind.com` are added to the Vercel project, but DNS records at GoDaddy still need to be set (A `@ → 76.76.21.21`, CNAME `www → cname.vercel-dns.com`). Waiting on Steve. See `docs/dns-launch-runbook.md`.
-- **Resend domain verification pending.** Emails won't actually send until `cowartind.com` is verified in Resend (3 DNS records: SPF, DKIM, optional DMARC). Same GoDaddy gate. The contact form code is resilient — failures log and submissions land in Vercel logs.
 - **No real photos yet.** All service pages use the typographic-stamp placeholder. `public/` has `logo.jpg` plus a few service photos but most service slots are empty.
 - **Google Business Profile suspended** (per user's separate notes). Reinstatement is the #1 leverage move for local search visibility; bigger than the website for inbound leads.
 

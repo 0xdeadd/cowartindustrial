@@ -1,5 +1,9 @@
 # DNS launch runbook
 
+> ✅ **DONE (2026-05-22).** This was completed — `cowartind.com` is live on
+> Vercel (apex A `76.76.21.21`, `www` CNAME `cname.vercel-dns.com`) and Resend
+> is verified and sending. Kept for reference; nothing here is pending.
+
 What to do at GoDaddy when Steve is there. Plain-English steps.
 
 The site is fully built and deployed at `cowartindustrial.vercel.app`. Everything below is what's needed to flip it over to `cowartind.com` and turn email on.
