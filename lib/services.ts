@@ -728,7 +728,7 @@ export const services: Service[] = [
     icon: Filter,
     photo: "/photos/service-on-site-filtration.jpg",
     photoAlt:
-      "Bulk storage tanks inside a lined secondary-containment berm at an on-site treatment job",
+      "Cowart-branded bulk storage tanks inside a lined secondary-containment berm at an on-site treatment job",
   },
 ]
 
