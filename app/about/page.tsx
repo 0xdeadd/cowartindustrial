@@ -41,6 +41,45 @@ const capabilities = [
   { code: "C—08", label: "EPA RCRA Compliant" },
 ]
 
+const fieldWork = [
+  {
+    src: "/photos/gallery-hydroblast.jpg",
+    label: "Hydro-Blasting",
+    code: "S—13",
+    alt: "Cowart operator in PPE hydro-blasting an interior tank wall",
+  },
+  {
+    src: "/photos/gallery-sludge-cleanout.jpg",
+    label: "Confined-Space Cleanout",
+    code: "S—12",
+    alt: "Technician in a full suit shoveling sludge inside a confined vessel",
+  },
+  {
+    src: "/photos/gallery-vac-transfer.jpg",
+    label: "Liquid Transfer",
+    code: "S—07",
+    alt: "Cowart vacuum tanker transferring liquid to staged containers on-site",
+  },
+  {
+    src: "/photos/gallery-rolloff-haul.jpg",
+    label: "Roll-Off Transport",
+    code: "CRB—060",
+    alt: "Cowart roll-off truck hauling box CRB-060",
+  },
+  {
+    src: "/photos/gallery-rolloff-field.jpg",
+    label: "Roll-Off Box",
+    code: "CRB—080",
+    alt: "Cowart roll-off box CRB-080 staged at a jobsite",
+  },
+  {
+    src: "/photos/gallery-vacuum-box.jpg",
+    label: "Vacuum Box",
+    code: "CVB—120",
+    alt: "Cowart sealed vacuum box CVB-120 staged for loading",
+  },
+]
+
 const pillars = [
   {
     code: "01",
@@ -247,12 +286,62 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* FIELD WORK — jobsite gallery */}
+      <section className="paper-texture py-24 lg:py-32 relative">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
+            <div className="lg:col-span-5">
+              <div className="label-mono text-[#B8252F] mb-4">— File 02.3 / Field Work</div>
+              <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
+                On the
+                <br />
+                <span className="italic">job.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7 lg:pt-4">
+              <p className="text-lg text-[#3A3D44] leading-relaxed font-light">
+                Real crews, real equipment, real sites across the Southeast. Every truck and box
+                carries its own unit number — the same fleet that shows up when you call.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#C9C2B0]">
+            {fieldWork.map((shot) => (
+              <div
+                key={shot.src}
+                className="group border-r border-b border-[#C9C2B0] relative aspect-[4/3] overflow-hidden"
+              >
+                <Image
+                  src={shot.src}
+                  alt={shot.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(8,17,30,0) 55%, rgba(8,17,30,0.85) 100%)",
+                  }}
+                />
+                <div className="absolute inset-x-0 bottom-0 p-5 flex items-end justify-between">
+                  <div className="label-mono text-[#F2EEE5] text-[11px]">{shot.label}</div>
+                  <div className="label-mono text-[#B8252F] text-[11px]">{shot.code}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CAPABILITIES — editorial list */}
       <section className="paper-texture py-24 lg:py-32 relative">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
             <div className="lg:col-span-4">
-              <div className="label-mono text-[#B8252F] mb-4">— File 02.3 / Credentials</div>
+              <div className="label-mono text-[#B8252F] mb-4">— File 02.4 / Credentials</div>
               <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
                 Certifications
                 <br />
@@ -291,7 +380,7 @@ export default function AboutPage() {
           <div className="border-t border-b border-[#0E1A2B]">
             <div className="grid lg:grid-cols-12 gap-8 py-16 lg:py-20 items-center">
               <div className="lg:col-span-7">
-                <div className="label-mono text-[#B8252F] mb-4">— File 02.4 / Next</div>
+                <div className="label-mono text-[#B8252F] mb-4">— File 02.5 / Next</div>
                 <h2 className="display-serif text-4xl lg:text-5xl leading-[0.95] text-[#0E1A2B]">
                   Ready to put us to
                   <br />

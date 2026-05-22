@@ -119,6 +119,9 @@ export const services: Service[] = [
       "environmental services southeast",
     ],
     icon: Leaf,
+    photo: "/photos/service-environmental.jpg",
+    photoAlt:
+      "Cowart Industrial vacuum tanker fleet staged in the Carrollton, GA yard",
     featured: true,
   },
   {
@@ -187,6 +190,8 @@ export const services: Service[] = [
       "liquid waste disposal",
     ],
     icon: Trash2,
+    photo: "/photos/service-waste-disposal.jpg",
+    photoAlt: "Cowart 20-yard roll-off box staged for solid waste disposal",
   },
   {
     slug: "waste-transport",
@@ -434,6 +439,9 @@ export const services: Service[] = [
       "potholing service",
     ],
     icon: Shovel,
+    photo: "/photos/service-hydro-excavating.jpg",
+    photoAlt:
+      "Cowart hydrovac unit — Kenworth tractor with Knight/Huber vacuum excavation system",
   },
   {
     slug: "frac-tank-rental",
@@ -574,6 +582,9 @@ export const services: Service[] = [
       "heat exchanger chemical cleaning",
     ],
     icon: FlaskConical,
+    photo: "/photos/service-chemical-cleaning.jpg",
+    photoAlt:
+      "Cowart crew in PPE performing confined-space chemical cleaning inside a process vessel",
   },
   {
     slug: "line-jetting-pipe-cleaning",
@@ -607,6 +618,9 @@ export const services: Service[] = [
       "industrial pipe cleaning",
     ],
     icon: Wrench,
+    photo: "/photos/service-line-jetting.jpg",
+    photoAlt:
+      "Vacuum hoses rigged to a confined-space manway with gas monitor for line cleaning",
   },
   {
     slug: "line-flushing-decontamination",
@@ -640,6 +654,9 @@ export const services: Service[] = [
       "industrial decontamination",
     ],
     icon: SprayCan,
+    photo: "/photos/service-line-flushing.jpg",
+    photoAlt:
+      "Cowart crew in Tyvek suits at a permit-required confined-space decontamination job",
   },
 
   // ────────────────────────── ON-SITE TREATMENT ───────────────────────────
@@ -674,6 +691,9 @@ export const services: Service[] = [
       "industrial water filtration",
     ],
     icon: Filter,
+    photo: "/photos/service-on-site-filtration.jpg",
+    photoAlt:
+      "Bulk storage tanks inside a lined secondary-containment berm at an on-site treatment job",
   },
 ]
 
