@@ -108,7 +108,7 @@ export default async function ServicePage({
                 {service.description}
               </p>
             </div>
-            <div className="lg:col-span-4 hidden lg:block">
+            <div className="lg:col-span-4">
               <div className="border border-[#1F2D40] bg-gradient-to-b from-[#0E1A2B] to-[#08111E] aspect-square relative overflow-hidden">
                 {service.photo ? (
                   <>
@@ -116,7 +116,7 @@ export default async function ServicePage({
                       src={service.photo}
                       alt={service.photoAlt || service.title}
                       fill
-                      sizes="(max-width: 1024px) 0vw, 35vw"
+                      sizes="(max-width: 1024px) 100vw, 35vw"
                       className="object-cover"
                     />
                     <div
