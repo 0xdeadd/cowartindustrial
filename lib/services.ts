@@ -294,8 +294,8 @@ export const services: Service[] = [
       "vacuum truck southeast",
     ],
     icon: Truck,
-    photo: "/photos/service-vacuum-trucks-guzzler.jpg",
-    photoAlt: "Cowart Guzzler vacuum truck — Kenworth tractor with high-volume pneumatic conveyance unit",
+    photo: "/photos/service-vacuum-trucks-vt019.jpg",
+    photoAlt: "Cowart vacuum truck VT-019 — Kenworth with integrated vacuum tank, staged in the fleet yard",
     related: [
       "liquid-vacuum-service",
       "air-mover-vacuum",
