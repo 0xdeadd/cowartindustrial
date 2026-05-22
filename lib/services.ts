@@ -95,7 +95,7 @@ export const services: Service[] = [
     title: "Environmental Services",
     shortTitle: "Environmental Services",
     description:
-      "Full-service industrial environmental services across the Southeast — waste management, transport, cleaning, and on-site treatment under one DOT number since 1974.",
+      "Industrial environmental services across the Southeast — waste management, transport, cleaning, and on-site treatment under one DOT number since 1974.",
     intro:
       "One phone number for everything that has to leave your plant — non-hazardous waste, sludge, wastewater, cleaning, transport, and compliance documentation.",
     content: [
@@ -305,7 +305,7 @@ export const services: Service[] = [
     title: "Vacuum Truck Fleet",
     shortTitle: "Vacuum Trucks",
     description:
-      "Cowart's vacuum truck fleet handles industrial liquids, dry solids, sludge containment, and waste haul-off across the Southeast — one dispatch, four service lines.",
+      "Cowart's vacuum truck fleet handles industrial liquids, dry solids, sludge containment, and waste haul-off — one dispatch, four service lines.",
     intro:
       "One fleet, four service lines: tankers for liquids, air movers for solids, vacuum boxes for sludge, and roll-offs for haul-off. Dispatched, transported, and disposed under one DOT number.",
     content: [
@@ -377,10 +377,10 @@ export const services: Service[] = [
     slug: "air-mover-vacuum",
     category: "vacuum-containment",
     code: "S—09",
-    title: "High-Volume Air Mover Vacuum Service",
+    title: "High-Volume Air Mover Vacuum",
     shortTitle: "Air Mover",
     description:
-      "High-volume air mover vacuum service for solids, powders, sand, and dry bulk material removal across the Southeast. Pneumatic conveyance for industrial cleanouts.",
+      "High-volume air mover vacuum service for solids, powders, sand, and dry bulk material removal. Pneumatic conveyance for industrial cleanouts.",
     intro:
       "Air movers move solids — sand, dust, dewatered cake, fly ash, catalyst, powders, and dry bulk material — pneumatically, fast, without water or chemicals.",
     content: [
@@ -557,7 +557,7 @@ export const services: Service[] = [
     title: "Hydro Blasting up to 40,000 PSI",
     shortTitle: "Hydro Blasting",
     description:
-      "High-pressure, high-volume hydro blasting from 10,000 to 40,000 PSI for industrial scale, coatings, and surface prep. Water-only, no chemicals, no secondary waste.",
+      "High-volume hydro blasting from 10,000 to 40,000 PSI for industrial scale, coatings, and surface prep. Water-only, no chemicals, no secondary waste.",
     intro:
       "Water-only material removal up to 40,000 PSI. No chemicals, no secondary waste, no surface damage when done by trained operators.",
     content: [

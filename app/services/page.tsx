@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Industrial environmental services across the Southeast: waste disposal, hydro blasting up to 40,000 PSI, vacuum trucks, frac tanks, line jetting, chemical cleaning, and on-site treatment.",
+    "Industrial environmental services across the Southeast: waste disposal, hydro blasting, vacuum trucks, frac tanks, line jetting, and chemical cleaning.",
 }
 
 export default function ServicesPage() {

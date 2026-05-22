@@ -20,7 +20,7 @@ const HUB_URL = `${SITE_URL}/services/waste-management`
 export const metadata: Metadata = {
   title: "Waste Management",
   description:
-    "Industrial waste management across the Southeast — non-hazardous waste disposal, transport, treatment, and environmental services from Cowart Industrial since 1974.",
+    "Industrial waste management across the Southeast — non-hazardous disposal, transport, treatment, and environmental services from Cowart since 1974.",
   keywords: [
     "waste management",
     "industrial waste management",
@@ -35,6 +35,16 @@ export const metadata: Metadata = {
       "Non-hazardous industrial waste management across the Southeast — disposal, transport, treatment, and environmental services under one DOT number.",
     url: HUB_URL,
     type: "website",
+    // Standalone route (outside the [slug] segment), so it doesn't inherit
+    // app/services/[slug]/opengraph-image.tsx — point at the site OG image.
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Cowart Industrial Services",
+      },
+    ],
   },
 }
 
