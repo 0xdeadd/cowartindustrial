@@ -5,8 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/seo-lint.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:lint": "node scripts/seo-lint.mjs",
+    "seo:check-prod": "node scripts/check-prod.mjs",
+    "seo:report": "node scripts/gsc-report.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
@@ -35,6 +39,7 @@
     "dotenv": "^17.3.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.0",
+    "googleapis": "^172.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
