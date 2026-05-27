@@ -5,7 +5,7 @@ import { Phone, Download, ArrowUpRight, FileText } from "lucide-react"
 export const metadata: Metadata = {
   title: "Forms",
   description:
-    "Customer forms and documents for Cowart Industrial Services — including the Waste Profile form for new commercial accounts.",
+    "Cowart's Waste Profile form, account-setup paperwork, and compliance docs for new and existing industrial accounts across the Southeast.",
 }
 
 const forms = [

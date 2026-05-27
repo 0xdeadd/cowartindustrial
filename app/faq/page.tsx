@@ -6,7 +6,7 @@ import { faqSchema } from "@/lib/schema"
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Frequently asked questions about Cowart Industrial Services, our capabilities, service area, and more.",
+    "What we do, what we accept, how scheduling works, certifications and credentials, disposal documentation — answers before you pick up the phone.",
 }
 
 const sections = [

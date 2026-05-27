@@ -11,6 +11,7 @@ import {
 import {
   serviceSchema,
   breadcrumbSchema,
+  faqSchema,
   SITE_URL,
 } from "@/lib/schema"
 
@@ -64,6 +65,8 @@ export default async function ServicePage({
     { name: "Services", url: `${SITE_URL}/services` },
     { name: service.title, url: `${SITE_URL}/services/${service.slug}` },
   ])
+  const faqLd =
+    service.faqs && service.faqs.length > 0 ? faqSchema(service.faqs) : null
 
   return (
     <>
@@ -75,6 +78,12 @@ export default async function ServicePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
 
       {/* HERO */}
       <section className="navy-grain text-[#F2EEE5] relative overflow-hidden">
@@ -258,6 +267,141 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
+
+      {/* EXTENDED CONTENT — additional H2 sections */}
+      {service.extendedContent && service.extendedContent.length > 0 && (
+        <section className="paper-texture py-20 lg:py-24 relative border-t border-[#C9C2B0]">
+          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 space-y-16 lg:space-y-20">
+            {service.extendedContent.map((block, i) => (
+              <div
+                key={block.heading}
+                className="grid lg:grid-cols-12 gap-8 lg:gap-12"
+              >
+                <div className="lg:col-span-4">
+                  <div className="label-mono text-[#B8252F] mb-3">
+                    — Section {String(i + 2).padStart(2, "0")}
+                  </div>
+                  <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-[1.05]">
+                    {block.heading}
+                  </h2>
+                </div>
+                <div className="lg:col-span-8 space-y-5 text-[#3A3D44] text-lg leading-relaxed font-light">
+                  {block.paragraphs.map((p, j) => (
+                    <p key={j}>{p}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* INDUSTRIES SERVED */}
+      {service.industries && service.industries.length > 0 && (
+        <section className="bg-[#0E1A2B] text-[#F2EEE5] py-20 lg:py-24 relative overflow-hidden">
+          <div className="blueprint-grid absolute inset-0 opacity-30" />
+          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div className="flex items-end justify-between mb-10 pb-6 border-b border-[#1F2D40]">
+              <div>
+                <div className="label-mono text-[#B8252F] mb-3">— Industries</div>
+                <h2 className="display-serif text-3xl lg:text-4xl">
+                  Industries we serve
+                </h2>
+              </div>
+              <div className="label-mono text-[#C9C2B0] opacity-60 hidden md:block">
+                {service.industries.length} sectors
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#1F2D40]">
+              {service.industries.map((ind, i) => (
+                <div
+                  key={ind}
+                  className="border-r border-b border-[#1F2D40] p-5 lg:p-6 flex items-baseline gap-4"
+                >
+                  <span className="label-mono text-[#B8252F] shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[#F2EEE5] text-base">{ind}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SERVICE AREAS */}
+      {service.serviceAreas && service.serviceAreas.length > 0 && (
+        <section className="paper-texture py-20 lg:py-24 relative">
+          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-12 pb-8 border-b border-[#C9C2B0]">
+              <div className="lg:col-span-4">
+                <div className="label-mono text-[#B8252F] mb-3">— Service Areas</div>
+                <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-[1.05]">
+                  Where we work
+                </h2>
+              </div>
+              <div className="lg:col-span-8 text-[#3A3D44] text-lg leading-relaxed font-light">
+                24-hour dispatch from Carrollton, Georgia. Crews mobilize across{" "}
+                {service.serviceAreas.length} states in the Southeastern United
+                States.
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10">
+              {service.serviceAreas.map((area) => (
+                <div key={area.state} className="border-t border-[#0E1A2B] pt-3">
+                  <div className="label-mono text-[#B8252F] mb-3">
+                    {area.state}
+                  </div>
+                  <ul className="space-y-1 text-[#3A3D44] text-sm leading-relaxed">
+                    {area.cities.map((city) => (
+                      <li key={city}>{city}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ */}
+      {service.faqs && service.faqs.length > 0 && (
+        <section className="paper-texture py-20 lg:py-24 relative border-t border-[#C9C2B0]">
+          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+              <div className="lg:col-span-4">
+                <div className="label-mono text-[#B8252F] mb-3">— FAQ</div>
+                <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-[1.05]">
+                  Common questions
+                </h2>
+                <p className="mt-5 text-[#3A3D44] text-base leading-relaxed font-light">
+                  Quick answers on scope, method, safety, and turnaround. Don&rsquo;t
+                  see your question?{" "}
+                  <Link href="/contact" className="underline hover:text-[#B8252F]">
+                    Ask us directly
+                  </Link>
+                  .
+                </p>
+              </div>
+              <div className="lg:col-span-8 divide-y divide-[#C9C2B0] border-t border-[#0E1A2B]">
+                {service.faqs.map((faq, i) => (
+                  <div key={faq.question} className="py-6">
+                    <h3 className="display-serif text-xl lg:text-2xl text-[#0E1A2B] leading-snug mb-3 flex items-baseline gap-4">
+                      <span className="label-mono text-[#B8252F] shrink-0">
+                        Q—{String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span>{faq.question}</span>
+                    </h3>
+                    <p className="text-[#3A3D44] text-base leading-relaxed font-light lg:pl-[3.25rem]">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* RELATED SERVICES */}
       {relatedServices.length > 0 && (
