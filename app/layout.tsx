@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { SiteChrome } from "@/components/site-chrome"
 import { localBusinessSchema, SITE_URL } from "@/lib/schema"
 import "./globals.css"
 
@@ -91,9 +92,9 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessSchema()),
           }}
         />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteChrome header={<Header />} footer={<Footer />}>
+          {children}
+        </SiteChrome>
         <Analytics />
         <SpeedInsights />
       </body>
