@@ -44,28 +44,33 @@ function pct(n, digits = 2) {
 }
 
 function authenticate() {
-  // Application Default Credentials — googleapis checks (in order):
-  //   1. GOOGLE_APPLICATION_CREDENTIALS env var
-  //   2. ~/.config/gcloud/application_default_credentials.json (set by
-  //      `gcloud auth application-default login`)
-  //   3. GCE/Vercel metadata server (won't apply locally)
-  return new google.auth.GoogleAuth({
-    scopes: ["https://www.googleapis.com/auth/webmasters.readonly"],
-  })
+  // Prefer OAuth refresh token if the env vars are set (used in CI / GitHub
+  // Actions, where there's no gcloud login). Falls back to Application Default
+  // Credentials locally (`gcloud auth application-default login`).
+  const { GSC_OAUTH_CLIENT_ID, GSC_OAUTH_CLIENT_SECRET, GSC_OAUTH_REFRESH_TOKEN } = process.env
+  if (GSC_OAUTH_CLIENT_ID && GSC_OAUTH_CLIENT_SECRET && GSC_OAUTH_REFRESH_TOKEN) {
+    const oauth2 = new google.auth.OAuth2(GSC_OAUTH_CLIENT_ID, GSC_OAUTH_CLIENT_SECRET)
+    oauth2.setCredentials({ refresh_token: GSC_OAUTH_REFRESH_TOKEN })
+    return { auth: oauth2, mode: "oauth" }
+  }
+  return {
+    auth: new google.auth.GoogleAuth({
+      scopes: ["https://www.googleapis.com/auth/webmasters.readonly"],
+    }),
+    mode: "adc",
+  }
 }
 
-async function verifyAuth(auth) {
+async function verifyAuth(auth, mode) {
+  // OAuth2 clients are self-contained; ADC requires resolving a client.
+  if (mode === "oauth") return
   try {
     await auth.getClient()
   } catch (e) {
     console.error(
-      `${RED}error:${RESET} could not find Application Default Credentials.\n\n` +
-        `       Fix: run this once in your terminal:\n` +
-        `         ${DIM}gcloud auth application-default login${RESET}\n\n` +
-        `       That opens a browser, you log in with the Google account that\n` +
-        `       has access to the GSC property (clintdotphillips@gmail.com),\n` +
-        `       and the credentials get cached locally. After that this script\n` +
-        `       works.\n\n` +
+      `${RED}error:${RESET} no GSC credentials found.\n\n` +
+        `       Local: run once → ${DIM}gcloud auth application-default login${RESET}\n` +
+        `       CI:    set GSC_OAUTH_CLIENT_ID / _SECRET / _REFRESH_TOKEN env vars\n\n` +
         `       Original error: ${e.message}`,
     )
     process.exit(1)
@@ -81,9 +86,9 @@ async function querySearchAnalytics(searchconsole, requestBody) {
 }
 
 async function main() {
-  console.log(`${DIM}Authenticating with GSC API…${RESET}`)
-  const auth = authenticate()
-  await verifyAuth(auth)
+  const { auth, mode } = authenticate()
+  console.log(`${DIM}Authenticating with GSC API (${mode})…${RESET}`)
+  await verifyAuth(auth, mode)
   const searchconsole = google.searchconsole({ version: "v1", auth })
 
   // Date windows

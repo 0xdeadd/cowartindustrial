@@ -1,0 +1,44 @@
+name: Weekly SEO report
+
+# Runs the GSC opportunity report every Monday at 13:00 UTC (9am ET),
+# commits the generated markdown to docs/seo-reports/, and pushes.
+# Can also be triggered manually from the Actions tab.
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - run: npm ci
+
+      - name: Generate GSC report
+        env:
+          GSC_OAUTH_CLIENT_ID: ${{ secrets.GSC_OAUTH_CLIENT_ID }}
+          GSC_OAUTH_CLIENT_SECRET: ${{ secrets.GSC_OAUTH_CLIENT_SECRET }}
+          GSC_OAUTH_REFRESH_TOKEN: ${{ secrets.GSC_OAUTH_REFRESH_TOKEN }}
+        run: node scripts/gsc-report.mjs
+
+      - name: Commit report if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/seo-reports/
+          if git diff --quiet --cached; then
+            echo "No new report to commit."
+          else
+            git commit -m "seo: weekly report $(date -u +%Y-%m-%d)"
+            git push
+          fi
