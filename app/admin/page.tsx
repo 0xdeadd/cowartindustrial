@@ -62,6 +62,21 @@ function fmtDate(s: string | null): string {
   return new Date(s).toISOString().slice(0, 10)
 }
 
+type IndexingResult = {
+  url: string
+  verdict: string | null
+  coverageState: string | null
+  lastCrawlTime: string | null
+  googleCanonical: string | null
+  pageFetchState: string | null
+  error?: string
+}
+
+type IndexingData = {
+  summary: { indexed: number; notIndexed: number; error: number; total: number }
+  results: IndexingResult[]
+}
+
 function Delta({ value }: { value: number }) {
   if (value === 0) return <span className="text-[#C9C2B0]">— 0</span>
   const arrow = value > 0 ? "▲" : "▼"
@@ -80,6 +95,27 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [lastFetch, setLastFetch] = useState<Date | null>(null)
+  const [indexing, setIndexing] = useState<IndexingData | null>(null)
+  const [indexingLoading, setIndexingLoading] = useState(false)
+  const [indexingError, setIndexingError] = useState<string | null>(null)
+
+  async function loadIndexing() {
+    setIndexingLoading(true)
+    setIndexingError(null)
+    try {
+      const res = await fetch("/api/admin/indexing", { cache: "no-store" })
+      if (!res.ok) {
+        const body = (await res.json().catch(() => ({}))) as { error?: string }
+        setIndexingError(body.error || `HTTP ${res.status}`)
+        return
+      }
+      setIndexing((await res.json()) as IndexingData)
+    } catch (e) {
+      setIndexingError(e instanceof Error ? e.message : "Network error")
+    } finally {
+      setIndexingLoading(false)
+    }
+  }
 
   async function load() {
     setLoading(true)
@@ -183,6 +219,70 @@ export default function AdminDashboard() {
                   </div>
                 </div>
               </div>
+            </section>
+
+            {/* INDEXING STATUS */}
+            <section>
+              <div className="flex items-center justify-between mb-4">
+                <div className="label-mono text-[#B8252F]">— Indexing status (Google)</div>
+                <button
+                  onClick={loadIndexing}
+                  disabled={indexingLoading}
+                  className="label-mono bg-[#1F2D40] hover:bg-[#2A3850] text-[#F2EEE5] px-4 py-2 transition-colors disabled:opacity-50"
+                >
+                  {indexingLoading ? "Checking… (~30s)" : indexing ? "Re-check" : "Check indexing status"}
+                </button>
+              </div>
+              {indexingError && (
+                <div className="border border-[#B8252F] bg-[#1F2D40] p-4 mb-4 text-sm">
+                  {indexingError}
+                </div>
+              )}
+              {indexing && (
+                <>
+                  <div className="flex gap-6 mb-4 label-mono">
+                    <span className="text-[#3fa057]">{indexing.summary.indexed} indexed</span>
+                    <span className="text-[#C9C2B0]">{indexing.summary.notIndexed} not indexed</span>
+                    {indexing.summary.error > 0 && (
+                      <span className="text-[#B8252F]">{indexing.summary.error} error</span>
+                    )}
+                    <span className="text-[#C9C2B0] opacity-60">of {indexing.summary.total}</span>
+                  </div>
+                  <div className="border border-[#1F2D40] bg-[#0E1A2B] overflow-hidden">
+                    <table className="w-full text-sm">
+                      <thead className="bg-[#08111E]">
+                        <tr className="label-mono text-[#C9C2B0] text-left">
+                          <th className="px-4 py-3">Page</th>
+                          <th className="px-4 py-3">Coverage</th>
+                          <th className="px-4 py-3">Last crawl</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {indexing.results.map((r, i) => {
+                          const ok = r.verdict === "PASS"
+                          return (
+                            <tr key={i} className="border-t border-[#1F2D40]">
+                              <td className="px-4 py-2 font-mono text-xs">{shortUrl(r.url)}</td>
+                              <td className="px-4 py-2">
+                                <span className={ok ? "text-[#3fa057]" : "text-[#d98b2b]"}>
+                                  {r.error ? "error" : r.coverageState || r.verdict || "—"}
+                                </span>
+                              </td>
+                              <td className="px-4 py-2 text-xs text-[#C9C2B0]">{fmtDate(r.lastCrawlTime)}</td>
+                            </tr>
+                          )
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              )}
+              {!indexing && !indexingLoading && !indexingError && (
+                <div className="border border-[#1F2D40] bg-[#0E1A2B] p-4 text-sm text-[#C9C2B0] opacity-60">
+                  Click &ldquo;Check indexing status&rdquo; to inspect all {28} URLs via the Google
+                  URL Inspection API. Takes ~30 seconds.
+                </div>
+              )}
             </section>
 
             {/* PAGE-1 CANDIDATES */}

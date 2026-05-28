@@ -6,7 +6,10 @@
 
 import { google } from "googleapis"
 
-const PROPERTY = "https://cowartind.com"
+// Must match the GSC property string exactly. The property is registered as a
+// URL-prefix property with the trailing slash. Search Analytics tolerates the
+// no-slash form; URL Inspection does not — so use the exact registered string.
+const PROPERTY = "https://cowartind.com/"
 
 function getAuth() {
   const clientId = process.env.GSC_OAUTH_CLIENT_ID
