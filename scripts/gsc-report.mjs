@@ -24,6 +24,7 @@
 
 import { mkdir, writeFile } from "node:fs/promises"
 import { google } from "googleapis"
+import { Resend } from "resend"
 
 const PROPERTY = process.env.GSC_PROPERTY || "https://cowartind.com"
 const PERIOD_DAYS = 28
@@ -194,6 +195,78 @@ async function main() {
     `${DIM}Totals: ${totals.clicks} clicks / ${totals.impressions} impressions (prior: ${priorTotals.clicks} / ${priorTotals.impressions})${RESET}`,
   )
   console.log(`${DIM}Found: ${page1Candidates.length} page-1 candidates, ${ctrUnderperformers.length} CTR underperformers, ${newQueries.length} new queries${RESET}`)
+
+  await emailReport(iso(today), md)
+}
+
+// Emails the report when SEO_REPORT_EMAIL_TO + RESEND_API_KEY are set (CI).
+// No-op otherwise, so local runs just write the file. Sends from the
+// Resend-verified zanysparties.com domain (same shared account the contact
+// form uses; cowartind.com isn't verified there).
+async function emailReport(dateStr, md) {
+  const to = process.env.SEO_REPORT_EMAIL_TO
+  const apiKey = process.env.RESEND_API_KEY
+  if (!to || !apiKey) {
+    console.log(`${DIM}Email skipped (set SEO_REPORT_EMAIL_TO + RESEND_API_KEY to enable).${RESET}`)
+    return
+  }
+  try {
+    const resend = new Resend(apiKey)
+    const { error } = await resend.emails.send({
+      from: "Cowart SEO <seo@zanysparties.com>",
+      to,
+      subject: `Cowart SEO weekly report — ${dateStr}`,
+      text: md,
+      html: mdToHtml(md),
+    })
+    if (error) {
+      console.error(`${RED}Email error:${RESET}`, error)
+      return
+    }
+    console.log(`${GREEN}Emailed report to ${to}${RESET}`)
+  } catch (e) {
+    console.error(`${RED}Email send threw:${RESET}`, e.message)
+  }
+}
+
+// Minimal markdown→HTML for the report: headings, pipe tables, bold, code,
+// horizontal rules. Renders the data tables as real HTML tables in the email.
+function mdToHtml(md) {
+  const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+  const inline = (s) =>
+    esc(s)
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/(^|[^_])_([^_]+)_/g, "$1<em>$2</em>")
+  const cells = (row) => row.split("|").slice(1, -1).map((c) => c.trim())
+  const lines = md.split("\n")
+  const out = []
+  let i = 0
+  while (i < lines.length) {
+    const line = lines[i]
+    if (/^\s*\|/.test(line)) {
+      const rows = []
+      while (i < lines.length && /^\s*\|/.test(lines[i])) rows.push(lines[i++])
+      const header = cells(rows[0])
+      let t =
+        '<table cellpadding="6" cellspacing="0" style="border-collapse:collapse;font-size:13px;margin:8px 0">'
+      t +=
+        "<thead><tr>" +
+        header.map((h) => `<th align="left" style="border-bottom:2px solid #333">${inline(h)}</th>`).join("") +
+        "</tr></thead><tbody>"
+      for (const r of rows.slice(2)) {
+        t += "<tr>" + cells(r).map((c) => `<td style="border-bottom:1px solid #ddd">${inline(c)}</td>`).join("") + "</tr>"
+      }
+      out.push(t + "</tbody></table>")
+      continue
+    }
+    if (/^#\s/.test(line)) out.push(`<h1 style="font-size:20px">${inline(line.slice(2))}</h1>`)
+    else if (/^##\s/.test(line)) out.push(`<h2 style="font-size:16px;margin-top:20px">${inline(line.slice(3))}</h2>`)
+    else if (/^---\s*$/.test(line)) out.push('<hr style="border:none;border-top:1px solid #ccc;margin:16px 0">')
+    else if (line.trim() !== "") out.push(`<p style="margin:6px 0">${inline(line)}</p>`)
+    i++
+  }
+  return `<div style="font-family:-apple-system,Segoe UI,Roboto,Helvetica,sans-serif;max-width:760px;margin:0 auto;color:#14161A;line-height:1.45">${out.join("\n")}</div>`
 }
 
 function formatReport(r) {
