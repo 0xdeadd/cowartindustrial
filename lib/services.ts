@@ -271,6 +271,7 @@ export const services: Service[] = [
     icon: Droplets,
     photo: "/photos/service-waste-water.jpg",
     photoAlt: "Cowart technician pumping in a confined-space manhole",
+    related: ["oil-water-separator-service", "liquid-vacuum-service", "on-site-filtration"],
     featured: true,
     extendedContent: [
       {
@@ -430,6 +431,7 @@ export const services: Service[] = [
     icon: Layers,
     photo: "/photos/gallery-vac-transfer.jpg",
     photoAlt: "Cowart vacuum tanker connected by hoses for an on-site oil-water separator pump-out",
+    related: ["waste-water-management", "liquid-vacuum-service", "on-site-filtration"],
     extendedContent: [
       {
         heading: "What an oil-water separator does and who needs one",
@@ -1227,6 +1229,7 @@ export const services: Service[] = [
     icon: Droplet,
     photo: "/photos/service-liquid-vacuum.jpg",
     photoAlt: "Cowart Kenworth TT-044 liquid vacuum tanker",
+    related: ["oil-water-separator-service", "vacuum-trucks", "frac-tank-rental"],
     extendedContent: [
       {
         heading: "What liquid vacuum trucks actually do",
