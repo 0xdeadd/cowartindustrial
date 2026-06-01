@@ -11,6 +11,21 @@ import { google } from "googleapis"
 
 const PROPERTY = process.env.GSC_PROPERTY || "https://cowartind.com/"
 const SITEMAP = "https://cowartind.com/sitemap.xml"
+const ORIGIN = "https://cowartind.com"
+
+// Legacy WordPress-era URLs that 308-redirect to current pages (mirror of the
+// redirects() table in next.config.ts). Google must re-crawl each to see the
+// 308 and consolidate ranking equity onto the destination. Tracked here so we
+// can watch consolidation progress; the trigger itself is a manual "Request
+// Indexing" in GSC URL Inspection (the Indexing API doesn't cover normal pages).
+const LEGACY_REDIRECTS = [
+  { from: "/hydro-blasting", to: "/services/hydro-blasting" },
+  { from: "/industrial-cleaning", to: "/services/industrial-cleaning" },
+  { from: "/waste-water", to: "/services/waste-water-management" },
+  { from: "/on-site-filtration", to: "/services/on-site-filtration" },
+  { from: "/airmover", to: "/services/air-mover-vacuum" },
+  { from: "/site-map", to: "/services" },
+]
 
 const { GSC_OAUTH_CLIENT_ID, GSC_OAUTH_CLIENT_SECRET, GSC_OAUTH_REFRESH_TOKEN } = process.env
 
@@ -86,6 +101,51 @@ async function main() {
     for (const [reason, n] of Object.entries(byReason).sort((a, b) => b[1] - a[1])) {
       console.log(`  ${n}×  ${reason}`)
     }
+  }
+
+  await checkLegacyRedirects(searchconsole)
+}
+
+// Track whether Google has re-crawled each legacy redirect and consolidated it
+// onto the destination. CONSOLIDATED = Google's chosen canonical is no longer
+// the old URL itself (it picked the redirect target). STUCK = still indexed as
+// its own canonical → needs a "Request Indexing" nudge in GSC.
+async function checkLegacyRedirects(searchconsole) {
+  console.log("\n\nLEGACY REDIRECT CONSOLIDATION (old WP URLs → current pages)")
+  console.log("─".repeat(72))
+  let stuck = 0
+  for (const { from, to } of LEGACY_REDIRECTS) {
+    let status, gc, crawl
+    try {
+      const { data } = await searchconsole.urlInspection.index.inspect({
+        requestBody: { inspectionUrl: ORIGIN + from, siteUrl: PROPERTY },
+      })
+      const i = data.inspectionResult?.indexStatusResult ?? {}
+      gc = (i.googleCanonical ?? "").replace(ORIGIN, "") || "—"
+      crawl = i.lastCrawlTime ? i.lastCrawlTime.slice(0, 10) : "never"
+      const consolidated = gc !== from // Google picked something other than the old URL
+      if (consolidated) {
+        status = "✓ consolidated"
+      } else {
+        status = "✗ STUCK — request indexing"
+        stuck++
+      }
+    } catch (e) {
+      status = "ERROR " + (e.message?.slice(0, 30) ?? "")
+      gc = "—"
+      crawl = "—"
+    }
+    console.log(`${status.padEnd(30)} ${crawl.padEnd(11)} ${from}  (→ ${to}, google canonical: ${gc})`)
+  }
+  console.log("─".repeat(72))
+  if (stuck) {
+    console.log(
+      `\n${stuck} legacy URL(s) STUCK. Fix: GSC → URL Inspection → paste the old URL →\n` +
+        `"Request Indexing". Google re-crawls, sees the 308, and consolidates equity\n` +
+        `to the destination (as already happened for /industrial-cleaning).`,
+    )
+  } else {
+    console.log("\nAll legacy redirects consolidated. 🎉")
   }
 }
 
