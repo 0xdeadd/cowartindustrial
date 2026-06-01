@@ -24,6 +24,11 @@ export function localBusinessSchema() {
     description:
       "Full-service industrial environmental services and non-hazardous waste management — industrial cleaning, hydro blasting, vacuum trucks, waste disposal, and on-site treatment across the Southeastern United States since 1974.",
     url: SITE_URL,
+    image: [
+      `${SITE_URL}/logo.jpg`,
+      `${SITE_URL}/photos/fleet-yard.jpg`,
+      `${SITE_URL}/photos/fleet-jobsite.jpg`,
+    ],
     telephone: "+1-770-834-2158",
     email: "info@cowartind.com",
     foundingDate: "1974",
@@ -36,6 +41,10 @@ export function localBusinessSchema() {
       postalCode: "30117",
       addressCountry: "US",
     },
+    // TODO(geo): replace with the exact verified pin from the Google Business
+    // Profile (right-click the pin in Google Maps → copy coords) at ≥5 decimal
+    // places. Current values are approximate (4 dp) and unverified against the
+    // facility rooftop; do not fake-pad precision.
     geo: {
       "@type": "GeoCoordinates",
       latitude: 33.5801,
