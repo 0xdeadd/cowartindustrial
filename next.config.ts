@@ -30,6 +30,25 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // Security headers on all routes. Deliberately conservative — no full CSP
+  // (would risk breaking inline JSON-LD, Vercel Analytics, and the embedded
+  // Google Maps iframe). X-Frame-Options handles clickjacking/framing; the
+  // Permissions-Policy disables powerful features the site never uses and
+  // intentionally omits `fullscreen` so the Maps embed's fullscreen still works.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
