@@ -4,7 +4,7 @@ import { ArrowUpRight, Phone } from "lucide-react"
 import { faqSchema } from "@/lib/schema"
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "Common Questions, Answered",
   description:
     "What we do, what we accept, how scheduling works, certifications and credentials, disposal documentation — answers before you pick up the phone.",
 }

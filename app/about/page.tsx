@@ -4,7 +4,7 @@ import Image from "next/image"
 import { ArrowUpRight, Phone } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "Family-Owned Since 1974",
   description:
     "Family-owned industrial environmental services in Carrollton, GA since 1974. Own treatment plant, own DOT number, 24-hour dispatch across 8 states.",
 }

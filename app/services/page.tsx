@@ -10,7 +10,7 @@ import {
 } from "@/lib/services"
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Industrial & Environmental",
   description:
     "Industrial cleaning, hydroblasting to 40,000 PSI, vacuum trucks, frac tanks, wastewater treatment. Family-operated, single-DOT, 8 states. Since 1974.",
 }

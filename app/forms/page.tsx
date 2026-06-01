@@ -3,9 +3,9 @@ import Link from "next/link"
 import { Phone, Download, ArrowUpRight, FileText } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Forms",
+  title: "Waste Profile & Account Forms",
   description:
-    "Cowart's Waste Profile form, account-setup paperwork, and compliance docs for new and existing industrial accounts across the Southeast.",
+    "Download Cowart's Waste Profile form, account-setup paperwork, and compliance docs for new and existing industrial accounts across the Southeast.",
 }
 
 const forms = [
