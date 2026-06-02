@@ -37,7 +37,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="border border-[#0E1A2B] bg-[#E8E2D3]/40 p-10">
-        <div className="label-mono text-[#B8252F] mb-4">— Form 01 / Submitted</div>
+        <div className="label-mono text-[#B8252F] mb-4">Form 01 / Submitted</div>
         <h3 className="display-serif text-3xl text-[#0E1A2B] leading-tight mb-3">
           Message received.
         </h3>
@@ -168,7 +168,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          placeholder="Tell us about the job — facility type, scope, timing, anything urgent…"
+          placeholder="Tell us about the job, facility type, scope, timing, anything urgent…"
           className={inputBase + " resize-none"}
         />
       </div>

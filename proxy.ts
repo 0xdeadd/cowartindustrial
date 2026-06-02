@@ -7,7 +7,7 @@ export function proxy(request: NextRequest) {
   const host = (request.headers.get("host") || "").toLowerCase()
   const pathname = request.nextUrl.pathname
 
-  // Admin gate — /admin/* requires an auth cookie matching ADMIN_PASSWORD.
+  // Admin gate, /admin/* requires an auth cookie matching ADMIN_PASSWORD.
   // The login route + login API are exempt so the user can actually log in.
   if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login")) {
     const cookie = request.cookies.get(AUTH_COOKIE)?.value

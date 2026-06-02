@@ -133,7 +133,7 @@ export function Header() {
             </button>
           </div>
 
-          {/* Services mega-panel — anchored to the main-bar container so it can't get clipped */}
+          {/* Services mega-panel, anchored to the main-bar container so it can't get clipped */}
           {servicesOpen && (
             <div
               className="hidden lg:block absolute top-full left-6 lg:left-10 right-6 lg:right-10 z-40"
@@ -221,8 +221,7 @@ export function Header() {
                               href={`/services/${s.slug}`}
                               className="block px-3 py-1.5 text-sm text-[#C9C2B0] hover:text-[#F2EEE5]"
                               onClick={() => setMobileOpen(false)}
-                            >
-                              — {s.shortTitle || s.title}
+                            >{s.shortTitle || s.title}
                             </Link>
                           ))}
                         </div>

@@ -39,7 +39,7 @@ export function Footer() {
       <div className="relative border-b border-[#1F2D40]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-6">
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3 label-mono">
-            <span className="text-[#B8252F]">— Certified</span>
+            <span className="text-[#B8252F]">Certified</span>
             {certifications.map((cert) => (
               <span key={cert} className="flex items-center gap-2 text-[#C9C2B0]">
                 <span className="w-1 h-1 bg-[#B8252F]" />
@@ -55,7 +55,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Brand block */}
           <div className="lg:col-span-4">
-            <div className="label-mono text-[#B8252F] mb-4">— Index 01</div>
+            <div className="label-mono text-[#B8252F] mb-4">Index 01</div>
             <h2 className="display-serif text-4xl lg:text-5xl text-[#F2EEE5] leading-[0.95] mb-6">
               Cowart
               <br />
@@ -77,9 +77,9 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services — 2 sub-columns grouped by category */}
+          {/* Services, 2 sub-columns grouped by category */}
           <div className="lg:col-span-4">
-            <div className="label-mono text-[#B8252F] mb-4">— Index 02</div>
+            <div className="label-mono text-[#B8252F] mb-4">Index 02</div>
             <h3 className="label-mono text-[#F2EEE5] mb-5 pb-3 border-b border-[#1F2D40]">
               / Services
             </h3>
@@ -116,7 +116,7 @@ export function Footer() {
 
           {/* Company */}
           <div className="lg:col-span-2">
-            <div className="label-mono text-[#B8252F] mb-4">— Index 03</div>
+            <div className="label-mono text-[#B8252F] mb-4">Index 03</div>
             <h3 className="label-mono text-[#F2EEE5] mb-5 pb-3 border-b border-[#1F2D40]">
               / Company
             </h3>
@@ -137,7 +137,7 @@ export function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-2">
-            <div className="label-mono text-[#B8252F] mb-4">— Index 04</div>
+            <div className="label-mono text-[#B8252F] mb-4">Index 04</div>
             <h3 className="label-mono text-[#F2EEE5] mb-5 pb-3 border-b border-[#1F2D40]">
               / Contact
             </h3>

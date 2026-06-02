@@ -31,7 +31,7 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // Security headers on all routes. Deliberately conservative — no full CSP
+  // Security headers on all routes. Deliberately conservative, no full CSP
   // (would risk breaking inline JSON-LD, Vercel Analytics, and the embedded
   // Google Maps iframe). X-Frame-Options handles clickjacking/framing; the
   // Permissions-Policy disables powerful features the site never uses and
