@@ -30,7 +30,7 @@ Within a day or two, GSC will start showing:
 
 - Are all 18 service URLs getting indexed? If not, check the Coverage report for errors.
 - Which of the 14 target keywords are showing impressions? (Waste disposal, environmental services, etc.)
-- Click-through rate per page — if a page gets impressions but no clicks, the meta description likely needs work.
+- Click-through rate per page, if a page gets impressions but no clicks, the meta description likely needs work.
 
 ## Useful follow-up
 

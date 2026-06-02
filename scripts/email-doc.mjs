@@ -24,7 +24,7 @@ if (!apiKey) {
 }
 
 const md = await readFile(file, "utf8")
-const subject = subjectArg || `Cowart SEO — ${basename(file)}`
+const subject = subjectArg || `Cowart SEO, ${basename(file)}`
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
 const html =
   `<div style="font-family:-apple-system,Segoe UI,Roboto,Helvetica,sans-serif;max-width:800px;margin:0 auto;color:#14161A">` +

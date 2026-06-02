@@ -8,7 +8,7 @@ The site scored **100/100, 0 issues** on a full technical crawl (26 pages). It
 was at 91 before the cleanup below.
 
 The audit is run with the **Color Pop agency auditor** (a separate tool at
-`colorpopsignsnewnan.com/admin` — Cowart is a client in it). It crawls the live
+`colorpopsignsnewnan.com/admin`, Cowart is a client in it). It crawls the live
 `cowartind.com`, checks each page, and stores a scored run with the issue list.
 To re-audit: open that dashboard → Cowart Industrial → **Run audit**. (Client id
 `cmpfnjvn20000s9cc0a5zhxwm`, if you need it.)
@@ -29,7 +29,7 @@ To re-audit: open that dashboard → Cowart Industrial → **Run audit**. (Clien
 
 All findings were low-priority **INFO**, no critical/warning issues:
 
-- **Long meta descriptions trimmed to ≤160** — homepage (`app/layout.tsx`
+- **Long meta descriptions trimmed to ≤160**, homepage (`app/layout.tsx`
   default), `/services` (`app/services/page.tsx`), and the
   `environmental-services`, `vacuum-trucks`, `hydro-blasting`,
   `air-mover-vacuum`, and `dump-trailer-service` entries in `lib/services.ts`.
@@ -38,7 +38,7 @@ All findings were low-priority **INFO**, no critical/warning issues:
   outside the `[slug]` segment and never inherited
   `app/services/[slug]/opengraph-image.tsx`. It now sets `openGraph.images`
   explicitly (points at the root `/opengraph-image`).
-- **Title shortened** — `air-mover-vacuum` was 65 chars with the title-template
+- **Title shortened**, `air-mover-vacuum` was 65 chars with the title-template
   suffix; trimmed to "High-Volume Air Mover Vacuum".
 
 ## How to keep it clean
@@ -52,13 +52,13 @@ When you add or edit a service:
   `" | Cowart Industrial Services"` (29 chars), so keep `title` ≤ ~31 chars to
   stay under 60.
 - For any **standalone route** outside `[slug]` (like `waste-management`), set
-  `openGraph.images` yourself — it won't inherit the per-slug OG image.
+  `openGraph.images` yourself, it won't inherit the per-slug OG image.
 
-Note: duplicate-host indexing is already handled — `proxy.ts` sets
+Note: duplicate-host indexing is already handled, `proxy.ts` sets
 `X-Robots-Tag: noindex` on any host other than `cowartind.com` /
 `www.cowartind.com`, so the audit shows no canonical/redirect problems.
 
-## 2026-05-26 — WordPress equity audit + content buildout
+## 2026-05-26, WordPress equity audit + content buildout
 
 ### WP equity capture (next.config.ts redirects)
 
@@ -100,9 +100,9 @@ waste-disposal, waste-transport, roll-off-containers, dump-trailer-service.
 
 ### Other 2026-05-26 fixes
 
-- **Favicon** — replaced default Next.js triangle with Cowart "SINCE 1974"
+- **Favicon**, replaced default Next.js triangle with Cowart "SINCE 1974"
   badge cropped from `public/logo.jpg`. Generated `app/favicon.ico`
   (multi-size 16/32/48/64), `app/icon.png` (512), `app/apple-icon.png` (180).
-- **GSC sitemap re-read** — sitemap submitted 2026-05-20, last read by
+- **GSC sitemap re-read**, sitemap submitted 2026-05-20, last read by
   Google 2026-05-24, 26 URLs discovered. After today's deploys, manual
   Request Indexing nudge submitted for ~7 URLs before hitting daily quota.

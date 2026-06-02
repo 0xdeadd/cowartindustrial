@@ -3,8 +3,8 @@
 //
 // Pulls last 28 days of GSC data, compares to the prior 28-day window, and
 // surfaces what to act on this week:
-//   - Page-1 candidates (queries ranking pos 11-20 — one push from page 1)
-//   - CTR underperformers (>100 imp, <2% CTR — meta description rewrite candidates)
+//   - Page-1 candidates (queries ranking pos 11-20, one push from page 1)
+//   - CTR underperformers (>100 imp, <2% CTR, meta description rewrite candidates)
 //   - Queries trending up/down WoW
 //   - New queries (terms we just started showing for)
 //
@@ -17,7 +17,7 @@
 //
 // (We originally planned to use a service account, but Google has a known
 // bug since 2026-04-23 that blocks adding new service accounts to GSC.
-// ADC sidesteps the bug entirely by authenticating as you — your Google
+// ADC sidesteps the bug entirely by authenticating as you, your Google
 // account already has GSC access. See docs/gsc-api-setup.md.)
 //
 // Run: npm run seo:report
@@ -215,7 +215,7 @@ async function emailReport(dateStr, md) {
     const { error } = await resend.emails.send({
       from: "Cowart SEO <seo@zanysparties.com>",
       to,
-      subject: `Cowart SEO weekly report — ${dateStr}`,
+      subject: `Cowart SEO weekly report, ${dateStr}`,
       text: md,
       html: mdToHtml(md),
     })
@@ -276,10 +276,10 @@ function formatReport(r) {
 
   const clicksDelta = r.totals.clicks - r.priorTotals.clicks
   const impDelta = r.totals.impressions - r.priorTotals.impressions
-  const arrow = (n) => (n > 0 ? "▲" : n < 0 ? "▼" : "—")
+  const arrow = (n) => (n > 0 ? "▲" : n < 0 ? "▼" : "·")
 
   const lines = []
-  lines.push(`# SEO weekly report — ${dateStr}`)
+  lines.push(`# SEO weekly report, ${dateStr}`)
   lines.push("")
   lines.push(`**Window:** ${recentLabel} (28 days)`)
   lines.push(`**Compared to:** ${priorLabel}`)
@@ -292,7 +292,7 @@ function formatReport(r) {
   lines.push(`| Impressions | ${r.totals.impressions} | ${r.priorTotals.impressions} | ${arrow(impDelta)} ${impDelta > 0 ? "+" : ""}${impDelta} |`)
   lines.push("")
 
-  lines.push("## Page-1 candidates (queries ranking pos 11–20)")
+  lines.push("## Page-1 candidates (queries ranking pos 11-20)")
   lines.push("")
   lines.push("These are queries one push away from page 1. Improving the matched page's content or internal links should move them into clicks range.")
   lines.push("")
@@ -311,7 +311,7 @@ function formatReport(r) {
 
   lines.push("## CTR underperformers (≥100 imp, <2% CTR)")
   lines.push("")
-  lines.push("These pages get traffic but few clicks — meta description and title likely need a rewrite to be more click-worthy.")
+  lines.push("These pages get traffic but few clicks, meta description and title likely need a rewrite to be more click-worthy.")
   lines.push("")
   if (r.ctrUnderperformers.length === 0) {
     lines.push("_No pages flagged this week._")

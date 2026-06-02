@@ -1,11 +1,11 @@
-// GSC URL Inspection sweep — reports Google's indexing coverage for every
+// GSC URL Inspection sweep, reports Google's indexing coverage for every
 // URL in the live sitemap. CLI complement to the /admin indexing panel.
 //
 //   npm run seo:indexing
 //
 // Auth: OAuth refresh token (GSC_OAUTH_CLIENT_ID/_SECRET/_REFRESH_TOKEN) if set,
 // else Application Default Credentials. URL Inspection requires the property
-// string EXACTLY as registered in GSC — WITH the trailing slash.
+// string EXACTLY as registered in GSC, WITH the trailing slash.
 
 import { google } from "googleapis"
 
@@ -55,8 +55,8 @@ async function inspect(searchconsole, url) {
     const idx = data.inspectionResult?.indexStatusResult ?? {}
     return {
       url,
-      verdict: idx.verdict ?? "—",
-      coverage: idx.coverageState ?? "—",
+      verdict: idx.verdict ?? "·",
+      coverage: idx.coverageState ?? "·",
       lastCrawl: idx.lastCrawlTime ?? null,
       googleCanonical: idx.googleCanonical ?? null,
     }
@@ -87,7 +87,7 @@ async function main() {
   console.log("─".repeat(72))
   for (const r of results.sort((a, b) => (a.coverage || "").localeCompare(b.coverage || ""))) {
     console.log(
-      `${(r.coverage || "—").padEnd(34).slice(0, 34)} ${fmtDate(r.lastCrawl).padEnd(12)} ${path(r.url)}`,
+      `${(r.coverage || "·").padEnd(34).slice(0, 34)} ${fmtDate(r.lastCrawl).padEnd(12)} ${path(r.url)}`,
     )
   }
   console.log("─".repeat(72))
@@ -121,19 +121,19 @@ async function checkLegacyRedirects(searchconsole) {
         requestBody: { inspectionUrl: ORIGIN + from, siteUrl: PROPERTY },
       })
       const i = data.inspectionResult?.indexStatusResult ?? {}
-      gc = (i.googleCanonical ?? "").replace(ORIGIN, "") || "—"
+      gc = (i.googleCanonical ?? "").replace(ORIGIN, "") || "·"
       crawl = i.lastCrawlTime ? i.lastCrawlTime.slice(0, 10) : "never"
       const consolidated = gc !== from // Google picked something other than the old URL
       if (consolidated) {
         status = "✓ consolidated"
       } else {
-        status = "✗ STUCK — request indexing"
+        status = "✗ STUCK, request indexing"
         stuck++
       }
     } catch (e) {
       status = "ERROR " + (e.message?.slice(0, 30) ?? "")
-      gc = "—"
-      crawl = "—"
+      gc = "·"
+      crawl = "·"
     }
     console.log(`${status.padEnd(30)} ${crawl.padEnd(11)} ${from}  (→ ${to}, google canonical: ${gc})`)
   }

@@ -15,11 +15,11 @@ import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { existsSync } from "node:fs"
 
 const COMPETITORS = [
-  { name: "Environmental Remedies — Industrial Services", url: "https://envremedies.com/industrial-services" },
-  { name: "Environmental Remedies — Wastewater Treatment", url: "https://envremedies.com/wastewater-treatment-services" },
-  { name: "Environmental Remedies — Oil-Water Separator", url: "https://envremedies.com/industrial-services/oil-water-separator-cleaning-services" },
-  { name: "Callaway Industrial Services — Home", url: "https://callawayindustrial.com/" },
-  { name: "Green Shield Environmental — Industrial Cleaning", url: "https://www.greenshieldenv.com/industrial-services/industrial-cleaning-services" },
+  { name: "Environmental Remedies, Industrial Services", url: "https://envremedies.com/industrial-services" },
+  { name: "Environmental Remedies, Wastewater Treatment", url: "https://envremedies.com/wastewater-treatment-services" },
+  { name: "Environmental Remedies, Oil-Water Separator", url: "https://envremedies.com/industrial-services/oil-water-separator-cleaning-services" },
+  { name: "Callaway Industrial Services, Home", url: "https://callawayindustrial.com/" },
+  { name: "Green Shield Environmental, Industrial Cleaning", url: "https://www.greenshieldenv.com/industrial-services/industrial-cleaning-services" },
 ]
 
 const SNAPSHOT_DIR = "data/competitor-snapshots"
@@ -126,12 +126,12 @@ async function main() {
     try {
       const res = await fetch(comp.url, { headers: { "User-Agent": UA } })
       if (!res.ok) {
-        sections.push(`### ${comp.name}\n\n⚠️ Fetch failed: HTTP ${res.status} — ${comp.url}\n`)
+        sections.push(`### ${comp.name}\n\n⚠️ Fetch failed: HTTP ${res.status}, ${comp.url}\n`)
         continue
       }
       html = await res.text()
     } catch (e) {
-      sections.push(`### ${comp.name}\n\n⚠️ Fetch error: ${e.message} — ${comp.url}\n`)
+      sections.push(`### ${comp.name}\n\n⚠️ Fetch error: ${e.message}, ${comp.url}\n`)
       continue
     }
 
@@ -165,7 +165,7 @@ async function main() {
   }
 
   const md =
-    `# Competitor watch — ${today}\n\n` +
+    `# Competitor watch, ${today}\n\n` +
     (baselineCount > 0
       ? `_${baselineCount} baseline(s) captured this run; diffs start next run._\n\n`
       : "") +

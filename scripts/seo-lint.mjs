@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// SEO linter — runs after `next build`, checks the prerendered HTML output for
+// SEO linter, runs after `next build`, checks the prerendered HTML output for
 // SEO regressions:
 //   - <title> length ≤ 60 chars (Google SERP truncation threshold)
 //   - meta description length ≤ 160 chars (same)
@@ -11,7 +11,7 @@
 // Exit code 0 on pass, 1 on any failure. Wire via package.json `postbuild`
 // so build fails if SEO regressions ship.
 //
-// Reads from .next/server/app/**/*.html — Next 16 prerenders every static
+// Reads from .next/server/app/**/*.html, Next 16 prerenders every static
 // route there (including dynamic /services/[slug] entries with generateStaticParams).
 
 import { readdir, readFile, stat } from "node:fs/promises"
@@ -21,7 +21,7 @@ const ROOT = ".next/server/app"
 const TITLE_MAX = 60
 const DESC_MAX = 160
 
-// Routes intentionally excluded — Next.js error pages aren't user-facing for SEO.
+// Routes intentionally excluded, Next.js error pages aren't user-facing for SEO.
 const EXCLUDE = new Set(["_not-found.html", "_global-error.html"])
 
 const RED = "\x1b[31m"
@@ -152,7 +152,7 @@ async function main() {
     results.push(r)
   }
 
-  console.log(`\n${DIM}SEO lint — ${files.length} routes checked${RESET}\n`)
+  console.log(`\n${DIM}SEO lint, ${files.length} routes checked${RESET}\n`)
 
   for (const r of results) {
     const status = r.errors.length > 0 ? `${RED}✗${RESET}` : r.warnings.length > 0 ? `${YELLOW}⚠${RESET}` : `${GREEN}✓${RESET}`
