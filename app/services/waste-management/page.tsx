@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { QuoteLink } from "@/components/quote-link"
 import {
   Phone,
   ArrowUpRight,
@@ -203,13 +204,10 @@ export default function WasteManagementHubPage() {
                       Free quote within one business day. 24-hour emergency dispatch.
                     </p>
                     <div className="space-y-3">
-                      <Link
-                        href="/contact#quote"
-                        className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-5 py-4 transition-colors"
-                      >
+                      <QuoteLink className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-5 py-4 transition-colors">
                         <span className="label-mono">Request Quote</span>
                         <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </Link>
+                      </QuoteLink>
                       <a
                         href="tel:770-834-2158"
                         className="group flex items-center justify-between border border-[#1F2D40] hover:border-[#C9C2B0] text-[#F2EEE5] px-5 py-4 transition-colors"

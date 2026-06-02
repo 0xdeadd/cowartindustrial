@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { QuoteLink } from "@/components/quote-link"
 import Image from "next/image"
 import { ArrowUpRight, Phone } from "lucide-react"
 import {
@@ -241,13 +242,10 @@ export default function ServicesPage() {
               </div>
               <div className="lg:col-span-5 lg:pl-8 lg:border-l lg:border-[#0E1A2B]">
                 <div className="space-y-4">
-                  <Link
-                    href="/contact#quote"
-                    className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-5 transition-colors"
-                  >
+                  <QuoteLink className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-5 transition-colors">
                     <span className="label-mono">Request a Quote</span>
                     <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
+                  </QuoteLink>
                   <a
                     href="tel:770-834-2158"
                     className="group flex items-center justify-between border border-[#0E1A2B] hover:bg-[#0E1A2B] hover:text-[#F2EEE5] text-[#0E1A2B] px-6 py-5 transition-colors"

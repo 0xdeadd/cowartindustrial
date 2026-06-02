@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { QuoteLink } from "@/components/quote-link"
 import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react"
 import {
   categories,
@@ -183,13 +184,10 @@ export function Footer() {
             </div>
           </div>
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
-            <Link
-              href="/contact#quote"
-              className="group flex items-center gap-3 border border-[#C9C2B0] hover:bg-[#B8252F] hover:border-[#B8252F] hover:text-[#F2EEE5] text-[#F2EEE5] px-6 py-3 transition-colors"
-            >
+            <QuoteLink className="group flex items-center gap-3 border border-[#C9C2B0] hover:bg-[#B8252F] hover:border-[#B8252F] hover:text-[#F2EEE5] text-[#F2EEE5] px-6 py-3 transition-colors">
               <span className="label-mono">Get in Touch</span>
               <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
+            </QuoteLink>
           </div>
         </div>
       </div>

@@ -136,6 +136,17 @@
   }
   html {
     font-family: var(--font-sans);
+    /* Clears the sticky header when scrolling to an in-page anchor like
+       /contact#quote (used by both Next's hash navigation and QuoteLink's
+       scrollIntoView). 7.5rem covers the 116px desktop header. */
+    scroll-padding-top: 7.5rem;
+  }
+  /* Below md the utility bar is hidden, so the sticky header is just the 80px
+     main bar; reserve less so the form is not pushed down unnecessarily. */
+  @media (max-width: 767px) {
+    html {
+      scroll-padding-top: 5.5rem;
+    }
   }
   body {
     background: var(--background);

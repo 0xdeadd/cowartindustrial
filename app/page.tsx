@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { QuoteLink } from "@/components/quote-link"
 import Image from "next/image"
 import { Phone, ArrowUpRight } from "lucide-react"
 import { getFeaturedServices } from "@/lib/services"
@@ -128,13 +129,10 @@ export default function HomePage() {
               </p>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact#quote"
-                  className="group flex items-center gap-4 bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-7 py-4 transition-colors shadow-[0_8px_32px_rgba(184,37,47,0.3)]"
-                >
+                <QuoteLink className="group flex items-center gap-4 bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-7 py-4 transition-colors shadow-[0_8px_32px_rgba(184,37,47,0.3)]">
                   <span className="label-mono">Request a Quote</span>
                   <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
+                </QuoteLink>
                 <a
                   href="tel:770-834-2158"
                   className="flex items-center gap-3 border border-[#C9C2B0]/40 backdrop-blur-sm bg-[#08111E]/30 hover:border-[#C9C2B0] text-[#F2EEE5] px-7 py-4 transition-colors"
@@ -387,13 +385,10 @@ export default function HomePage() {
               </div>
               <div className="lg:col-span-5 lg:pl-8 lg:border-l lg:border-[#0E1A2B]">
                 <div className="space-y-4">
-                  <Link
-                    href="/contact#quote"
-                    className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-5 transition-colors"
-                  >
+                  <QuoteLink className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-5 transition-colors">
                     <span className="label-mono">Request a Quote</span>
                     <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
+                  </QuoteLink>
                   <a
                     href="tel:770-834-2158"
                     className="group flex items-center justify-between border border-[#0E1A2B] hover:bg-[#0E1A2B] hover:text-[#F2EEE5] text-[#0E1A2B] px-6 py-5 transition-colors"
