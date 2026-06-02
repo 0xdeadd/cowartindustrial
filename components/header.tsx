@@ -120,7 +120,7 @@ export function Header() {
                 className="group flex items-center gap-3 bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-3 transition-colors"
               >
                 <span className="label-mono">Request Quote</span>
-                <span className="w-4 h-px bg-[#F2EEE5] group-hover:w-6 transition-all" />
+                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
 

@@ -310,7 +310,7 @@ export default function HomePage() {
                 className="group inline-flex items-center gap-3 mt-10 label-mono text-[#F2EEE5] hover:text-[#B8252F] transition-colors"
               >
                 Read our story
-                <span className="w-8 h-px bg-[#F2EEE5] group-hover:bg-[#B8252F] group-hover:w-12 transition-all" />
+                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
 
