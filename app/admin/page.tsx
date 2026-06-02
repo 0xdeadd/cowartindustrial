@@ -58,7 +58,7 @@ function pct(n: number): string {
 }
 
 function fmtDate(s: string | null): string {
-  if (!s) return "—"
+  if (!s) return "-"
   return new Date(s).toISOString().slice(0, 10)
 }
 
@@ -78,7 +78,7 @@ type IndexingData = {
 }
 
 function Delta({ value }: { value: number }) {
-  if (value === 0) return <span className="text-[#C9C2B0]">— 0</span>
+  if (value === 0) return <span className="text-[#C9C2B0]">0</span>
   const arrow = value > 0 ? "▲" : "▼"
   const color = value > 0 ? "text-[#3fa057]" : "text-[#B8252F]"
   const sign = value > 0 ? "+" : ""
@@ -152,7 +152,7 @@ export default function AdminDashboard() {
       <header className="border-b border-[#1F2D40] bg-[#0E1A2B]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-5 flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <div className="label-mono text-[#B8252F]">— Cowart SEO</div>
+            <div className="label-mono text-[#B8252F]">Cowart SEO</div>
             <h1 className="display-serif text-xl">Dashboard</h1>
           </div>
           <div className="flex items-center gap-4">
@@ -195,7 +195,7 @@ export default function AdminDashboard() {
             {/* TOTALS */}
             <section>
               <div className="label-mono text-[#B8252F] mb-4">
-                — 28-day window · {data.window.recentStart} → {data.window.recentEnd}
+               28-day window · {data.window.recentStart} → {data.window.recentEnd}
               </div>
               <div className="grid grid-cols-2 gap-6">
                 <div className="border border-[#1F2D40] bg-[#0E1A2B] p-6">
@@ -224,7 +224,7 @@ export default function AdminDashboard() {
             {/* INDEXING STATUS */}
             <section>
               <div className="flex items-center justify-between mb-4">
-                <div className="label-mono text-[#B8252F]">— Indexing status (Google)</div>
+                <div className="label-mono text-[#B8252F]">Indexing status (Google)</div>
                 <button
                   onClick={loadIndexing}
                   disabled={indexingLoading}
@@ -265,7 +265,7 @@ export default function AdminDashboard() {
                               <td className="px-4 py-2 font-mono text-xs">{shortUrl(r.url)}</td>
                               <td className="px-4 py-2">
                                 <span className={ok ? "text-[#3fa057]" : "text-[#d98b2b]"}>
-                                  {r.error ? "error" : r.coverageState || r.verdict || "—"}
+                                  {r.error ? "error" : r.coverageState || r.verdict || "-"}
                                 </span>
                               </td>
                               <td className="px-4 py-2 text-xs text-[#C9C2B0]">{fmtDate(r.lastCrawlTime)}</td>
@@ -287,7 +287,7 @@ export default function AdminDashboard() {
 
             {/* PAGE-1 CANDIDATES */}
             <section>
-              <div className="label-mono text-[#B8252F] mb-4">— Page-1 candidates (pos 11–20)</div>
+              <div className="label-mono text-[#B8252F] mb-4">Page-1 candidates (pos 11-20)</div>
               <div className="border border-[#1F2D40] bg-[#0E1A2B] overflow-hidden">
                 <table className="w-full text-sm">
                   <thead className="bg-[#08111E]">
@@ -333,7 +333,7 @@ export default function AdminDashboard() {
             {/* CTR UNDERPERFORMERS */}
             <section>
               <div className="label-mono text-[#B8252F] mb-4">
-                — CTR underperformers (≥100 imp, &lt;2% CTR)
+               CTR underperformers (≥100 imp, &lt;2% CTR)
               </div>
               <div className="border border-[#1F2D40] bg-[#0E1A2B] overflow-hidden">
                 <table className="w-full text-sm">
@@ -380,7 +380,7 @@ export default function AdminDashboard() {
             {/* TRENDING + NEW */}
             <div className="grid lg:grid-cols-2 gap-6">
               <section>
-                <div className="label-mono text-[#B8252F] mb-4">— Trending up (WoW)</div>
+                <div className="label-mono text-[#B8252F] mb-4">Trending up (WoW)</div>
                 <div className="border border-[#1F2D40] bg-[#0E1A2B] overflow-hidden">
                   <table className="w-full text-sm">
                     <thead className="bg-[#08111E]">
@@ -405,7 +405,7 @@ export default function AdminDashboard() {
                 </div>
               </section>
               <section>
-                <div className="label-mono text-[#B8252F] mb-4">— Trending down (WoW)</div>
+                <div className="label-mono text-[#B8252F] mb-4">Trending down (WoW)</div>
                 <div className="border border-[#1F2D40] bg-[#0E1A2B] overflow-hidden">
                   <table className="w-full text-sm">
                     <thead className="bg-[#08111E]">
@@ -433,7 +433,7 @@ export default function AdminDashboard() {
 
             {/* NEW QUERIES */}
             <section>
-              <div className="label-mono text-[#B8252F] mb-4">— New queries</div>
+              <div className="label-mono text-[#B8252F] mb-4">New queries</div>
               <div className="border border-[#1F2D40] bg-[#0E1A2B] overflow-hidden">
                 <table className="w-full text-sm">
                   <thead className="bg-[#08111E]">
@@ -466,7 +466,7 @@ export default function AdminDashboard() {
             {/* SITEMAPS */}
             {data.sitemaps.length > 0 && (
               <section>
-                <div className="label-mono text-[#B8252F] mb-4">— Sitemaps</div>
+                <div className="label-mono text-[#B8252F] mb-4">Sitemaps</div>
                 <div className="border border-[#1F2D40] bg-[#0E1A2B] overflow-hidden">
                   <table className="w-full text-sm">
                     <thead className="bg-[#08111E]">

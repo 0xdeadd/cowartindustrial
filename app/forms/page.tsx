@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const forms = [
   {
-    code: "F—01",
+    code: "F-01",
     title: "Waste Profile",
     description:
       "Required for all new commercial customers. Captures billing details, generator information, waste description, physical properties (flash point, pH, specific gravity, viscosity), volume, and composition. Submit with your quote request to speed up scheduling.",
@@ -34,7 +34,7 @@ export default function FormsPage() {
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
-            <div className="label-mono text-[#B8252F]">— File 07 / Forms</div>
+            <div className="label-mono text-[#B8252F]">File 07 / Forms</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Customer Documents</div>
           </div>
@@ -52,7 +52,7 @@ export default function FormsPage() {
               </h1>
               <p className="mt-8 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
                 Customer-facing forms for new commercial accounts and recurring service
-                arrangements. Download, fill out, and submit with your quote request — or call
+                arrangements. Download, fill out, and submit with your quote request, or call
                 770.834.2158 if you&apos;d rather walk through it on the phone.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function FormsPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex items-end justify-between mb-12 lg:mb-16 border-b border-[#C9C2B0] pb-6">
             <div>
-              <div className="label-mono text-[#B8252F] mb-3">— Directory</div>
+              <div className="label-mono text-[#B8252F] mb-3">Directory</div>
               <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B]">
                 Available Forms
               </h2>
@@ -147,7 +147,7 @@ export default function FormsPage() {
           <div className="border-t border-b border-[#0E1A2B]">
             <div className="grid lg:grid-cols-12 gap-8 py-16 lg:py-20 items-center">
               <div className="lg:col-span-7">
-                <div className="label-mono text-[#B8252F] mb-4">— Help filling it out?</div>
+                <div className="label-mono text-[#B8252F] mb-4">Help filling it out?</div>
                 <h2 className="display-serif text-4xl lg:text-5xl leading-[0.95] text-[#0E1A2B]">
                   Need help with the
                   <br />

@@ -26,7 +26,7 @@ export default function ServicesPage() {
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
-            <div className="label-mono text-[#B8252F]">— File 03 / Services</div>
+            <div className="label-mono text-[#B8252F]">File 03 / Services</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">
               {services.length} Lines · {allCategoryIds.length} Categories
@@ -48,7 +48,7 @@ export default function ServicesPage() {
               </h1>
               <p className="mt-10 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
                 Industrial cleaning, hydro blasting, hydro excavating, vacuum trucks, frac tanks,
-                waste disposal, line jetting, chemical cleaning, on-site treatment — Cowart crews
+                waste disposal, line jetting, chemical cleaning, on-site treatment, Cowart crews
                 and Cowart equipment, with no subcontractor handoffs.
               </p>
             </div>
@@ -61,7 +61,7 @@ export default function ServicesPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex items-end justify-between mb-10 pb-6 border-b border-[#C9C2B0]">
             <div>
-              <div className="label-mono text-[#B8252F] mb-3">— Categories</div>
+              <div className="label-mono text-[#B8252F] mb-3">Categories</div>
               <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B]">
                 Four capability categories
               </h2>
@@ -125,12 +125,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* SERVICES DIRECTORY — grouped by category */}
+      {/* SERVICES DIRECTORY, grouped by category */}
       <section className="paper-texture pt-8 pb-20 lg:pb-28 relative">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex items-end justify-between mb-12 lg:mb-16 border-b border-[#C9C2B0] pb-6">
             <div>
-              <div className="label-mono text-[#B8252F] mb-3">— Directory</div>
+              <div className="label-mono text-[#B8252F] mb-3">Directory</div>
               <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B]">
                 Service Index
               </h2>
@@ -228,7 +228,7 @@ export default function ServicesPage() {
           <div className="border-t border-b border-[#0E1A2B]">
             <div className="grid lg:grid-cols-12 gap-8 py-16 lg:py-20 items-center">
               <div className="lg:col-span-7">
-                <div className="label-mono text-[#B8252F] mb-4">— Inquiry</div>
+                <div className="label-mono text-[#B8252F] mb-4">Inquiry</div>
                 <h2 className="display-serif text-4xl lg:text-5xl leading-[0.95] text-[#0E1A2B]">
                   Don&apos;t see what you
                   <br />

@@ -45,7 +45,7 @@ async function withConcurrency<T, R>(
 export async function GET() {
   try {
     const urls = allUrls()
-    // 5 parallel — balances speed against GSC rate limits.
+    // 5 parallel, balances speed against GSC rate limits.
     const results = await withConcurrency(urls, 5, (url) => inspectUrl(url))
 
     // Summary counts by verdict/coverage

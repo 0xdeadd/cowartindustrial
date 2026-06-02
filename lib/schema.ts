@@ -22,7 +22,7 @@ export function localBusinessSchema() {
     name: "Cowart Industrial Services",
     legalName: "Cowart Industrial Services LLC",
     description:
-      "Full-service industrial environmental services and non-hazardous waste management — industrial cleaning, hydro blasting, vacuum trucks, waste disposal, and on-site treatment across the Southeastern United States since 1974.",
+      "Full-service industrial environmental services and non-hazardous waste management, industrial cleaning, hydro blasting, vacuum trucks, waste disposal, and on-site treatment across the Southeastern United States since 1974.",
     url: SITE_URL,
     image: [
       `${SITE_URL}/logo.jpg`,
@@ -110,7 +110,7 @@ export function serviceSchema(service: Service) {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: `${service.title} — Capabilities`,
+      name: `${service.title}, Capabilities`,
       itemListElement: service.capabilities.map((cap) => ({
         "@type": "Offer",
         itemOffered: { "@type": "Service", name: cap },

@@ -26,56 +26,56 @@ const timeline = [
     year: "Today",
     title: "Full-service operation",
     detail:
-      "Non-hazardous waste management, industrial cleaning, hydro blasting, vacuum services across the Southeast — with our own treatment plant and fleet.",
+      "Non-hazardous waste management, industrial cleaning, hydro blasting, vacuum services across the Southeast, with our own treatment plant and fleet.",
   },
 ]
 
 const capabilities = [
-  { code: "C—01", label: "40-Hour HAZWOPER Certified Personnel" },
-  { code: "C—02", label: "Confined Space Entry Capable" },
-  { code: "C—03", label: "UST and AST Entry and Cleaning" },
-  { code: "C—04", label: "Own Wastewater Treatment Plant" },
-  { code: "C—05", label: "24-Hour Emergency Service" },
-  { code: "C—06", label: "Full Fleet of Specialized Equipment" },
-  { code: "C—07", label: "DOT Hazmat Transport Certified" },
-  { code: "C—08", label: "EPA RCRA Compliant" },
+  { code: "C-01", label: "40-Hour HAZWOPER Certified Personnel" },
+  { code: "C-02", label: "Confined Space Entry Capable" },
+  { code: "C-03", label: "UST and AST Entry and Cleaning" },
+  { code: "C-04", label: "Own Wastewater Treatment Plant" },
+  { code: "C-05", label: "24-Hour Emergency Service" },
+  { code: "C-06", label: "Full Fleet of Specialized Equipment" },
+  { code: "C-07", label: "DOT Hazmat Transport Certified" },
+  { code: "C-08", label: "EPA RCRA Compliant" },
 ]
 
 const fieldWork = [
   {
     src: "/photos/gallery-hydroblast.jpg",
     label: "Hydro-Blasting",
-    code: "S—14",
+    code: "S-14",
     alt: "Cowart operator in PPE hydro-blasting an interior tank wall",
   },
   {
     src: "/photos/gallery-sludge-cleanout.jpg",
     label: "Confined-Space Cleanout",
-    code: "S—13",
+    code: "S-13",
     alt: "Technician in a full suit shoveling sludge inside a confined vessel",
   },
   {
     src: "/photos/gallery-vac-transfer.jpg",
     label: "Liquid Transfer",
-    code: "S—08",
+    code: "S-08",
     alt: "Cowart vacuum tanker transferring liquid to staged containers on-site",
   },
   {
     src: "/photos/gallery-rolloff-haul.jpg",
     label: "Roll-Off Transport",
-    code: "CRB—060",
+    code: "CRB-060",
     alt: "Cowart roll-off truck hauling box CRB-060",
   },
   {
     src: "/photos/gallery-rolloff-field.jpg",
     label: "Roll-Off Box",
-    code: "CRB—080",
+    code: "CRB-080",
     alt: "Cowart roll-off box CRB-080 staged at a jobsite",
   },
   {
     src: "/photos/gallery-vacuum-box.jpg",
     label: "Vacuum Box",
-    code: "CVB—120",
+    code: "CVB-120",
     alt: "Cowart sealed vacuum box CVB-120 staged for loading",
   },
 ]
@@ -99,7 +99,7 @@ const pillars = [
   {
     code: "04",
     title: "Owned Equipment",
-    desc: "Our own treatment plant, our own fleet, our own crews — no subcontractor handoffs.",
+    desc: "Our own treatment plant, our own fleet, our own crews, no subcontractor handoffs.",
   },
 ]
 
@@ -114,7 +114,7 @@ export default function AboutPage() {
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
-            <div className="label-mono text-[#B8252F]">— File 02 / About</div>
+            <div className="label-mono text-[#B8252F]">File 02 / About</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Index · Company</div>
           </div>
@@ -158,7 +158,7 @@ export default function AboutPage() {
                 {/* Editorial caption labels */}
                 <div className="relative h-full flex flex-col justify-between p-5">
                   <div className="flex items-start justify-between">
-                    <div className="label-mono text-[#B8252F]">— Fleet</div>
+                    <div className="label-mono text-[#B8252F]">Fleet</div>
                     <div className="label-mono text-[#F2EEE5] text-[10px] opacity-80">
                       VT·019
                     </div>
@@ -185,7 +185,7 @@ export default function AboutPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-4">
-              <div className="label-mono text-[#B8252F] mb-4">— File 02.1 / History</div>
+              <div className="label-mono text-[#B8252F] mb-4">File 02.1 / History</div>
               <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
                 Our
                 <br />
@@ -248,13 +248,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PILLARS — on navy */}
+      {/* PILLARS, on navy */}
       <section className="bg-[#0E1A2B] text-[#F2EEE5] py-24 lg:py-32 relative overflow-hidden">
         <div className="blueprint-grid absolute inset-0 opacity-40" />
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16 lg:mb-20">
             <div className="lg:col-span-5">
-              <div className="label-mono text-[#B8252F] mb-4">— File 02.2 / Why Cowart</div>
+              <div className="label-mono text-[#B8252F] mb-4">File 02.2 / Why Cowart</div>
               <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95]">
                 Why crews,
                 <br />
@@ -266,7 +266,7 @@ export default function AboutPage() {
             <div className="lg:col-span-6 lg:col-start-7 lg:pt-4">
               <p className="text-[#C9C2B0] text-lg leading-relaxed font-light">
                 Industrial customers across the Southeast pick Cowart for the same four reasons,
-                project after project. They&apos;re not slogans — they&apos;re what we&apos;ve been
+                project after project. They&apos;re not slogans, they&apos;re what we&apos;ve been
                 building for fifty years.
               </p>
             </div>
@@ -286,12 +286,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* FIELD WORK — jobsite gallery */}
+      {/* FIELD WORK, jobsite gallery */}
       <section className="paper-texture py-24 lg:py-32 relative">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
             <div className="lg:col-span-5">
-              <div className="label-mono text-[#B8252F] mb-4">— File 02.3 / Field Work</div>
+              <div className="label-mono text-[#B8252F] mb-4">File 02.3 / Field Work</div>
               <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
                 On the
                 <br />
@@ -301,7 +301,7 @@ export default function AboutPage() {
             <div className="lg:col-span-6 lg:col-start-7 lg:pt-4">
               <p className="text-lg text-[#3A3D44] leading-relaxed font-light">
                 Real crews, real equipment, real sites across the Southeast. Every truck and box
-                carries its own unit number — the same fleet that shows up when you call.
+                carries its own unit number, the same fleet that shows up when you call.
               </p>
             </div>
           </div>
@@ -336,12 +336,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CAPABILITIES — editorial list */}
+      {/* CAPABILITIES, editorial list */}
       <section className="paper-texture py-24 lg:py-32 relative">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
             <div className="lg:col-span-4">
-              <div className="label-mono text-[#B8252F] mb-4">— File 02.4 / Credentials</div>
+              <div className="label-mono text-[#B8252F] mb-4">File 02.4 / Credentials</div>
               <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
                 Certifications
                 <br />
@@ -380,7 +380,7 @@ export default function AboutPage() {
           <div className="border-t border-b border-[#0E1A2B]">
             <div className="grid lg:grid-cols-12 gap-8 py-16 lg:py-20 items-center">
               <div className="lg:col-span-7">
-                <div className="label-mono text-[#B8252F] mb-4">— File 02.5 / Next</div>
+                <div className="label-mono text-[#B8252F] mb-4">File 02.5 / Next</div>
                 <h2 className="display-serif text-4xl lg:text-5xl leading-[0.95] text-[#0E1A2B]">
                   Ready to put us to
                   <br />

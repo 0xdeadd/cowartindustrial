@@ -52,7 +52,7 @@ export default function ContactPage() {
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
-            <div className="label-mono text-[#B8252F]">— File 06 / Contact</div>
+            <div className="label-mono text-[#B8252F]">File 06 / Contact</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Inquiry · Quote · Emergency</div>
           </div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
               </h1>
               <p className="mt-8 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
                 Free consultation. 24-hour emergency dispatch. Whether it&apos;s a scheduled
-                project or something urgent — fill out the form, call, or email and we&apos;ll get
+                project or something urgent, fill out the form, call, or email and we&apos;ll get
                 back to you fast.
               </p>
             </div>
@@ -121,7 +121,7 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Form */}
             <div className="lg:col-span-7">
-              <div className="label-mono text-[#B8252F] mb-4">— Form 01 / Inquiry</div>
+              <div className="label-mono text-[#B8252F] mb-4">Form 01 / Inquiry</div>
               <h2 className="display-serif text-4xl lg:text-5xl text-[#0E1A2B] leading-[0.95] mb-2">
                 Send a message
               </h2>
@@ -135,7 +135,7 @@ export default function ContactPage() {
             <aside className="lg:col-span-5">
               <div className="lg:sticky lg:top-32 space-y-8">
                 <div>
-                  <div className="label-mono text-[#B8252F] mb-4">— Direct Contact</div>
+                  <div className="label-mono text-[#B8252F] mb-4">Direct Contact</div>
                   <h3 className="display-serif text-3xl text-[#0E1A2B] leading-tight mb-6">
                     Or reach us<br />
                     <span className="italic">directly.</span>
@@ -178,13 +178,13 @@ export default function ContactPage() {
                 {/* Map */}
                 <div className="border border-[#0E1A2B] bg-[#0E1A2B] overflow-hidden">
                   <div className="px-4 py-3 border-b border-[#1F2D40] flex items-center justify-between">
-                    <div className="label-mono text-[#B8252F]">— Location</div>
+                    <div className="label-mono text-[#B8252F]">Location</div>
                     <div className="label-mono text-[#C9C2B0] opacity-60">
                       Carrollton · Coweta · GA
                     </div>
                   </div>
                   <iframe
-                    title="Cowart Industrial Services — 834 Kingsbridge Rd, Carrollton, GA 30117"
+                    title="Cowart Industrial Services, 834 Kingsbridge Rd, Carrollton, GA 30117"
                     src="https://maps.google.com/maps?q=834+Kingsbridge+Road+Carrollton+GA+30117&t=&z=15&ie=UTF8&iwloc=B&output=embed"
                     width="100%"
                     height="280"

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Cowart Industrial Services",
   },
   description:
-    "Environmental services & industrial cleaning across the Southeast since 1974 — waste disposal, hydro blasting, and on-site treatment. Carrollton, GA.",
+    "Environmental services & industrial cleaning across the Southeast since 1974, waste disposal, hydro blasting, and on-site treatment. Carrollton, GA.",
   keywords: [
     "environmental services",
     "industrial cleaning",

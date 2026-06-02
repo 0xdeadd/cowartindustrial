@@ -93,7 +93,7 @@ export default async function ServicePage({
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
-            <div className="label-mono text-[#B8252F]">— File 03 / {service.code}</div>
+            <div className="label-mono text-[#B8252F]">File 03 / {service.code}</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <Link
               href="/services"
@@ -140,7 +140,7 @@ export default async function ServicePage({
                         <div>
                           <div className="label-mono text-[#B8252F] mb-1">/ Spec</div>
                           <div className="label-mono text-[#F2EEE5] text-[10px] opacity-80">
-                            {service.code.replace("—", "·")}
+                            {service.code.replace("-", "·")}
                           </div>
                         </div>
                         <div className="border border-[#F2EEE5]/40 p-3 backdrop-blur-sm bg-[#08111E]/30">
@@ -163,7 +163,7 @@ export default async function ServicePage({
                         <div>
                           <div className="label-mono text-[#B8252F] mb-1">/ Spec</div>
                           <div className="label-mono text-[#C9C2B0] opacity-60 text-[10px]">
-                            PHOTO·SLOT·{service.code.replace("—", "")}
+                            PHOTO·SLOT·{service.code.replace("-", "")}
                           </div>
                         </div>
                         <div className="border border-[#1F2D40] p-3">
@@ -172,9 +172,9 @@ export default async function ServicePage({
                       </div>
                       <div className="text-center">
                         <div className="display-serif text-7xl text-[#F2EEE5] leading-none">
-                          {service.code.split("—")[1]}
+                          {service.code.split("-")[1]}
                         </div>
-                        <div className="label-mono text-[#B8252F] mt-2">{service.code.split("—")[0]}</div>
+                        <div className="label-mono text-[#B8252F] mt-2">{service.code.split("-")[0]}</div>
                       </div>
                       <div className="border-t border-[#1F2D40] pt-4">
                         <div className="label-mono text-[#C9C2B0] text-[10px] flex justify-between">
@@ -196,7 +196,7 @@ export default async function ServicePage({
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-8">
-              <div className="label-mono text-[#B8252F] mb-4">— Overview</div>
+              <div className="label-mono text-[#B8252F] mb-4">Overview</div>
               <div className="display-serif text-2xl lg:text-3xl text-[#0E1A2B] leading-snug mb-10 pb-10 border-b border-[#C9C2B0]">
                 {service.intro}
               </div>
@@ -211,7 +211,7 @@ export default async function ServicePage({
               <div className="lg:sticky lg:top-32 space-y-8">
                 <div className="border-t border-[#0E1A2B]">
                   <div className="py-4 border-b border-[#C9C2B0] flex items-center justify-between">
-                    <div className="label-mono text-[#B8252F]">— Capabilities</div>
+                    <div className="label-mono text-[#B8252F]">Capabilities</div>
                     <div className="label-mono text-[#3A3D44]">
                       {service.capabilities.length} items
                     </div>
@@ -234,7 +234,7 @@ export default async function ServicePage({
                 <div className="bg-[#0E1A2B] text-[#F2EEE5] p-6 lg:p-8 relative overflow-hidden">
                   <div className="blueprint-grid absolute inset-0 opacity-30" />
                   <div className="relative">
-                    <div className="label-mono text-[#B8252F] mb-3">— Get a Quote</div>
+                    <div className="label-mono text-[#B8252F] mb-3">Get a Quote</div>
                     <div className="display-serif text-2xl leading-tight mb-5">
                       Need this service?
                     </div>
@@ -268,7 +268,7 @@ export default async function ServicePage({
         </div>
       </section>
 
-      {/* EXTENDED CONTENT — additional H2 sections */}
+      {/* EXTENDED CONTENT, additional H2 sections */}
       {service.extendedContent && service.extendedContent.length > 0 && (
         <section className="paper-texture py-20 lg:py-24 relative border-t border-[#C9C2B0]">
           <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 space-y-16 lg:space-y-20">
@@ -279,7 +279,7 @@ export default async function ServicePage({
               >
                 <div className="lg:col-span-4">
                   <div className="label-mono text-[#B8252F] mb-3">
-                    — Section {String(i + 2).padStart(2, "0")}
+                   Section {String(i + 2).padStart(2, "0")}
                   </div>
                   <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-[1.05]">
                     {block.heading}
@@ -303,7 +303,7 @@ export default async function ServicePage({
           <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="flex items-end justify-between mb-10 pb-6 border-b border-[#1F2D40]">
               <div>
-                <div className="label-mono text-[#B8252F] mb-3">— Industries</div>
+                <div className="label-mono text-[#B8252F] mb-3">Industries</div>
                 <h2 className="display-serif text-3xl lg:text-4xl">
                   Industries we serve
                 </h2>
@@ -335,7 +335,7 @@ export default async function ServicePage({
           <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-12 pb-8 border-b border-[#C9C2B0]">
               <div className="lg:col-span-4">
-                <div className="label-mono text-[#B8252F] mb-3">— Service Areas</div>
+                <div className="label-mono text-[#B8252F] mb-3">Service Areas</div>
                 <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-[1.05]">
                   Where we work
                 </h2>
@@ -370,7 +370,7 @@ export default async function ServicePage({
           <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-4">
-                <div className="label-mono text-[#B8252F] mb-3">— FAQ</div>
+                <div className="label-mono text-[#B8252F] mb-3">FAQ</div>
                 <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-[1.05]">
                   Common questions
                 </h2>
@@ -388,7 +388,7 @@ export default async function ServicePage({
                   <div key={faq.question} className="py-6">
                     <h3 className="display-serif text-xl lg:text-2xl text-[#0E1A2B] leading-snug mb-3 flex items-baseline gap-4">
                       <span className="label-mono text-[#B8252F] shrink-0">
-                        Q—{String(i + 1).padStart(2, "0")}
+                        Q-{String(i + 1).padStart(2, "0")}
                       </span>
                       <span>{faq.question}</span>
                     </h3>
@@ -410,7 +410,7 @@ export default async function ServicePage({
           <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="flex items-end justify-between mb-10 pb-6 border-b border-[#1F2D40]">
               <div>
-                <div className="label-mono text-[#B8252F] mb-3">— Related</div>
+                <div className="label-mono text-[#B8252F] mb-3">Related</div>
                 <h2 className="display-serif text-3xl lg:text-4xl">
                   Related Services
                 </h2>

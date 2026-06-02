@@ -20,7 +20,7 @@ const HUB_URL = `${SITE_URL}/services/waste-management`
 export const metadata: Metadata = {
   title: "Waste Management",
   description:
-    "Industrial waste management across the Southeast — non-hazardous disposal, transport, treatment, and environmental services from Cowart since 1974.",
+    "Industrial waste management across the Southeast, non-hazardous disposal, transport, treatment, and environmental services from Cowart since 1974.",
   keywords: [
     "waste management",
     "industrial waste management",
@@ -32,11 +32,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Industrial Waste Management | Cowart Industrial Services",
     description:
-      "Non-hazardous industrial waste management across the Southeast — disposal, transport, treatment, and environmental services under one DOT number.",
+      "Non-hazardous industrial waste management across the Southeast, disposal, transport, treatment, and environmental services under one DOT number.",
     url: HUB_URL,
     type: "website",
     // Standalone route (outside the [slug] segment), so it doesn't inherit
-    // app/services/[slug]/opengraph-image.tsx — point at the site OG image.
+    // app/services/[slug]/opengraph-image.tsx, point at the site OG image.
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -54,7 +54,7 @@ const hubServiceSchema = {
   "@id": `${HUB_URL}#service`,
   name: "Industrial Waste Management",
   description:
-    "Industrial waste management across the Southeast — non-hazardous waste disposal, transport, treatment, and environmental services. End-to-end under one DOT number, with our own wastewater treatment plant.",
+    "Industrial waste management across the Southeast, non-hazardous waste disposal, transport, treatment, and environmental services. End-to-end under one DOT number, with our own wastewater treatment plant.",
   serviceType:
     "waste management, industrial waste management, non-hazardous waste management",
   url: HUB_URL,
@@ -100,7 +100,7 @@ export default function WasteManagementHubPage() {
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
-            <div className="label-mono text-[#B8252F]">— File 03 / {cat.code}</div>
+            <div className="label-mono text-[#B8252F]">File 03 / {cat.code}</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <Link
               href="/services"
@@ -121,7 +121,7 @@ export default function WasteManagementHubPage() {
                 Industrial Waste Management
               </h1>
               <p className="mt-8 max-w-2xl text-[#C9C2B0] text-lg leading-relaxed font-light">
-                Non-hazardous industrial waste — profiled, transported, treated, and disposed under
+                Non-hazardous industrial waste, profiled, transported, treated, and disposed under
                 one DOT number. Cowart Industrial Services has handled waste management for
                 Southeastern manufacturers, processors, and municipalities since 1974.
               </p>
@@ -135,7 +135,7 @@ export default function WasteManagementHubPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
             <div className="lg:col-span-8">
-              <div className="label-mono text-[#B8252F] mb-4">— Overview</div>
+              <div className="label-mono text-[#B8252F] mb-4">Overview</div>
               <div className="display-serif text-2xl lg:text-3xl text-[#0E1A2B] leading-snug mb-10 pb-10 border-b border-[#C9C2B0]">
                 One operating principle: industrial waste shouldn&apos;t leave your site through
                 three different vendors. Cowart handles it end-to-end.
@@ -157,7 +157,7 @@ export default function WasteManagementHubPage() {
                 </p>
                 <p>
                   Below are the five service lines that make up our waste management practice. Most
-                  facilities use more than one — a single account may pair scheduled wastewater
+                  facilities use more than one, a single account may pair scheduled wastewater
                   pickups with roll-off service for solid waste and emergency response for
                   unplanned events.
                 </p>
@@ -168,7 +168,7 @@ export default function WasteManagementHubPage() {
               <div className="lg:sticky lg:top-32 space-y-8">
                 <div className="border-t border-[#0E1A2B]">
                   <div className="py-4 border-b border-[#C9C2B0]">
-                    <div className="label-mono text-[#B8252F]">— What We Handle</div>
+                    <div className="label-mono text-[#B8252F]">What We Handle</div>
                   </div>
                   <ul className="divide-y divide-[#C9C2B0]">
                     {[
@@ -195,7 +195,7 @@ export default function WasteManagementHubPage() {
                 <div className="bg-[#0E1A2B] text-[#F2EEE5] p-6 lg:p-8 relative overflow-hidden">
                   <div className="blueprint-grid absolute inset-0 opacity-30" />
                   <div className="relative">
-                    <div className="label-mono text-[#B8252F] mb-3">— Get a Quote</div>
+                    <div className="label-mono text-[#B8252F] mb-3">Get a Quote</div>
                     <div className="display-serif text-2xl leading-tight mb-5">
                       Need waste off-site?
                     </div>
@@ -235,7 +235,7 @@ export default function WasteManagementHubPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex items-end justify-between mb-10 pb-6 border-b border-[#1F2D40]">
             <div>
-              <div className="label-mono text-[#B8252F] mb-3">— Service Lines</div>
+              <div className="label-mono text-[#B8252F] mb-3">Service Lines</div>
               <h2 className="display-serif text-3xl lg:text-4xl">
                 Waste Management at Cowart
               </h2>

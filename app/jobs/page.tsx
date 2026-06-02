@@ -34,28 +34,28 @@ const benefits = [
 
 const positions = [
   {
-    code: "P—01",
+    code: "P-01",
     title: "Industrial Service Technician",
     type: "Full-Time · Carrollton, GA",
     requirements: "Valid GA driver's license · Willingness to travel regionally · Pass background check",
   },
   {
-    code: "P—02",
+    code: "P-02",
     title: "CDL Vacuum Truck Operator",
     type: "Full-Time · Carrollton, GA",
     requirements: "CDL Class A or B · Tanker endorsement preferred · 2+ years driving experience",
   },
   {
-    code: "P—03",
+    code: "P-03",
     title: "Hydro Blasting Operator",
     type: "Full-Time · Carrollton, GA",
     requirements: "High-pressure water experience preferred · OSHA training · Mechanical aptitude",
   },
   {
-    code: "P—04",
+    code: "P-04",
     title: "General Application",
     type: "Open · All Roles",
-    requirements: "Don't see a fit? Send us your background — we keep applications on file.",
+    requirements: "Don't see a fit? Send us your background, we keep applications on file.",
   },
 ]
 
@@ -70,7 +70,7 @@ export default function JobsPage() {
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
-            <div className="label-mono text-[#B8252F]">— File 05 / Careers</div>
+            <div className="label-mono text-[#B8252F]">File 05 / Careers</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Now Hiring</div>
           </div>
@@ -111,7 +111,7 @@ export default function JobsPage() {
                 />
                 <div className="relative h-full flex flex-col justify-between p-5">
                   <div className="flex items-start justify-between">
-                    <div className="label-mono text-[#B8252F]">— On the Job</div>
+                    <div className="label-mono text-[#B8252F]">On the Job</div>
                     <div className="label-mono text-[#F2EEE5] text-[10px] opacity-80">
                       Confined Space
                     </div>
@@ -133,7 +133,7 @@ export default function JobsPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-16 lg:mb-20">
             <div className="lg:col-span-5">
-              <div className="label-mono text-[#B8252F] mb-4">— Why Cowart</div>
+              <div className="label-mono text-[#B8252F] mb-4">Why Cowart</div>
               <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
                 Why crews
                 <br />
@@ -168,7 +168,7 @@ export default function JobsPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex items-end justify-between mb-12 pb-6 border-b border-[#1F2D40]">
             <div>
-              <div className="label-mono text-[#B8252F] mb-3">— Open Positions</div>
+              <div className="label-mono text-[#B8252F] mb-3">Open Positions</div>
               <h2 className="display-serif text-4xl lg:text-5xl">Current openings</h2>
             </div>
             <div className="hidden md:block label-mono text-[#C9C2B0]">
@@ -192,7 +192,7 @@ export default function JobsPage() {
                   <div className="mt-2 label-mono text-[#C9C2B0] opacity-70">{p.type}</div>
                 </div>
                 <div className="col-span-12 lg:col-span-4">
-                  <div className="label-mono text-[#C9C2B0] opacity-60 mb-2">— Requirements</div>
+                  <div className="label-mono text-[#C9C2B0] opacity-60 mb-2">Requirements</div>
                   <p className="text-sm text-[#C9C2B0] leading-relaxed font-light">
                     {p.requirements}
                   </p>
@@ -217,7 +217,7 @@ export default function JobsPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-5">
-              <div className="label-mono text-[#B8252F] mb-4">— How to Apply</div>
+              <div className="label-mono text-[#B8252F] mb-4">How to Apply</div>
               <h2 className="display-serif text-4xl lg:text-5xl leading-[0.95] text-[#0E1A2B]">
                 Three ways
                 <br />
@@ -236,7 +236,7 @@ export default function JobsPage() {
                 <div className="flex items-center gap-4">
                   <Phone className="h-5 w-5 text-[#B8252F]" />
                   <div>
-                    <div className="label-mono opacity-60">— Call</div>
+                    <div className="label-mono opacity-60">Call</div>
                     <div className="display-serif text-2xl">770.834.2158</div>
                   </div>
                 </div>
@@ -249,7 +249,7 @@ export default function JobsPage() {
                 <div className="flex items-center gap-4">
                   <Mail className="h-5 w-5 text-[#B8252F]" />
                   <div>
-                    <div className="label-mono opacity-60">— Email</div>
+                    <div className="label-mono opacity-60">Email</div>
                     <div className="display-serif text-xl">info@cowartind.com</div>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ export default function JobsPage() {
                 className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-6 transition-colors"
               >
                 <div>
-                  <div className="label-mono opacity-80">— Apply Online</div>
+                  <div className="label-mono opacity-80">Apply Online</div>
                   <div className="display-serif text-2xl">Contact form &amp; application</div>
                 </div>
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

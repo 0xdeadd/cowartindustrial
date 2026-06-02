@@ -63,7 +63,7 @@ export default function AdminLogin() {
   return (
     <main className="min-h-screen flex items-center justify-center px-6 bg-[#0E1A2B] text-[#F2EEE5]">
       <div className="w-full max-w-sm">
-        <div className="label-mono text-[#B8252F] mb-4">— Admin / Login</div>
+        <div className="label-mono text-[#B8252F] mb-4">Admin / Login</div>
         <h1 className="display-serif text-3xl mb-8">Cowart SEO Dashboard</h1>
         <Suspense fallback={<div className="label-mono text-[#C9C2B0]">Loading…</div>}>
           <LoginForm />

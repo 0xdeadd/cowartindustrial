@@ -35,7 +35,7 @@ function renderEmailHtml(fields: {
     <table cellpadding="0" cellspacing="0" width="100%" style="max-width:560px;margin:0 auto;background:#FFFFFF;border:1px solid #C9C2B0;">
       <tr>
         <td style="padding:24px 28px;border-bottom:1px solid #C9C2B0;">
-          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#B8252F;">— New Quote Request</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#B8252F;">New Quote Request</div>
           <h1 style="margin:8px 0 0;font-family:Georgia,serif;font-weight:500;font-size:24px;color:#0E1A2B;">${escapeHtml(fields.name)}</h1>
         </td>
       </tr>
@@ -51,7 +51,7 @@ function renderEmailHtml(fields: {
       </tr>
       <tr>
         <td style="padding:0 28px 24px;">
-          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#B8252F;margin-bottom:8px;">— Message</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#B8252F;margin-bottom:8px;">Message</div>
           <div style="white-space:pre-wrap;line-height:1.55;font-family:Georgia,serif;color:#0E1A2B;">${escapeHtml(fields.message)}</div>
         </td>
       </tr>
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
           from: FROM_ADDRESS,
           to: toAddress,
           replyTo: email,
-          subject: `New quote request — ${name}${service ? ` (${service})` : ""}`,
+          subject: `New quote request, ${name}${service ? ` (${service})` : ""}`,
           html: renderEmailHtml({ name, email, phone, company, service, message }),
         })
         if (result.error) {

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og"
 
-export const alt = "Cowart Industrial Services — Environmental services and industrial cleaning since 1974"
+export const alt = "Cowart Industrial Services, Environmental services and industrial cleaning since 1974"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -80,7 +80,7 @@ export default async function Image() {
             fontWeight: 500,
           }}
         >
-          — File 01 / Overview
+          File 01 / Overview
         </div>
 
         {/* Main display */}

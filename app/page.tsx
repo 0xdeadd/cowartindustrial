@@ -25,7 +25,7 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="bg-[#08111E] text-[#F2EEE5] relative overflow-hidden">
-        {/* MOBILE photo banner — full-width landscape, shows the whole truck */}
+        {/* MOBILE photo banner, full-width landscape, shows the whole truck */}
         <div className="lg:hidden relative w-full aspect-[4/3]">
           <Image
             src="/photos/hero-truck.jpg"
@@ -48,7 +48,7 @@ export default function HomePage() {
           <div className="absolute top-4 right-4 w-5 h-5 border-r border-t border-[#B8252F]/80" />
         </div>
 
-        {/* DESKTOP photo backdrop — fills section as overlay */}
+        {/* DESKTOP photo backdrop, fills section as overlay */}
         <div className="hidden lg:block absolute inset-0">
           <Image
             src="/photos/hero-truck.jpg"
@@ -90,7 +90,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 pb-12 lg:pt-8 lg:pb-20">
           {/* meta strip */}
           <div className="flex items-center gap-6 mb-6 lg:mb-8">
-            <div className="label-mono text-[#B8252F]">— File 01 / Overview</div>
+            <div className="label-mono text-[#B8252F]">File 01 / Overview</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Carrollton, GA · 30117</div>
           </div>
@@ -124,7 +124,7 @@ export default function HomePage() {
                 Cowart Industrial Services has provided full-service environmental services and
                 non-hazardous waste management across the Southeast for five decades. Industrial
                 cleaning, hydro blasting, vacuum trucks, waste disposal, frac tanks, and on-site
-                treatment — done right, done safely, on schedule.
+                treatment, done right, done safely, on schedule.
               </p>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">
@@ -145,10 +145,10 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Floating credential card — top-right so it doesn't cover the truck's wheels */}
+            {/* Floating credential card, top-right so it doesn't cover the truck's wheels */}
             <div className="lg:col-span-4 lg:col-start-9 xl:col-span-4 xl:col-start-9 hidden lg:flex lg:items-start lg:justify-end">
               <div className="border border-[#C9C2B0]/30 backdrop-blur-md bg-[#08111E]/40 px-6 py-5 max-w-[260px]">
-                <div className="label-mono text-[#B8252F] mb-3">— Reg.</div>
+                <div className="label-mono text-[#B8252F] mb-3">Reg.</div>
                 <div className="grid grid-cols-2 gap-x-5 gap-y-3">
                   <div>
                     <div className="label-mono text-[#C9C2B0] opacity-60">Est.</div>
@@ -170,7 +170,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* metric strip — solid navy to cover photo */}
+        {/* metric strip, solid navy to cover photo */}
         <div className="relative bg-[#0E1A2B] border-t border-[#1F2D40] z-10">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1F2D40]">
@@ -194,7 +194,7 @@ export default function HomePage() {
         <div className="relative border-t border-[#1F2D40] bg-[#08111E] z-10">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4">
             <div className="flex flex-wrap items-center gap-x-8 gap-y-2 label-mono text-[#C9C2B0]">
-              <span className="text-[#B8252F]">— Certifications</span>
+              <span className="text-[#B8252F]">Certifications</span>
               {certifications.map((cert) => (
                 <span key={cert} className="flex items-center gap-2">
                   <span className="w-1 h-1 bg-[#B8252F]" />
@@ -206,12 +206,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SERVICES — editorial numbered list */}
+      {/* SERVICES, editorial numbered list */}
       <section className="paper-texture py-24 lg:py-32 relative">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 mb-16 lg:mb-20">
             <div className="lg:col-span-4">
-              <div className="label-mono text-[#B8252F] mb-4">— File 02 / Capabilities</div>
+              <div className="label-mono text-[#B8252F] mb-4">File 02 / Capabilities</div>
               <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
                 What we
                 <br />
@@ -222,7 +222,7 @@ export default function HomePage() {
               <p className="text-lg text-[#3A3D44] leading-relaxed font-light">
                 Four capability categories, one operation. Industrial cleaning, hydro blasting,
                 hydro excavating, vacuum service, waste disposal, frac tank storage, and on-site
-                treatment — end-to-end, with our own treatment plant, our own fleet, and crews
+                treatment, end-to-end, with our own treatment plant, our own fleet, and crews
                 trained to do tough jobs without cutting corners.
               </p>
             </div>
@@ -286,13 +286,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHY COWART — letterpress two-column */}
+      {/* WHY COWART, letterpress two-column */}
       <section className="bg-[#0E1A2B] text-[#F2EEE5] py-24 lg:py-32 relative overflow-hidden">
         <div className="blueprint-grid absolute inset-0 opacity-40" />
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-5">
-              <div className="label-mono text-[#B8252F] mb-4">— File 03 / Trust</div>
+              <div className="label-mono text-[#B8252F] mb-4">File 03 / Trust</div>
               <h2 className="display-serif text-5xl lg:text-6xl leading-[0.95]">
                 Built on
                 <br />
@@ -369,13 +369,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA — calm, structural */}
+      {/* CTA, calm, structural */}
       <section className="paper-texture py-20 lg:py-28 relative">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="border-t border-b border-[#0E1A2B]">
             <div className="grid lg:grid-cols-12 gap-8 py-16 lg:py-20 items-center">
               <div className="lg:col-span-7">
-                <div className="label-mono text-[#B8252F] mb-4">— File 04 / Contact</div>
+                <div className="label-mono text-[#B8252F] mb-4">File 04 / Contact</div>
                 <h2 className="display-serif text-4xl lg:text-6xl leading-[0.95] text-[#0E1A2B]">
                   Got a job no one else
                   <br />

@@ -17,7 +17,7 @@ export default async function Image({
   const { slug } = await params
   const service = servicesBySlug[slug]
   const title = service?.title ?? "Industrial Services"
-  const code = service?.code ?? "S—00"
+  const code = service?.code ?? "S-00"
   const chip = service?.keywords ?? "Cowart Industrial"
 
   return new ImageResponse(
@@ -90,7 +90,7 @@ export default async function Image({
             fontWeight: 500,
           }}
         >
-          — File 03 / {code}
+          File 03 / {code}
         </div>
 
         <div

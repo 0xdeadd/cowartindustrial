@@ -6,7 +6,7 @@ import { faqSchema } from "@/lib/schema"
 export const metadata: Metadata = {
   title: "Common Questions, Answered",
   description:
-    "What we do, what we accept, how scheduling works, certifications and credentials, disposal documentation — answers before you pick up the phone.",
+    "What we do, what we accept, how scheduling works, certifications and credentials, disposal documentation, answers before you pick up the phone.",
 }
 
 const sections = [
@@ -95,7 +95,7 @@ export default function FAQPage() {
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-16 lg:pt-24 lg:pb-20">
           <div className="flex items-center gap-6 mb-12 lg:mb-16">
-            <div className="label-mono text-[#B8252F]">— File 04 / FAQ</div>
+            <div className="label-mono text-[#B8252F]">File 04 / FAQ</div>
             <div className="flex-1 h-px bg-[#1F2D40]" />
             <div className="label-mono text-[#C9C2B0]">Reference Document</div>
           </div>
@@ -112,7 +112,7 @@ export default function FAQPage() {
               </h1>
               <p className="mt-8 max-w-xl text-[#C9C2B0] text-lg leading-relaxed font-light">
                 Quick reference for service area, certifications, equipment, and how to request a
-                quote. Don&apos;t see your question? Call us — we answer the phone.
+                quote. Don&apos;t see your question? Call us, we answer the phone.
               </p>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function FAQPage() {
               {/* Section header */}
               <div className="grid grid-cols-12 gap-4 lg:gap-8 border-b border-[#0E1A2B] pb-4 mb-2">
                 <div className="col-span-3 lg:col-span-2">
-                  <div className="label-mono text-[#B8252F]">— Section {section.code}</div>
+                  <div className="label-mono text-[#B8252F]">Section {section.code}</div>
                 </div>
                 <div className="col-span-9 lg:col-span-10">
                   <h2 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-tight">
@@ -146,7 +146,7 @@ export default function FAQPage() {
                     >
                       <div className="col-span-3 lg:col-span-2">
                         <div className="label-mono text-[#B8252F] mb-2">
-                          Q—{String(qIndex).padStart(2, "0")}
+                          Q-{String(qIndex).padStart(2, "0")}
                         </div>
                       </div>
                       <div className="col-span-9 lg:col-span-4">
@@ -174,7 +174,7 @@ export default function FAQPage() {
           <div className="border-t border-b border-[#0E1A2B]">
             <div className="grid lg:grid-cols-12 gap-8 py-16 lg:py-20 items-center">
               <div className="lg:col-span-7">
-                <div className="label-mono text-[#B8252F] mb-4">— Still have questions?</div>
+                <div className="label-mono text-[#B8252F] mb-4">Still have questions?</div>
                 <h2 className="display-serif text-4xl lg:text-5xl leading-[0.95] text-[#0E1A2B]">
                   Reach out and
                   <br />
