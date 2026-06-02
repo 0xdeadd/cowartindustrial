@@ -243,7 +243,7 @@ export default async function ServicePage({
                     </p>
                     <div className="space-y-3">
                       <Link
-                        href="/contact"
+                        href="/contact#quote"
                         className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-5 py-4 transition-colors"
                       >
                         <span className="label-mono">Request Quote</span>

@@ -116,7 +116,7 @@ export default function ContactPage() {
       </section>
 
       {/* FORM + INFO */}
-      <section className="paper-texture py-24 lg:py-32 relative">
+      <section id="quote" className="paper-texture py-24 lg:py-32 relative scroll-mt-28">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Form */}

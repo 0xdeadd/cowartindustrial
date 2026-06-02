@@ -393,7 +393,7 @@ export default function AboutPage() {
               <div className="lg:col-span-5 lg:pl-8 lg:border-l lg:border-[#0E1A2B]">
                 <div className="space-y-4">
                   <Link
-                    href="/contact"
+                    href="/contact#quote"
                     className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-5 transition-colors"
                   >
                     <span className="label-mono">Request a Quote</span>

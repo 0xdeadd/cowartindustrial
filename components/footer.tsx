@@ -184,7 +184,7 @@ export function Footer() {
           </div>
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
             <Link
-              href="/contact"
+              href="/contact#quote"
               className="group flex items-center gap-3 border border-[#C9C2B0] hover:bg-[#B8252F] hover:border-[#B8252F] hover:text-[#F2EEE5] text-[#F2EEE5] px-6 py-3 transition-colors"
             >
               <span className="label-mono">Get in Touch</span>

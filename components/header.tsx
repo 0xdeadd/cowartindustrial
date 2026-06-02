@@ -116,7 +116,7 @@ export function Header() {
 
             <div className="hidden lg:flex items-center">
               <Link
-                href="/contact"
+                href="/contact#quote"
                 className="group flex items-center gap-3 bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-3 transition-colors"
               >
                 <span className="label-mono">Request Quote</span>
@@ -240,7 +240,7 @@ export function Header() {
                 770.834.2158
               </a>
               <Link
-                href="/contact"
+                href="/contact#quote"
                 className="block bg-[#B8252F] text-[#F2EEE5] px-6 py-3 text-center label-mono"
                 onClick={() => setMobileOpen(false)}
               >
