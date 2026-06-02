@@ -43,5 +43,5 @@ next-env.d.ts
 /lib/generated/prisma
 .env.local
 
-# Source photos (originals + intermediates — only optimized versions in public/ ship)
+# Source photos (originals + intermediates, only optimized versions in public/ ship)
 /photos/
