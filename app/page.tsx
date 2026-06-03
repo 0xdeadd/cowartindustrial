@@ -240,25 +240,25 @@ export default function HomePage() {
                     <div className="col-span-2 lg:col-span-1">
                       <div className="label-mono text-[#B8252F]">{service.code}</div>
                     </div>
-                    <div className="col-span-10 lg:col-span-1">
+                    <div className="col-span-10 lg:col-span-2">
                       {service.photo ? (
-                        <div className="relative w-16 h-16 lg:w-20 lg:h-20 border border-[#0E1A2B] overflow-hidden">
+                        <div className="relative w-20 h-20 lg:w-[calc(100%+1.25rem)] lg:h-auto lg:aspect-square border border-[#0E1A2B] overflow-hidden">
                           <Image
                             src={service.photo}
                             alt=""
                             fill
-                            sizes="80px"
+                            sizes="(min-width: 1024px) 200px, 80px"
                             className="object-cover"
                           />
                           <div className="absolute inset-0 bg-[#0E1A2B]/0 group-hover:bg-[#B8252F]/30 transition-colors" />
                         </div>
                       ) : (
-                        <div className="w-10 h-10 border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
-                          <Icon className="h-4 w-4 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
+                        <div className="w-20 h-20 lg:w-[calc(100%+1.25rem)] lg:h-auto lg:aspect-square border border-[#0E1A2B] flex items-center justify-center group-hover:bg-[#0E1A2B] transition-colors">
+                          <Icon className="h-6 w-6 lg:h-10 lg:w-10 text-[#0E1A2B] group-hover:text-[#F2EEE5] transition-colors" />
                         </div>
                       )}
                     </div>
-                    <div className="col-span-12 lg:col-span-5">
+                    <div className="col-span-12 lg:col-span-4">
                       <h3 className="display-serif text-3xl lg:text-4xl text-[#0E1A2B] leading-tight group-hover:text-[#B8252F] transition-colors">
                         {service.title}
                       </h3>
