@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { Phone, Mail, ArrowUpRight } from "lucide-react"
+import { positions } from "@/lib/positions"
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -29,33 +30,6 @@ const benefits = [
     code: "04",
     title: "Growth Path",
     desc: "Crew lead, lead operator, supervisor, project manager. The path is open and we promote from within.",
-  },
-]
-
-const positions = [
-  {
-    code: "P-01",
-    title: "Industrial Service Technician",
-    type: "Full-Time · Carrollton, GA",
-    requirements: "Valid GA driver's license · Willingness to travel regionally · Pass background check",
-  },
-  {
-    code: "P-02",
-    title: "CDL Vacuum Truck Operator",
-    type: "Full-Time · Carrollton, GA",
-    requirements: "CDL Class A or B · Tanker endorsement preferred · 2+ years driving experience",
-  },
-  {
-    code: "P-03",
-    title: "Hydro Blasting Operator",
-    type: "Full-Time · Carrollton, GA",
-    requirements: "High-pressure water experience preferred · OSHA training · Mechanical aptitude",
-  },
-  {
-    code: "P-04",
-    title: "General Application",
-    type: "Open · All Roles",
-    requirements: "Don't see a fit? Send us your background, we keep applications on file.",
   },
 ]
 
@@ -199,7 +173,7 @@ export default function JobsPage() {
                 </div>
                 <div className="col-span-12 lg:col-span-2 lg:pt-2">
                   <Link
-                    href="/contact"
+                    href={`/jobs/apply?role=${p.code}`}
                     className="group flex items-center justify-between border border-[#1F2D40] hover:border-[#B8252F] hover:bg-[#B8252F] text-[#F2EEE5] px-4 py-3 transition-colors"
                   >
                     <span className="label-mono">Apply</span>
@@ -256,12 +230,12 @@ export default function JobsPage() {
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
               <Link
-                href="/contact"
+                href="/jobs/apply"
                 className="group flex items-center justify-between bg-[#B8252F] hover:bg-[#8C1F1F] text-[#F2EEE5] px-6 py-6 transition-colors"
               >
                 <div>
                   <div className="label-mono opacity-80">Apply Online</div>
-                  <div className="display-serif text-2xl">Contact form &amp; application</div>
+                  <div className="display-serif text-2xl">Job application form</div>
                 </div>
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
