@@ -12,6 +12,7 @@
     "seo:check-prod": "node scripts/check-prod.mjs",
     "seo:report": "node scripts/gsc-report.mjs",
     "seo:indexing": "node --env-file-if-exists=.env.local scripts/gsc-indexing.mjs",
+    "seo:indexnow": "node scripts/indexnow.mjs",
     "seo:competitors": "node scripts/competitor-watch.mjs"
   },
   "dependencies": {
