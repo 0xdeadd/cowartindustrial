@@ -13,8 +13,13 @@ _Created 2026-06-01. These are the tasks **only you can do** (they require loggi
   - Set **hours = open 24 hours**, **service area = GA/AL/TN/SC/NC/FL/MS/KY**, paste the long description.
   - **While you're in there, grab two things for me** → see "Send me these" below.
 
-- [ ] **2. Claim Bing Places** (~10 min) → https://www.bingplaces.com
-  - Highest-value citation: **powers ChatGPT, Copilot, and Alexa.** 45% of local recommendations now come through AI. You have zero Bing presence today.
+- [ ] **2. Claim Bing Places — DO THIS WITH STEVE** (~10 min) → https://www.bingplaces.com
+  - Highest-value citation: **powers ChatGPT, Copilot, and Alexa.** 45% of local recommendations now come through AI.
+  - Good news (found 6/3): **the listing already exists**, so it's a quick *claim*, not a create-from-scratch.
+  - **Why it needs Steve:** claiming requires owner verification, Bing calls/texts the business line **(770) 834-2158** (or mails a postcard), so he has to be on hand to receive the code.
+  - **Fix two things on the listing while claiming:**
+    - **Name** currently reads "**Job** Cowart Industrial Services", change to "**Cowart Industrial Services**" to match the canonical NAP. (Confirm with Steve whether "Job" is the founder's first name or a stray data error.)
+    - **Category** currently "Association/Organization" (wrong), change to a real industry category (Environmental Service / Waste Management Service / Industrial).
 
 - [ ] **3. Get your first 5-10 Google reviews** (ongoing, start now)
   - Ask your best long-standing clients right after a finished job. Use the template in the Action Kit email.
