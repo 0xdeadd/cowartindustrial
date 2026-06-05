@@ -1462,6 +1462,7 @@ export const services: Service[] = [
     icon: Box,
     photo: "/photos/service-vacuum-box.jpg",
     photoAlt: "Cowart sealed vacuum box CVB-118 staged for vacuum-truck loading",
+    related: ["vacuum-trucks", "liquid-vacuum-service", "hydro-blasting"],
     extendedContent: [
       {
         heading: "What a vacuum box is, and what it isn't",
@@ -1745,6 +1746,7 @@ export const services: Service[] = [
     icon: Cylinder,
     photo: "/photos/service-frac-tank.jpg",
     photoAlt: "Cowart 21,000-gallon portable frac tank with yellow safety steps and manway access",
+    related: ["liquid-vacuum-service", "vacuum-trucks", "hydro-blasting"],
     extendedContent: [
       {
         heading: "What a 21,000-gallon frac tank is built for",
@@ -2010,6 +2012,7 @@ export const services: Service[] = [
       "Industrial hydroblasting (also written hydro blasting or water blasting) uses ultra-high-pressure water, UHP in industry shorthand, to remove scale, rust, hardened deposits, and failed coatings from industrial surfaces. Cowart operates hydroblasting equipment from 10,000 PSI for general cleaning up to 40,000 PSI for the hardest deposits and most demanding surface-preparation work. Because the process uses only water, it produces no chemical residue and leaves no abrasive media behind, the substrate comes out clean and the waste stream is just spent water and the material you removed.",
       "Hydroblasting is the right method when mechanical cleaning is too slow, sandblasting is too damaging or too dusty, and chemical cleaning isn't permitted or worth the rinse cycle. Common targets include heat-exchanger tube bundles, fired-boiler tube walls, fin-fan and condenser tube banks, piping and process lines, storage tanks, pressure vessels, reactors, and concrete or steel structures being prepped for new coatings. The pressure, flow rate, and nozzle are matched to the material, the same rig that strips epoxy off concrete can be dialed back to clean a stainless heat exchanger without polishing the metal.",
       "Cowart Industrial runs hydroblasting projects from single-shift maintenance work up through multi-week plant turnarounds. Operators are HAZWOPER-40 and OSHA-30 certified and carry confined-space credentials, most industrial hydroblasting jobs touch at least one of those, and we coordinate with site safety, lockout/tagout, and isolation procedures before the trigger is pulled. Spent water and dislodged material are collected on site, transported under our own DOT number, and disposed through our Carrollton, Georgia treatment plant. The job ends in one place, not three.",
+      "Cowart Industrial provides industrial hydroblasting across Georgia and the Southeast, with crews dispatched from our base in Carrollton, west of Atlanta. The eight-state service area covers Georgia, Alabama, Tennessee, South Carolina, North Carolina, Florida, Mississippi, and Kentucky. Scheduled hydroblasting is typically quoted within one business day and on site the same week; for plant breakdowns and turnaround support, 24-hour emergency dispatch mobilizes same-day across the Atlanta metro, west Georgia, and east Alabama, and within the week across the rest of the region. Because one company owns the trucks, the treatment plant, and the disposal paperwork, a single call covers the cleaning, the spent-water recovery, and the non-hazardous disposal under one DOT number. To reach dispatch for industrial hydroblasting anywhere in the Southeast, call 770.834.2158.",
     ],
     capabilities: [
       "10,000 to 40,000 PSI water cleaning",
@@ -2040,6 +2043,7 @@ export const services: Service[] = [
     photo: "/photos/service-hydro-blasting.jpg",
     photoAlt: "Cowart hydroblasting operator cleaning an industrial tank at 40,000 PSI",
     featured: true,
+    related: ["industrial-cleaning", "chemical-cleaning", "liquid-vacuum-service"],
     extendedContent: [
       {
         heading: "How industrial hydroblasting works",

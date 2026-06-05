@@ -124,8 +124,15 @@ export default function HomePage() {
               >
                 Cowart Industrial Services has provided full-service environmental services and
                 non-hazardous waste management across the Southeast for five decades. Industrial
-                cleaning, hydro blasting, vacuum trucks, waste disposal, frac tanks, and on-site
-                treatment, done right, done safely, on schedule.
+                cleaning,{" "}
+                <Link
+                  href="/services/hydro-blasting"
+                  className="underline decoration-[#B8252F]/50 underline-offset-2 hover:decoration-[#B8252F] transition-colors"
+                >
+                  hydroblasting
+                </Link>
+                , vacuum trucks, waste disposal, frac tanks, and on-site treatment, done right,
+                done safely, on schedule.
               </p>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">
@@ -218,10 +225,16 @@ export default function HomePage() {
             </div>
             <div className="lg:col-span-7 lg:col-start-6 lg:pt-4">
               <p className="text-lg text-[#3A3D44] leading-relaxed font-light">
-                Four capability categories, one operation. Industrial cleaning, hydro blasting,
-                hydro excavating, vacuum service, waste disposal, frac tank storage, and on-site
-                treatment, end-to-end, with our own treatment plant, our own fleet, and crews
-                trained to do tough jobs without cutting corners.
+                Four capability categories, one operation. Industrial cleaning,{" "}
+                <Link
+                  href="/services/hydro-blasting"
+                  className="underline decoration-[#B8252F]/50 underline-offset-2 hover:text-[#B8252F] transition-colors"
+                >
+                  hydroblasting from 10,000 to 40,000 PSI
+                </Link>
+                , hydro excavating, vacuum service, waste disposal, frac tank storage, and
+                on-site treatment, end-to-end, with our own treatment plant, our own fleet, and
+                crews trained to do tough jobs without cutting corners.
               </p>
             </div>
           </div>

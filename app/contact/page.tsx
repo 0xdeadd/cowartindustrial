@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/contact-form"
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Cowart Industrial Services for a free quote. 24-hour emergency service available. Located in Carrollton, GA.",
+    "Free quote from Cowart Industrial Services, family-operated since 1974 in Carrollton, GA. 24-hour emergency dispatch, HAZWOPER-40 crews, 8 Southeastern states.",
 }
 
 const contactBlocks = [

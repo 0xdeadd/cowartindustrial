@@ -17,7 +17,7 @@ const sections = [
       {
         question: "What areas do you serve?",
         answer:
-          "Cowart Industrial Services serves the Southeastern United States. Our headquarters is in Carrollton, Georgia, and we regularly travel throughout the region to serve our clients.",
+          "Cowart Industrial Services serves an 8-state Southeastern footprint from our headquarters in Carrollton, Georgia, just west of Atlanta: Georgia, Alabama, Tennessee, South Carolina, North Carolina, Florida, Mississippi, and Kentucky. Crews run scheduled routes throughout the region and mobilize on 24-hour emergency dispatch for plant breakdowns and turnaround support.",
       },
       {
         question: "Do you offer emergency services?",
@@ -38,7 +38,7 @@ const sections = [
       {
         question: "What certifications do your workers hold?",
         answer:
-          "All of our field personnel are trained with 40-hour HAZWOPER certification. Our team is also capable of confined space entry, and UST and AST entry and cleaning.",
+          "Our field crews carry the credentials that matter for industrial environmental work: 40-hour HAZWOPER, OSHA 30-hour, DOT Hazmat, and EPA RCRA awareness, plus confined-space entry and UST and AST entry and cleaning. The same credentials apply whether the job is hydroblasting, vacuum work, or non-hazardous waste transport.",
       },
       {
         question: "Do you handle hazardous waste?",
@@ -59,7 +59,7 @@ const sections = [
       {
         question: "What equipment do you operate?",
         answer:
-          "Our fleet includes vacuum trucks, air movers, hydro blasting equipment, pressure washers, roll-off containers, and mobile filtration units. We have the equipment to handle virtually any industrial service need.",
+          "We run our own fleet end to end: liquid vacuum tankers (3,000 to 5,000 gallon Kenworth chassis), air movers, sealed 20-yard vacuum and sludge boxes, dump trailers, 20, 30, and 40-yard roll-off containers, hydroblasting rigs from 10,000 to 40,000 PSI, pressure washers, 21,000-gallon frac tanks, and mobile filtration units. Because the fleet and our own non-hazardous wastewater treatment plant are in-house, one vendor handles the cleaning, the transport, and the disposal.",
       },
     ],
   },
