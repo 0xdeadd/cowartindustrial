@@ -67,8 +67,44 @@ Vercel Cron, etc.), we'd need a different auth path, either:
   a service account (5 min)
 - Switch to OAuth refresh tokens (15 min, more script code)
 
-Either is doable when the time comes. For now, manual `npm run seo:report`
-when you want a fresh report is the lightest setup.
+Either is doable when the time comes. For local-only manual runs,
+`npm run seo:report` against ADC is the lightest setup.
+
+## CI auth: OAuth refresh tokens (what the weekly report uses)
+
+The Monday cron (`.github/workflows/seo-report.yml`) can't use ADC (laptop-only),
+so it authenticates with an OAuth refresh token instead. Three repo secrets drive
+it: `GSC_OAUTH_CLIENT_ID`, `GSC_OAUTH_CLIENT_SECRET`, `GSC_OAUTH_REFRESH_TOKEN`.
+
+To mint (or re-mint) the refresh token, run once locally with the Desktop OAuth
+client JSON:
+
+```bash
+node scripts/oauth-capture.mjs ~/Downloads/client_secret_xxx.json
+```
+
+It opens a browser, you approve read-only Search Console access as
+`clintdotphillips@gmail.com`, and it prints the three env vars. Put them in
+`.env.local` for local runs and in the GitHub repo secrets for CI
+(`gh secret set GSC_OAUTH_REFRESH_TOKEN`).
+
+### ⚠️ Publish the OAuth app to Production, or the token dies in 7 days
+
+The OAuth app (Google Cloud Console, project `cowart-seo`, Google Auth Platform,
+Audience) **must be in "In production" publishing status.** While it sits in
+"Testing", Google expires the refresh token after exactly 7 days. The symptom is
+the weekly report failing with `gsc-report error: invalid_grant`, typically the
+*second* Monday after a fresh token (the first run lands inside the 7-day window
+and succeeds, which is why it looks intermittent).
+
+Fix order if you ever hit `invalid_grant`:
+1. Confirm the app is **In production** (publish it if not). This is the real fix.
+2. Re-mint the token with `scripts/oauth-capture.mjs` (the old one is dead and
+   does not recover on its own).
+3. Update `GSC_OAUTH_REFRESH_TOKEN` in both `.env.local` and the GitHub secret.
+4. Re-run to verify: `gh workflow run seo-report.yml`.
+
+Re-minting without step 1 just buys another 7 days before it breaks again.
 
 ## What to do with the weekly report
 

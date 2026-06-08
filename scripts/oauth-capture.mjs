@@ -10,8 +10,13 @@
 // Run once:
 //   node scripts/oauth-capture.mjs /path/to/client_secret_xxx.json
 //
-// The refresh token doesn't expire (unless you revoke it or Google revokes
-// for inactivity beyond 6 months). You only do this once.
+// The refresh token only stays valid long-term if the OAuth app is published
+// to "In production" (Google Cloud Console, Google Auth Platform, Audience).
+// While the app is in "Testing" status, Google expires the refresh token after
+// 7 days, which silently breaks the weekly SEO report every Monday once a week
+// has passed. If you re-run this, confirm the app is In production first; see
+// docs/gsc-api-setup.md. Once published, the token lasts until you revoke it or
+// Google revokes for 6 months of inactivity.
 
 import { exec } from "node:child_process"
 import { readFile } from "node:fs/promises"
